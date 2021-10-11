@@ -1,0 +1,35 @@
+{
+	"commands": {
+		"convert rpm-deb": "sudo alien name.rpm",
+		"install deb": "sudo dpkg -i name.deb",
+		"download pdf": "curl url -o name.pdf",
+		"tex to png": [
+			"texi2dvi file.tex",
+			"dvips -E file.dvi",
+			"gs -dSAFER -dEPSCrop -r600 -sDEVICE=pngalpha -o foo.png file.ps"
+		],
+		"cut pdf":  "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dSAFER -sPageList=1- -sOutputFile=myPDF_out.pdf myPDF.pdf",
+		"join pdf": ["gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -q -dAutoRotatePages=/None -sOutputFile=out.pdf  file1.pdf file2.pdf",
+				"ImageMagick: convert filein fileout"],
+		"mimeopen -d file.ext": "set default application to open certain file extenstion",
+		"lscpu": "cpu information",
+		"lsb_release -a": "Distro information",
+		"ufw allow port_number/protocol": "Allow a port by the firewall"
+	
+	},
+	"explanation": {
+		"Ghostscript":{
+			"gs":"starts the Ghostscript program.",
+			"-dBATCH": "once Ghostscript processes the PDF files, it should exit. If you don't include this option, Ghostscript will just keep running.",
+			"-dNOPAUSE": "forces Ghostscript to process each page without pausing for user interaction.",
+			"-sDEVICE=pdfwrite": "tells Ghostscript to use its built-in PDF writer to process the files.",
+			"-q": "stops Ghostscript from displaying messages while it works",
+			"-sOutputFile=out.pdf": "tells Ghostscript to save the combined PDF file with the specified name.",
+			"-dAutoRotatePages=/None": "Acrobat Distiller parameter AutoRotatePages controls the automatic orientation selection algorithm: For instance: -dAutoRotatePages=/None or /All or /PageByPage"
+		}
+
+	},
+	"filea": {
+		"give permisions": "chmod -R 757 /PATH/TO/FOLDER"
+	}
+}

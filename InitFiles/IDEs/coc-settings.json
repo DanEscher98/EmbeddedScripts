@@ -1,0 +1,116 @@
+{
+    "diagnostic.displayByAle": true,
+    // python config
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "languageserver": {
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": [
+                ".stack.yaml",
+                ".hie-bios",
+                "BUILD.bazel",
+                "cabal.config",
+                "package.yaml"
+            ],
+            "filetypes": ["hs", "haskell", "lhaskell"],
+            "initializationOptions": {
+                "languageServerHaskell": {
+                    "hlintOn": true,
+                    "maxNumberOfProblems": 10,
+                    "completionSnippetsOn": true
+                }
+            }
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"]
+        },
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
+        },
+        "julia": {
+            "command": "/usr/bin/julia",
+            "args" : ["--startup-file=no", "--history-file=no", "-e",
+            "using LanguageServer;\n       using Pkg;\n       import StaticLint;\n       import SymbolServer;\n       env_path = dirname(Pkg.Types.Context().env.project_file);\n       debug = false;\n       server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, \"\");\n       server.runlinter = true;\n       run(server);" ],
+            "filetypes": ["jl", "julia"]
+        },
+        "latex": {
+            "command": "/home/dany98/.cargo/bin/texlab",
+            "filetypes": ["tex", "bib", "plaintex", "context"]
+        },
+        "prolog-lsp": {
+            "command": "swipl",
+            "args": ["-g", "use_module(library(lsp_server)).",
+                     "-g", "lsp_server:main",
+                     "-t", "halt",
+                     "--", "stdio"
+                    ],
+            "filetypes": ["prolog"]
+        },
+		"python": {
+			"command": "python",
+			"args": ["-mpyls", "-vv", "--log-file", "/tmp/lsp_python.log"],
+			"trace.server": "verbose",
+			"filetypes": ["python"],
+			"settings": {
+				"pyls": {
+					"enable": true,
+					"trace": {"server": "verbose"},
+					"commandPath": "",
+					"configurationSources": ["pycodestyle"],
+					"plugins": {
+						"jedi_completion": {"enabled": true},
+						"jedi_hover": {"enabled": true},
+						"jedi_references": {"enabled": true},
+						"jedi_signature_help": {"enabled": true},
+						"jedi_symbols": {
+							"enabled": true,
+							"all_scopes": true
+						},
+						"mccabe": {
+							"enabled": true,
+							"threshold": 15
+						},
+						"preload": {"enabled": true},
+						"pycodestyle": {"enabled": false},
+						"pydocstyle": {
+							"enabled": false,
+							"match": "(?!test_).*\\.py",
+							"matchDir": "[^\\.].*"
+						},
+						"pyflakes": {"enabled": true},
+						"rope_completion": {"enabled": true},
+						"yapf": {"enabled": true}
+					}
+				}
+			}
+		},
+        "R": {
+            "enable": true,
+            "command": "/usr/bin/R",
+            "args": ["--slave", "-e", "languageserver::run()"],
+            "filetypes": ["r"]
+        },
+        "racket": {
+            "command": "racket",
+            "args": [
+                "--lib",
+                "racket-langserver"
+            ],
+            "filetypes": ["scm", "rkt", "scheme"]
+        }
+    }
+}

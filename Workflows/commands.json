@@ -1,0 +1,112 @@
+{
+	"Languages" : {
+		"Assembly": {
+			"compile" : [
+				"nasm -f elf64 file.asm",
+				"ld -s -o hello hello.o"]
+		},
+		"C/C++": {
+			"compile" 	: [
+				"gcc file.c -o file library.c -lm", 
+				"g++ -o file file.cpp",
+				"clang -s -v file.c -o file"],
+			"LLVM"		: [
+				"clang -emit-llvm -S file.c -o file.ll",
+				"llvm-as file.ll -o file.bc",
+				"llc file.ll -o file.s"],
+			"gtk-gui" 	: "gcc file.c -o file `pkg-config --cflags --libs gtk+-3.0`",
+			"openGL"  	: "gcc file.c -o file -lGL -lGLU -lglut -lm",
+			"pylib"   	: "cc  file.c -o file.so -fPIC -shared"
+		},
+		"Fortran": {
+			"compile" : "gfortran -o file file.f90",
+			"pylib" : "gfortran -O3 -funroll-loops -ffast-math -floop-strip-mine -shared -fPIC -o file.so file.f90"
+		},
+		"Golang": {
+				"compile": "go build file.go",
+				"run": "go run file.go",
+				"library": "go mod tidy"
+		},
+		"Haskell": {
+			"compile" : "ghc --make file.hs -v"
+		},
+		"LaTeX": {
+			"code" : "~/PATH/pythontex.py file.tex",
+			"compile" : "pdflatex --shell-escape file.tex",
+			"markdown": "pandoc file.md -o file.html --standalone --citeproc --filter=pandoc-crossref",
+			"package" : "texhash ~/texmf"
+		},
+		"Pascal": {
+			"compile" : "fpc file.pas"
+		},
+		"Java": {
+			"run" : "java file.java"
+		},
+		"Julia": {
+			"run" : "julia file.jl"
+		},
+		"Perl": {
+			"run" : "perl file.pl"
+		},
+		"Python": {
+			"run" : "python3 file.py"
+		},
+		"Prolog": {
+			"run" : "#!/usr/bin/swipl -f",
+			"compile" : "gplc file.pl -o file"
+		},
+		"R": {
+			"run" : "Rscript script.r"
+		},
+		"Rust": {
+			"compile" : "rustc file.rs"
+		},
+		"Ruby": {
+			"executable" : "chmod +x script.rb",
+			"header" : "#!/usr/bin/env ruby"
+		},
+		"Scheme": {
+			"run" : ["scheme --quiet < program.scm",
+				"mit-scheme --quiet --load 'myscript'",
+				"guile file.scm"],
+			"java" : "java -classpath ./kawa.jar kawa.repl"
+		}
+	},
+	"Languages Console" : [
+		{
+			"prompt" : "ghc>",
+			"load" : ":l file.hs"
+		},
+		{
+			"prompt" : "julia>",
+			"run" : "include(\"path/script.jl\")"
+		},
+		{
+			"prompt" : "octave>",
+			"run" : "run(\"script.m\")"
+		},
+		{
+			"prompt" : "R>",
+			"run" : "source(\"script.r\")"
+		},
+		{
+			"prompt" : "irb>",
+			"run" : "load './filename.rb'"
+		},
+		{
+			"prompt" : "Scheme>",
+			"run" : "(load \"file.scm\")"
+		}
+	],
+	"Tools" : [
+		{
+			"tool" : "Jupyter",
+			"kernels" : "jupyter kernelspec list",
+			"console" : "jupyter qtconsole kernels_name"
+		},
+		{
+			"tool" : "GNUplot",
+			"plot" : "gnuplot -p param.plt"
+		}
+	]
+}

@@ -1,0 +1,61 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+shift+[Period]",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-python.refreshTensorBoard",
+        "when": "python.hasActiveTensorBoardSession && python.hasActiveTensorBoardSession"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "python.execInTerminal"
+    },
+    {
+        "key": "ctrl+shift+[Period]",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "latex-workshop.view",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled && editorLangId =~ /latex|rsweave|jlweave/"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "-latex-workshop.view",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled && editorLangId =~ /latex|rsweave|jlweave/"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "markdown.showPreview",
+        "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "-markdown.showPreview",
+        "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+alt+z",
+        "command": "workbench.action.toggleZenMode",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+k z",
+        "command": "-workbench.action.toggleZenMode"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "markdown-preview-enhanced.openPreview",
+        "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "-markdown-preview-enhanced.openPreview",
+        "when": "editorLangId == 'markdown'"
+    }
+]

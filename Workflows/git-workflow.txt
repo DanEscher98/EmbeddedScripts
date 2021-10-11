@@ -1,0 +1,12 @@
+
+git init
+git branch -m master main
+git add .
+git commit -a -m "First commit"
+
+gh repo create "repo"
+git remote add origin https://github.com/<name>/<repo>.git
+git pull origin main
+git push -f origin main
+git pull origin master --allow-unrelated-histories
+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

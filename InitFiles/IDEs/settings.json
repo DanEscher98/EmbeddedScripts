@@ -1,0 +1,72 @@
+{
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+          "path": "/usr/bin/flatpak-spawn",
+          "args": ["--host", "--env=TERM=xterm-256color", "bash"]
+        }
+    },
+    "workbench.colorTheme": "Deepdark Material Theme | Default Version",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true
+    },
+    "workbench.colorCustomizations": {
+    "[Monokai]": {},
+
+        "[Deepdark Material Theme | Default Version]": {
+            "editor.background": "#000000",
+        }
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+
+    "latex-workshop.latex.tools":[
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "--shell-escape", // if you want to have the shell-escape flag
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {"$PATH": "/usr/bin/pdflatex"}
+        },
+        {
+			"name": "latexmk_xelatex",
+			"command": "latexmk",
+			"args": [
+				"-xelatex",
+				"-synctex=1",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"-outdir=%OUTDIR%",
+				"%DOC%"
+			],
+			"env": {"$PATH": "/usr/bin/pdflatex"}
+		},
+
+    ],
+
+    "latex-workshop.latex.recipes":[{
+            "name": "pdflatex",
+            "tools": ["pdflatex"]
+        }
+    ],
+    "tabnine.experimentalAutoImports": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.acceptSuggestionOnEnter": "smart",
+    "window.zoomLevel": 1,
+    "rainbow_csv.rbql_with_headers_by_default": true,
+    "markdown-preview-enhanced.usePandocParser": true
+}
