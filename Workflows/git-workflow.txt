@@ -8,3 +8,6 @@ git remote add origin https://github.com/<name>/<repo>.git
 git pull origin main
 git push -f origin main
 git pull origin master --allow-unrelated-histories
+git config --global credential.helper store
+git config --global --unset credential.helper
+git config --global user.email email@example.com
