@@ -1,0 +1,16 @@
+aux.txt
+bubblesort.sh
+codExt.sh
+doCMD.sh
+file.sh
+floatMath.sh
+ghdl.sh
+ipsweeper.sh
+LearnBash.sh
+pipes_stdin.sh
+projects.md
+promedioTemp.sh
+rmbln.sh
+spells.sh
+user_input.sh
+weather.sh
