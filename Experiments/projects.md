@@ -66,3 +66,4 @@ find ~/.local/share/nvim/swap/ -type f -name "*.sw[klmnop]" -delete
 ps -A | grep -i evince | tee /dev/tty | awk '{ print  }' | xargs -I % kill --verbose --signal QUIT %
 find ~/.local/share/nvim/swap/ -type f -name "*.sw[a-z]" -delete
 find ~/.local/share/nvim/swap/ -type f -name "*.sw[a-z]" -delete
+man -t <cmd> | ps2pdf - <cmd>.pdf
