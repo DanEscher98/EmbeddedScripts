@@ -13,7 +13,7 @@ do
             array[$i]=${array[$i+1]}
             array[$i+1]=$temp
         fi
-        echo ${array[@]}
+        echo {array[@]}
     done
     echo '---------------------'
 done
