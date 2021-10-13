@@ -1,0 +1,13 @@
+app-id: org.flatpak.Hello
+runtime: org.freedesktop.Platform
+runtime-version: '19.08'
+sdk: org.freedesktop.Sdk
+command: firstFlatpak.sh
+modules:
+    - name: firstFlatpak
+      buildsystem: simple
+      build-commands:
+          - install -D firstFlatpak.sh /app/bin/firstFlatpak.sh
+      sources:
+          - type: file
+            path: firstFlatpak.sh
