@@ -1,0 +1,1 @@
+npx degit sveltejs/template

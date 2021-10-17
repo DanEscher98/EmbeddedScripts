@@ -1,1 +1,0 @@
-/home/dany98/.config/fish/functions/
