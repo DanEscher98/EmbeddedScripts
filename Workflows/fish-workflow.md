@@ -12,3 +12,4 @@
 > sudo apt-get install fonts-powerline
 > curl -L https://get.oh-my.fish | fish
 > omf install pisces
+curl -L https://get.oh-my.fish | fish
