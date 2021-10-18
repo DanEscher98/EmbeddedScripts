@@ -1,4 +1,3 @@
-# create conda environments
-conda create --name <myenv> python=<ver> <pkg>
-conda activate <myenv>
-conda env export >  <myenv>.yaml
+sudo add-apt-repository-universe
+sudo apt install python3-pip
+pip install ipython
