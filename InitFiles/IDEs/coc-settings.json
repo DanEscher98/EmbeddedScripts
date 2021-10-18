@@ -1,18 +1,23 @@
 {
     "diagnostic.displayByAle": true,
-    // python config
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
-    "languageserver": {
+    // typescript config
+	"eslint.packageManager": "yarn",
+	"eslint.nodePath": ".yarn/sdks",
+	"workspace.workspaceFolderCheckCwd": false,
+	//"tsserver.tsdk": "${workspaceRoot}.yarn/sdks/typescript/lib",
+	"languageserver": {
         "haskell": {
             "command": "haskell-language-server-wrapper",
             "args": ["--lsp"],
             "rootPatterns": [
-                ".stack.yaml",
-                ".hie-bios",
+                "package.yaml",
+                "*.cabal",
+                "cabal.project",
+                "hie.yaml",
+                "stack.yaml",
+                "*.hie-bios",
                 "BUILD.bazel",
-                "cabal.config",
-                "package.yaml"
+                "cabal.config"
             ],
             "filetypes": ["hs", "haskell", "lhaskell"],
             "initializationOptions": {
@@ -23,15 +28,14 @@
                 }
             }
         },
-        "bash": {
+		"asm-lsp": {
+			"command": "asm-lsp",
+			"filetypes": ["nasm"]
+		},
+		"bash": {
             "command": "bash-language-server",
             "args": ["start"],
             "filetypes": ["sh"]
-        },
-        "clangd": {
-            "command": "clangd",
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
         },
         "golang": {
             "command": "gopls",
@@ -60,44 +64,6 @@
                     ],
             "filetypes": ["prolog"]
         },
-		"python": {
-			"command": "python",
-			"args": ["-mpyls", "-vv", "--log-file", "/tmp/lsp_python.log"],
-			"trace.server": "verbose",
-			"filetypes": ["python"],
-			"settings": {
-				"pyls": {
-					"enable": true,
-					"trace": {"server": "verbose"},
-					"commandPath": "",
-					"configurationSources": ["pycodestyle"],
-					"plugins": {
-						"jedi_completion": {"enabled": true},
-						"jedi_hover": {"enabled": true},
-						"jedi_references": {"enabled": true},
-						"jedi_signature_help": {"enabled": true},
-						"jedi_symbols": {
-							"enabled": true,
-							"all_scopes": true
-						},
-						"mccabe": {
-							"enabled": true,
-							"threshold": 15
-						},
-						"preload": {"enabled": true},
-						"pycodestyle": {"enabled": false},
-						"pydocstyle": {
-							"enabled": false,
-							"match": "(?!test_).*\\.py",
-							"matchDir": "[^\\.].*"
-						},
-						"pyflakes": {"enabled": true},
-						"rope_completion": {"enabled": true},
-						"yapf": {"enabled": true}
-					}
-				}
-			}
-		},
         "R": {
             "enable": true,
             "command": "/usr/bin/R",
@@ -112,5 +78,6 @@
             ],
             "filetypes": ["scm", "rkt", "scheme"]
         }
-    }
+    },
+    "svelte.enable-ts-plugin": true
 }
