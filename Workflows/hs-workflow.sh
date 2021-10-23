@@ -14,6 +14,8 @@ ghcup upgrade
 stack install hpack-convert
 echo "alias hpack=./~/.local/bin/hpack-convert" >> ~/.fishrc
 
+Initialization
+
 # Initialization
 project="name"
 stack new $project

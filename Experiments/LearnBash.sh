@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 # First line of the script is the shebang which tells the system how to execute
 # the script: https://en.wikipedia.org/wiki/Shebang_(Unix)
@@ -69,7 +68,7 @@ echo ${Foo:-"DefaultValueIfFooIsMissingOrEmpty"}
 # Note that it only returns default value and doesn't change variable value.
 
 # Declare an array with 6 elements
-array0=(one two three four five six)
+array0={one two three four five six}
 # Print first element
 echo $array0 # => "one"
 # Print first element
@@ -161,8 +160,7 @@ fi
 
 # There is also the `=~` operator, which tests a string against a Regex pattern:
 Email=me@example.com
-if [[ "$Email" =~ [a-z]+@[a-z]{2,}\.(com|net|org) ]]
-then
+if [[ "$Email" =~ [a-z]+@[a-z]{2,}\.(com|net|org) ]]; then
     echo "Valid email!"
 fi
 # Note that =~ only works within double [[ ]] square brackets,
@@ -468,3 +466,58 @@ info bash 'Bash Features'
 info bash 6
 info --apropos bash
 
+
+#############################
+## Associative Array ########
+declare -A sounds
+
+sounds[dog]="bark"
+
+echo ${sounds[dog]} 
+
+#############################
+## Checks if it's a pipe ####
+#!/usr/bin/bash
+
+#read -p "Y/[N]: " reply
+#reply=${reply:-N}}
+#echo $reply
+
+# Checks if is a pipe
+if [[ -p /dev/stdin ]]; then
+	# If there is no stdin, cat will wait forever
+	PIPE=$(cat -)
+fi
+
+n=0
+for i in $PIPE; do
+	echo $n')' $i
+	n=$(( $n + 1 ))
+done
+
+#############################
+## User input ###############
+OUTDIR="/tmp"
+
+function valid_dir() {
+	OUTDIR=$1
+	if [[ -d "$OUTDIR" ]]; then
+		echo "Directory $OUTDIR exists"
+	else
+		echo "Directory $OUTDIR will be created"
+		mkdir $OUTDIR
+	fi
+}
+
+while getopts i:d: flag; do
+	case "${flag}" in
+		i) INFILE=${OPTARG} ;;
+		d) valid_dir ${OPTARG} ;;
+		*) echo "Invalid option: -$flag" ;;
+	esac
+done
+
+echo $OUTDIR
+
+read -s -p "Enter password: " pswd
+echo "Your password is $pswd"

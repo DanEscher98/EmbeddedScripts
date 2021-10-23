@@ -13,3 +13,4 @@
 > curl -L https://get.oh-my.fish | fish
 > omf install pisces
 curl -L https://get.oh-my.fish | fish
+sudo apt install gawk -y
