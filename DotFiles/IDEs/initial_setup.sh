@@ -8,6 +8,13 @@ sudo apt -y install neofetch trash-cli
 sudo apt install clang clangd
 sudo apt install nvim
 
+mkdir ~/.config/nvim
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+mkdir ~/.config/nvim/autoload
+mkdir ~/.config/fish
+
 # The Fish shell
 sudo apt install fish
 chsh -s /usr/bin/fish
