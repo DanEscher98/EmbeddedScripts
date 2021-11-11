@@ -25,3 +25,5 @@ function float_cond(){
 	local stat=$((cond == 0))
 	return $stat
 }
+
+echo $(float_eval "2.3 + 4.3")

@@ -17,14 +17,22 @@
 - Distro information
     `lsb_release -a`
 - Image to icon
-    `
-  > convert image.png \
-  >       -bordercolor white -border 1x1 -alpha set \
-  >       -channel rgba -fill none -floodfill +0+0 white \
-  >       -shave 1x1 -trim icon.png`
+    ```bash
+    convert image.png \
+        -bordercolor white -border 1x1 -alpha set \
+        -channel rgba -fill none -floodfill +0+0 white \
+        -shave 1x1 -trim icon.png`
+    ```
 - Remove all file but save certain extensions
     `find . -maxdepth 1 -type f | grep -v -E "*.md|*.sh|*.tex" | xargs rm
   > find . -maxdepth 1 ! -type d`
+- Send message to user from Telegram bot
+    [Telegram API](https://core.telegram.org/bots/api)
+    ```bash
+    curl "https://api.telegram.org/bot<token>/sendMessage" \
+        -H "Content-Type: application/json" --request POST \
+        --data '{"chat_id":0123, "text":"Hello World!"}' 2> /dev/null | jq
+    ```
 
 ## File manipulation
 
@@ -74,15 +82,17 @@
         "jq": "json parser",
         "asciinema": "record a terminal",
         "asciicast2gif": "convert .cast to .gif",
-        "svg-term": "convert .cast to .svg for web",
+        "svg-term": "convert .cast to .svg for web"
 
     },
+    "Developer":    ["strip", "upx", "gdb", "lldb", "objdump"],
     "Fundamental":  ["ls", "cd", "pwd", "find", "tree", "clear"],
     "DirsFiles":    ["mv", "cp", "rm", "touch", "mkdir", "rename"],
-    "System":       ["top", "psensors", "ps"],
+    "System":       ["top", "psensors", "ps", "jobs", "fg", "bg"],
     "textstreams":  ["grep", "tr", "echo", "cat", "jq", "sed", "wc",
                     "column"],
     "users":        ["whoami", "chmod", "chown", "whereis", "sudo"],
+    "conversion":   ["pandoc", "ssconvert"],
     "Swiss tools":  ["awk", "gs"],
     "Network Admin":["ip", "nmcli"],
     "Security":     ["iptables", "selinux", "lynis", "clamav"],
@@ -99,3 +109,4 @@ kill --verbose --signal QUIT % find ~/.local/share/nvim/swap/ -type f \
 find ~/.local/share/nvim/swap/ -type f -name "*.sw[a-z]" -delete man \
     -t <cmd> | ps2pdf - <cmd>.pdf
 ```
+cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10

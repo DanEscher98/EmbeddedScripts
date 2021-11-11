@@ -7,6 +7,7 @@ sudo apt -y install neofetch trash-cli
 sudo apt install fonts-powerline
 sudo apt -y install gawk mplayer
 sudo mv trans ~/usr/local/bin/
+sudo apt install autojump
 
 # Developing tools
 sudo apt -y install clang clangd make
@@ -45,6 +46,7 @@ curl -L https://get.oh-my.fish | fish
 omf install pisces
 omf install harleen
 omf theme harleen
+echo "source /usr/share/autojump/autojump.fish" >> ~/.fishrc
 
 # C Drive in WSL
 mkdir ~/MyWindows
