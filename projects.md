@@ -82,7 +82,8 @@
         "jq": "json parser",
         "asciinema": "record a terminal",
         "asciicast2gif": "convert .cast to .gif",
-        "svg-term": "convert .cast to .svg for web"
+        "svg-term": "convert .cast to .svg for web",
+        "trans": "wrapper to Google Translate"
 
     },
     "Developer":    ["strip", "upx", "gdb", "lldb", "objdump"],
@@ -96,7 +97,7 @@
     "Swiss tools":  ["awk", "gs"],
     "Network Admin":["ip", "nmcli"],
     "Security":     ["iptables", "selinux", "lynis", "clamav"],
-    "Funny ones":   ["cowsay", "spark"],
+    "Funny ones":   ["cowsay", "spark", "fortune", "figlet", "espeak"],
     "Work tools":   ["docker", "git"]
 }
 ```
@@ -108,5 +109,7 @@ kill --verbose --signal QUIT % find ~/.local/share/nvim/swap/ -type f \
     -name "*.sw[a-z]" -delete
 find ~/.local/share/nvim/swap/ -type f -name "*.sw[a-z]" -delete man \
     -t <cmd> | ps2pdf - <cmd>.pdf
-```
 cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10
+figlet -f smscript "Good Morning!" | lolcat
+cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10
+```
