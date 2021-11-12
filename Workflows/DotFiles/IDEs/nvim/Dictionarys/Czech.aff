@@ -1,0 +1,289 @@
+SET UTF-8
+
+# prefix pro tvorbu záporů / negatives prefix
+PFX N Y 1
+PFX N 0 ne . is:neg
+
+# prefix pro superlativa / superlatives prefix
+PFX S Y 1
+PFX S 0 nej .
+
+# suffix pro přídavná jména
+# adjectives suffix
+SFX P Y 23
+SFX P ý ého ý is:msg2
+SFX P ý ému ý is:msg3
+SFX P ý ém ý is:msg6
+SFX P 0 m [íý] is:msg7
+SFX P ý á ý is:fsg1
+SFX P ý é ý is:fsg2
+SFX P ý ou ý is:fsg4
+SFX P ý í [^k]ý is:mpl1
+SFX P cký čtí cký is:mpl1
+SFX P ský ští ský is:mpl1
+SFX P 0 ch [íý] is:mpl2
+SFX P 0 mi [íý] is:mpl7
+SFX P 0 ho í is:msg2
+SFX P 0 mu í is:msg3
+SFX P ův ova ův  # ex adresátův
+SFX P ův ovo ův
+SFX P ův ovu ův
+SFX P ův ově ův
+SFX P ův ovým ův
+SFX P ův ovy ův
+SFX P ův ových ův
+SFX P ův ovou ův
+SFX P ův ovými ův
+
+# nesklonné podstatné jméno / noun with no declination
+SFX X Y 13
+SFX X 0 0 . is:sg2
+SFX X 0 0 . is:sg3
+SFX X 0 0 . is:sg4
+SFX X 0 0 . is:sg5
+SFX X 0 0 . is:sg6
+SFX X 0 0 . is:sg7
+SFX X 0 0 . is:pl1
+SFX X 0 0 . is:pl2
+SFX X 0 0 . is:pl3
+SFX X 0 0 . is:pl4
+SFX X 0 0 . is:pl5
+SFX X 0 0 . is:pl6
+SFX X 0 0 . is:pl7
+
+# suffix pro podstatná jména středního rodu podle vzoru město, moře, stavení
+# suffix for neuter nouns by the pattern "město", "moře", "stavení"
+SFX M Y 22
+SFX M o a o
+SFX M o ě [^ghklrsfmi]o
+SFX M o e [l]o
+SFX M o em o
+SFX M o 0 [^ni]o
+SFX M no en tno
+SFX M o ům [^i]o
+SFX M o ech [^i]o
+SFX M o y [^i]o
+SFX M o i io  # ex adagio
+SFX M o í io
+SFX M o ím io
+SFX M o ích io
+SFX M o u o
+SFX M e i e is:sg3
+SFX M 0 m e is:sg7
+SFX M e í e is:pl2
+SFX M e ím e is:pl3
+SFX M e ích e is:pl6
+SFX M 0 m í is:sg7
+SFX M 0 ch í is:pl6
+SFX M 0 mi í is:pl7
+
+# suffix pro podstatná jména středního rodu podle vzoru kuře a jiná
+# suffix for neuter nouns by the pattern "kuře" and others
+SFX K Y 15
+SFX K 0 te e is:sg2
+SFX K 0 ti e is:sg3
+SFX K 0 tem e is:sg7
+SFX K e ata e is:pl1
+SFX K e at e is:pl2
+SFX K e atům e is:pl3
+SFX K e atech e is:pl6
+SFX K e aty e is:pl7
+SFX K um a um  # ex absolutorium
+SFX K m 0 um
+SFX K um em um
+SFX K um í um
+SFX K um ím um
+SFX K um ích um
+SFX K um i um
+
+# suffix pro podstatná jména ženského rodu podle vzoru žena, růže, kost
+# suffix for feminine nouns by the pattern "žena", "růže", "kost"
+SFX Z Y 25
+SFX Z a y a is:sg2
+SFX Z a ě [^kzsl]a is:sg3
+SFX Z ka ce ka is:sg3
+SFX Z a e [szl]a is:sg3
+SFX Z a u a is:sg4
+SFX Z a o a is:sg5
+SFX Z a ou a is:sg7
+SFX Z a 0 [^k]a is:pl2
+SFX Z ka ek [^ňďťi]ka is:pl2
+SFX Z a 0 ika is:pl2
+SFX Z ňka něk ňka is:pl2
+SFX Z ďka děk ďka is:pl2
+SFX Z ťka těk ťka is:pl2
+SFX Z a ám a is:pl3
+SFX Z a ách a is:pl6
+SFX Z 0 mi [ae] is:pl7
+SFX Z e i e
+SFX Z e í e
+SFX Z e ím e
+SFX Z e ích e
+SFX Z i 0 i  # založeno na 2. pádu pro pattern matching/based off of genitiv for pattern matching
+SFX Z i í i
+SFX Z i em i
+SFX Z i ech i
+SFX Z i mi i
+
+# suffix pro podstatná jména mužského rodu dle vzoru předseda, soudce
+# suffix for masculine nouns by the pattern "předseda", "soudce"
+SFX A Y 15
+SFX A a y a
+SFX A a ovi a
+SFX A a u a
+SFX A a o a
+SFX A a ou a
+SFX A a ů a
+SFX A a ům a
+SFX A a ech a
+SFX A e i e
+SFX A e ovi e
+SFX A 0 m e
+SFX A e ové e
+SFX A e ů e
+SFX A e ům e
+SFX A e ích e
+
+# suffix pro podstatná jména mužského rodu dle vzoru pán
+# suffix for masculine nouns by the pattern "pán"
+SFX B Y 8
+SFX B 0 a .
+SFX B 0 ovi .
+SFX B 0 em .
+SFX B 0 y .
+SFX B 0 ů .
+SFX B 0 ům .
+SFX B 0 u .
+SFX B 0 ech .
+
+# suffix pro podstatná jména mužského rodu dle vzoru hrad
+# suffix for masculine nouns by the pattern "hrad"
+SFX C Y 7
+SFX C 0 u .
+SFX C 0 e .
+SFX C 0 em .
+SFX C 0 y .
+SFX C 0 ů .
+SFX C 0 ům .
+SFX C 0 ech .
+
+# suffix pro podstatná jména mužského rodu dle vzoru les
+# suffix for masculine nouns by the pattern "les"
+SFX D Y 8
+SFX D 0 a .
+SFX D 0 u .
+SFX D 0 e .
+SFX D 0 em .
+SFX D 0 y .
+SFX D 0 ů .
+SFX D 0 ům .
+SFX D 0 ích .
+
+# suffix pro podstatná jména mužského rodu dle vzoru muž
+# suffix for masculine nouns by the pattern "muž"
+SFX E Y 8
+SFX E 0 e .
+SFX E 0 i .
+SFX E 0 ovi .
+SFX E 0 em .
+SFX E 0 ové [^čř]
+SFX E 0 ů .
+SFX E 0 ům .
+SFX E 0 ích .
+
+# suffix pro podstatná jména mužského rodu dle vzoru stroj
+# suffix for masculine nouns by the pattern "stroj"
+SFX F Y 6
+SFX F 0 e .
+SFX F 0 i .
+SFX F 0 em .
+SFX F 0 ů .
+SFX F 0 ům .
+SFX F 0 ích .
+
+# ex despotismus, absolutismus, absurdum
+SFX G Y 14
+SFX G s 0 us
+SFX G us e us
+SFX G us em us
+SFX G us y us
+SFX G us ů us
+SFX G us ům us
+SFX G us ech us
+SFX G um a um
+SFX G m 0 um
+SFX G um em um
+SFX G um 0 um
+SFX G um ům um
+SFX G um ech um
+SFX G um y um
+
+# suffix pro slovesa
+# verb suffix
+SFX H Y 51
+SFX H zat žu zat
+SFX H zat žeš zat
+SFX H zat že zat
+SFX H zat ž zat
+SFX H zat žeme zat
+SFX H zat žete zat
+SFX H zat žou zat
+SFX H zat žte zat
+SFX H t l [ai]t
+SFX H t la [ai]t
+SFX H t lo [ai]t
+SFX H t ly [ai]t
+SFX H t li [ai]t
+SFX H at án [vz]at
+SFX H at ána [vz]at
+SFX H at áno [vz]at
+SFX H at ám vat
+SFX H at áš vat
+SFX H at á vat
+SFX H at ej vat
+SFX H at áme vat
+SFX H at áte vat
+SFX H t jí vat
+SFX H at ejte vat
+SFX H it ím [dvnz]it
+SFX H it íš [dvnz]it
+SFX H it í [dvnz]it
+SFX H it íme [dvnz]it
+SFX H it íte [dvnz]it
+SFX H it 0 [vz]it
+SFX H it te [vz]it
+SFX H it en vit
+SFX H it ena vit
+SFX H it eno vit
+SFX H dit ď dit
+SFX H dit ďte dit
+SFX H dit zen dit
+SFX H dit zena dit
+SFX H dit zeno dit
+SFX H dit zeny dit
+SFX H dit zeni dit
+SFX H nit ň nit
+SFX H nit ňte nit
+SFX H nit něn nit
+SFX H nit něna nit
+SFX H nit něno nit
+SFX H nit něny nit
+SFX H nit něni nit
+SFX H zit žen zit
+SFX H zit žena zit
+SFX H zit ženo zit
+
+# suffix pro jiná slovesa
+# verb suffix other
+SFX I Y 11
+SFX I ovat uješ ovat
+SFX I ovat uje ovat
+SFX I ovat uj ovat
+SFX I ovat ujeme ovat
+SFX I ovat ujete ovat
+SFX I ovat ujte ovat
+SFX I t l ovat
+SFX I t la ovat
+SFX I t lo ovat
+SFX I t ly ovat
+SFX I t li ovat

@@ -1,0 +1,243 @@
+
+
+   <M-n>       *@:call AutoPairsJump()<CR>
+   <M-p>       *@:call AutoPairsToggle()<CR>
+   <C-B>         <Plug>(SmoothieBackwards)
+   <C-D>         <Plug>(SmoothieDownwards)
+   <C-F>         <Plug>(SmoothieForwards)
+n  <C-G>       * :Goyo<CR>
+s  <C-H>       * <C-G>"_c
+s  <C-R>       * <C-G>"_c<C-R>
+s  <C-S>       * <Esc>:call UltiSnips#ExpandSnippet()<CR>
+x  <C-S>       * :call UltiSnips#SaveLastVisualSelection()<CR>gvs
+no <C-S>       * :update<CR>
+   <C-U>         <Plug>(SmoothieUpwards)
+o  %             <Plug>(MatchitOperationForward)
+x  %             <Plug>(MatchitVisualForward)
+n  %             <Plug>(MatchitNormalForward)
+o  [%            <Plug>(MatchitOperationMultiBackward)
+x  [%            <Plug>(MatchitVisualMultiBackward)
+n  [%            <Plug>(MatchitNormalMultiBackward)
+n  \ca           <Plug>NERDCommenterAltDelims
+x  \cu           <Plug>NERDCommenterUncomment
+n  \cu           <Plug>NERDCommenterUncomment
+x  \cb           <Plug>NERDCommenterAlignBoth
+n  \cb           <Plug>NERDCommenterAlignBoth
+x  \cl           <Plug>NERDCommenterAlignLeft
+n  \cl           <Plug>NERDCommenterAlignLeft
+n  \cA           <Plug>NERDCommenterAppend
+x  \cy           <Plug>NERDCommenterYank
+n  \cy           <Plug>NERDCommenterYank
+x  \cs           <Plug>NERDCommenterSexy
+n  \cs           <Plug>NERDCommenterSexy
+x  \ci           <Plug>NERDCommenterInvert
+n  \ci           <Plug>NERDCommenterInvert
+n  \c$           <Plug>NERDCommenterToEOL
+x  \cn           <Plug>NERDCommenterNested
+n  \cn           <Plug>NERDCommenterNested
+x  \cm           <Plug>NERDCommenterMinimal
+n  \cm           <Plug>NERDCommenterMinimal
+x  \c<Space>     <Plug>NERDCommenterToggle
+n  \c<Space>     <Plug>NERDCommenterToggle
+x  \cc           <Plug>NERDCommenterComment
+n  \cc           <Plug>NERDCommenterComment
+n  \<Space>    * :noh<CR>
+n  \sv         * :source $MYVIMRC<CR>
+o  ]%            <Plug>(MatchitOperationMultiForward)
+x  ]%            <Plug>(MatchitVisualMultiForward)
+n  ]%            <Plug>(MatchitNormalMultiForward)
+x  a%            <Plug>(MatchitVisualTextObject)
+v  gx            <Plug>NetrwBrowseXVis
+n  gx            <Plug>NetrwBrowseX
+o  g%            <Plug>(MatchitOperationBackward)
+x  g%            <Plug>(MatchitVisualBackward)
+n  g%            <Plug>(MatchitNormalBackward)
+n  y<C-G>      & :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+v  <Plug>NetrwBrowseXVis * :<C-U>call netrw#BrowseXVis()<CR>
+n  <Plug>NetrwBrowseX * :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
+v  <Plug>(MatchitVisualTextObject)   <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)
+o  <Plug>(MatchitOperationMultiForward) * :<C-U>call matchit#MultiMatch("W",  "o")<CR>
+o  <Plug>(MatchitOperationMultiBackward) * :<C-U>call matchit#MultiMatch("bW", "o")<CR>
+v  <Plug>(MatchitVisualMultiForward) * :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``
+v  <Plug>(MatchitVisualMultiBackward) * :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``
+n  <Plug>(MatchitNormalMultiForward) * :<C-U>call matchit#MultiMatch("W",  "n")<CR>
+n  <Plug>(MatchitNormalMultiBackward) * :<C-U>call matchit#MultiMatch("bW", "n")<CR>
+o  <Plug>(MatchitOperationBackward) * :<C-U>call matchit#Match_wrapper('',0,'o')<CR>
+o  <Plug>(MatchitOperationForward) * :<C-U>call matchit#Match_wrapper('',1,'o')<CR>
+v  <Plug>(MatchitVisualBackward) * :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``
+v  <Plug>(MatchitVisualForward) * :<C-U>call matchit#Match_wrapper('',1,'v')<CR>m'gv``
+n  <Plug>(MatchitNormalBackward) * :<C-U>call matchit#Match_wrapper('',0,'n')<CR>
+n  <Plug>(MatchitNormalForward) * :<C-U>call matchit#Match_wrapper('',1,'n')<CR>
+   <PageUp>      <Plug>(SmoothieBackwards)
+   <S-Up>        <Plug>(SmoothieBackwards)
+   <PageDown>    <Plug>(SmoothieForwards)
+   <S-Down>      <Plug>(SmoothieForwards)
+   <Plug>(Smoothie_G) * <Cmd>call smoothie#cursor_movement('G')  <CR>
+   <Plug>(Smoothie_gg) * <Cmd>call smoothie#cursor_movement('gg') <CR>
+   <Plug>(SmoothieBackwards) * <Cmd>call smoothie#backwards()           <CR>
+   <Plug>(SmoothieForwards) * <Cmd>call smoothie#forwards()            <CR>
+   <Plug>(SmoothieUpwards) * <Cmd>call smoothie#upwards()             <CR>
+   <Plug>(SmoothieDownwards) * <Cmd>call smoothie#downwards()           <CR>
+x  <Plug>(Limelight) * :Limelight<CR>
+n  <Plug>(Limelight) * :set opfunc=limelight#operator<CR>g@
+s  <Del>       * <C-G>"_c
+s  <BS>        * <C-G>"_c
+s  <C-Tab>     * <Esc>:call UltiSnips#ListSnippets()<CR>
+n  <Plug>(ale_repeat_selection) * :ALERepeatSelection<CR>
+n  <Plug>(ale_code_action) * :ALECodeAction<CR>
+n  <Plug>(ale_rename) * :ALERename<CR>
+n  <Plug>(ale_import) * :ALEImport<CR>
+n  <Plug>(ale_documentation) * :ALEDocumentation<CR>
+n  <Plug>(ale_hover) * :ALEHover<CR>
+n  <Plug>(ale_find_references) * :ALEFindReferences<CR>
+n  <Plug>(ale_go_to_type_definition_in_vsplit) * :ALEGoToTypeDefinitionIn -vsplit<CR>
+n  <Plug>(ale_go_to_type_definition_in_split) * :ALEGoToTypeDefinition -split<CR>
+n  <Plug>(ale_go_to_type_definition_in_tab) * :ALEGoToTypeDefinition -tab<CR>
+n  <Plug>(ale_go_to_type_definition) * :ALEGoToTypeDefinition<CR>
+n  <Plug>(ale_go_to_definition_in_vsplit) * :ALEGoToDefinition -vsplit<CR>
+n  <Plug>(ale_go_to_definition_in_split) * :ALEGoToDefinition -split<CR>
+n  <Plug>(ale_go_to_definition_in_tab) * :ALEGoToDefinition -tab<CR>
+n  <Plug>(ale_go_to_definition) * :ALEGoToDefinition<CR>
+n  <Plug>(ale_fix) * :ALEFix<CR>
+n  <Plug>(ale_detail) * :ALEDetail<CR>
+n  <Plug>(ale_lint) * :ALELint<CR>
+n  <Plug>(ale_reset_buffer) * :ALEResetBuffer<CR>
+n  <Plug>(ale_disable_buffer) * :ALEDisableBuffer<CR>
+n  <Plug>(ale_enable_buffer) * :ALEEnableBuffer<CR>
+n  <Plug>(ale_toggle_buffer) * :ALEToggleBuffer<CR>
+n  <Plug>(ale_reset) * :ALEReset<CR>
+n  <Plug>(ale_disable) * :ALEDisable<CR>
+n  <Plug>(ale_enable) * :ALEEnable<CR>
+n  <Plug>(ale_toggle) * :ALEToggle<CR>
+n  <Plug>(ale_last) * :ALELast<CR>
+n  <Plug>(ale_first) * :ALEFirst<CR>
+n  <Plug>(ale_next_wrap_warning) * :ALENext -wrap -warning<CR>
+n  <Plug>(ale_next_warning) * :ALENext -warning<CR>
+n  <Plug>(ale_next_wrap_error) * :ALENext -wrap -error<CR>
+n  <Plug>(ale_next_error) * :ALENext -error<CR>
+n  <Plug>(ale_next_wrap) * :ALENextWrap<CR>
+n  <Plug>(ale_next) * :ALENext<CR>
+n  <Plug>(ale_previous_wrap_warning) * :ALEPrevious -wrap -warning<CR>
+n  <Plug>(ale_previous_warning) * :ALEPrevious -warning<CR>
+n  <Plug>(ale_previous_wrap_error) * :ALEPrevious -wrap -error<CR>
+n  <Plug>(ale_previous_error) * :ALEPrevious -error<CR>
+n  <Plug>(ale_previous_wrap) * :ALEPreviousWrap<CR>
+n  <Plug>(ale_previous) * :ALEPrevious<CR>
+o  <Plug>(coc-classobj-a) * :<C-U>call CocAction('selectSymbolRange', v:false, '', ['Interface', 'Struct', 'Class'])<CR>
+o  <Plug>(coc-classobj-i) * :<C-U>call CocAction('selectSymbolRange', v:true, '', ['Interface', 'Struct', 'Class'])<CR>
+v  <Plug>(coc-classobj-a) * :<C-U>call CocAction('selectSymbolRange', v:false, visualmode(), ['Interface', 'Struct', 'Class'])<CR>
+v  <Plug>(coc-classobj-i) * :<C-U>call CocAction('selectSymbolRange', v:true, visualmode(), ['Interface', 'Struct', 'Class'])<CR>
+o  <Plug>(coc-funcobj-a) * :<C-U>call CocAction('selectSymbolRange', v:false, '', ['Method', 'Function'])<CR>
+o  <Plug>(coc-funcobj-i) * :<C-U>call CocAction('selectSymbolRange', v:true, '', ['Method', 'Function'])<CR>
+v  <Plug>(coc-funcobj-a) * :<C-U>call CocAction('selectSymbolRange', v:false, visualmode(), ['Method', 'Function'])<CR>
+v  <Plug>(coc-funcobj-i) * :<C-U>call CocAction('selectSymbolRange', v:true, visualmode(), ['Method', 'Function'])<CR>
+n  <Plug>(coc-cursors-position) * :<C-U>call CocAction('cursorsSelect', bufnr('%'), 'position', 'n')<CR>
+n  <Plug>(coc-cursors-word) * :<C-U>call CocAction('cursorsSelect', bufnr('%'), 'word', 'n')<CR>
+v  <Plug>(coc-cursors-range) * :<C-U>call CocAction('cursorsSelect', bufnr('%'), 'range', visualmode())<CR>
+n  <Plug>(coc-cursors-operator) * :<C-U>set operatorfunc=<SNR>64_CursorRangeFromSelected<CR>g@
+n  <Plug>(coc-refactor) * :<C-U>call       CocActionAsync('refactor')<CR>
+n  <Plug>(coc-command-repeat) * :<C-U>call       CocAction('repeatCommand')<CR>
+n  <Plug>(coc-float-jump) * :<C-U>call       coc#float#jump()<CR>
+n  <Plug>(coc-float-hide) * :<C-U>call       coc#float#close_all()<CR>
+n  <Plug>(coc-fix-current) * :<C-U>call       CocActionAsync('doQuickfix')<CR>
+n  <Plug>(coc-openlink) * :<C-U>call       CocActionAsync('openLink')<CR>
+n  <Plug>(coc-references-used) * :<C-U>call       CocActionAsync('jumpUsed')<CR>
+n  <Plug>(coc-references) * :<C-U>call       CocActionAsync('jumpReferences')<CR>
+n  <Plug>(coc-type-definition) * :<C-U>call       CocActionAsync('jumpTypeDefinition')<CR>
+n  <Plug>(coc-implementation) * :<C-U>call       CocActionAsync('jumpImplementation')<CR>
+n  <Plug>(coc-declaration) * :<C-U>call       CocActionAsync('jumpDeclaration')<CR>
+n  <Plug>(coc-definition) * :<C-U>call       CocActionAsync('jumpDefinition')<CR>
+n  <Plug>(coc-diagnostic-prev-error) * :<C-U>call       CocActionAsync('diagnosticPrevious', 'error')<CR>
+n  <Plug>(coc-diagnostic-next-error) * :<C-U>call       CocActionAsync('diagnosticNext',     'error')<CR>
+n  <Plug>(coc-diagnostic-prev) * :<C-U>call       CocActionAsync('diagnosticPrevious')<CR>
+n  <Plug>(coc-diagnostic-next) * :<C-U>call       CocActionAsync('diagnosticNext')<CR>
+n  <Plug>(coc-diagnostic-info) * :<C-U>call       CocActionAsync('diagnosticInfo')<CR>
+n  <Plug>(coc-format) * :<C-U>call       CocActionAsync('format')<CR>
+n  <Plug>(coc-format-selected) * :<C-U>set        operatorfunc=<SNR>64_FormatFromSelected<CR>g@
+n  <Plug>(coc-rename) * :<C-U>call       CocActionAsync('rename')<CR>
+n  <Plug>(coc-codeaction-cursor) * :<C-U>call       CocActionAsync('codeAction',         'cursor')<CR>
+n  <Plug>(coc-codeaction-line) * :<C-U>call       CocActionAsync('codeAction',         'line')<CR>
+n  <Plug>(coc-codeaction) * :<C-U>call       CocActionAsync('codeAction',         '')<CR>
+n  <Plug>(coc-codeaction-selected) * :<C-U>set        operatorfunc=<SNR>64_CodeActionFromSelected<CR>g@
+v  <Plug>(coc-codeaction-selected) * :<C-U>call       CocActionAsync('codeAction',         visualmode())<CR>
+v  <Plug>(coc-format-selected) * :<C-U>call       CocActionAsync('formatSelected',     visualmode())<CR>
+n  <Plug>(coc-codelens-action) * :<C-U>call       CocActionAsync('codeLensAction')<CR>
+n  <Plug>(coc-range-select) * :<C-U>call       CocActionAsync('rangeSelect',     '', v:true)<CR>
+v  <Plug>(coc-range-select-backward) * :<C-U>call       CocActionAsync('rangeSelect',     visualmode(), v:false)<CR>
+v  <Plug>(coc-range-select) * :<C-U>call       CocActionAsync('rangeSelect',     visualmode(), v:true)<CR>
+n  <Plug>NERDCommenterAltDelims * :call nerdcommenter#SwitchToAlternativeDelimiters(1)<CR>
+x  <Plug>NERDCommenterUncomment * :call nerdcommenter#Comment("x", "Uncomment")<CR>
+n  <Plug>NERDCommenterUncomment * :call nerdcommenter#Comment("n", "Uncomment")<CR>
+x  <Plug>NERDCommenterAlignBoth * :call nerdcommenter#Comment("x", "AlignBoth")<CR>
+n  <Plug>NERDCommenterAlignBoth * :call nerdcommenter#Comment("n", "AlignBoth")<CR>
+x  <Plug>NERDCommenterAlignLeft * :call nerdcommenter#Comment("x", "AlignLeft")<CR>
+n  <Plug>NERDCommenterAlignLeft * :call nerdcommenter#Comment("n", "AlignLeft")<CR>
+n  <Plug>NERDCommenterAppend * :call nerdcommenter#Comment("n", "Append")<CR>
+x  <Plug>NERDCommenterYank * :call nerdcommenter#Comment("x", "Yank")<CR>
+n  <Plug>NERDCommenterYank * :call nerdcommenter#Comment("n", "Yank")<CR>
+x  <Plug>NERDCommenterSexy * :call nerdcommenter#Comment("x", "Sexy")<CR>
+n  <Plug>NERDCommenterSexy * :call nerdcommenter#Comment("n", "Sexy")<CR>
+x  <Plug>NERDCommenterInvert * :call nerdcommenter#Comment("x", "Invert")<CR>
+n  <Plug>NERDCommenterInvert * :call nerdcommenter#Comment("n", "Invert")<CR>
+n  <Plug>NERDCommenterToEOL * :call nerdcommenter#Comment("n", "ToEOL")<CR>
+x  <Plug>NERDCommenterNested * :call nerdcommenter#Comment("x", "Nested")<CR>
+n  <Plug>NERDCommenterNested * :call nerdcommenter#Comment("n", "Nested")<CR>
+x  <Plug>NERDCommenterMinimal * :call nerdcommenter#Comment("x", "Minimal")<CR>
+n  <Plug>NERDCommenterMinimal * :call nerdcommenter#Comment("n", "Minimal")<CR>
+x  <Plug>NERDCommenterToggle * :call nerdcommenter#Comment("x", "Toggle")<CR>
+n  <Plug>NERDCommenterToggle * :call nerdcommenter#Comment("n", "Toggle")<CR>
+x  <Plug>NERDCommenterComment * :call nerdcommenter#Comment("x", "Comment")<CR>
+n  <Plug>NERDCommenterComment * :call nerdcommenter#Comment("n", "Comment")<CR>
+n  <Plug>(fzf-normal) * <Nop>
+n  <Plug>(fzf-insert) * i
+n  <M-l>       * <C-W>l
+n  <M-k>       * <C-W>k
+n  <M-j>       * <C-W>j
+n  <M-h>       * <C-W>h
+[cocclangd] Expected ';' after expression (fix available) [E]
+
+i  <M-n>       *@<Esc>:call AutoPairsJump()<CR>a
+i  <M-p>       *@AutoPairsToggle()
+i  <M-b>       *@<C-R>=AutoPairsBackInsert()<CR>
+i  <M-e>       *@<C-R>=AutoPairsFastWrap()<CR>
+i  <BS>        *@<C-R>=AutoPairsDelete()<CR>
+i  <M-'>       *@<C-R>=AutoPairsMoveCharacter('''')<CR>
+i  <M-">       *@<C-R>=AutoPairsMoveCharacter('"')<CR>
+i  <M-}>       *@<C-R>=AutoPairsMoveCharacter('}')<CR>
+i  <M-{>       *@<C-R>=AutoPairsMoveCharacter('{')<CR>
+i  <M-]>       *@<C-R>=AutoPairsMoveCharacter(']')<CR>
+i  <M-[>       *@<C-R>=AutoPairsMoveCharacter('[')<CR>
+i  <M-)>       *@<C-R>=AutoPairsMoveCharacter(')')<CR>
+i  <M-(>       *@<C-R>=AutoPairsMoveCharacter('(')<CR>
+i  <C-H>       *@<C-R>=AutoPairsDelete()<CR>
+i  <CR>        &@<CR><SNR>50_AutoPairsReturn
+i  <Space>     *@<C-]><C-R>=AutoPairsSpace()<CR>
+i  "           *@<C-R>=AutoPairsInsert('"')<CR>
+i  '           *@<C-R>=AutoPairsInsert('''')<CR>
+i  (           *@<C-R>=AutoPairsInsert('(')<CR>
+i  )           *@<C-R>=AutoPairsInsert(')')<CR>
+i  [           *@<C-R>=AutoPairsInsert('[')<CR>
+i  ]           *@<C-R>=AutoPairsInsert(']')<CR>
+i  `           *@<C-R>=AutoPairsInsert('`')<CR>
+i  {           *@<C-R>=AutoPairsInsert('{')<CR>
+i  }           *@<C-R>=AutoPairsInsert('}')<CR>
+i  <C-Tab>     * <C-R>=UltiSnips#ListSnippets()<CR>
+i  <Plug>(ale_complete) * <C-\><C-O>:ALEComplete<CR>
+i  <Plug>CocRefresh * <C-R>=coc#_complete()<CR>
+i  <Plug>NERDCommenterInsert * <Space><BS><Esc>:call nerdcommenter#Comment('i', "insert")<CR>
+i  <Plug>AutoPairsReturn & <SNR>50_AutoPairsReturn
+i  <SNR>50_AutoPairsReturn * <C-R>=AutoPairsReturn()<CR>
+i  <M-l>       * <C-\><C-N><C-W>l
+i  <M-k>       * <C-\><C-N><C-W>k
+i  <M-j>       * <C-\><C-N><C-W>j
+i  <M-h>       * <C-\><C-N><C-W>h
+i  <C-Space>   * coc#refresh()
+i  <M-y>       * pumvisible() ? "\<C-Y>" : "\<M-y>"
+i  <S-Tab>     * pumvisible() ? "\<C-P>" : "\<S-Tab>"
+i  <Tab>       * pumvisible() ? "\<C-N>" : "\<Tab>"
+c  <C-R><C-G>  & fnameescape(fugitive#Object(@%))
+i  <C-S>       * <C-R>=UltiSnips#ExpandSnippet()<CR>
+i  <C-U>       * <C-G>u<C-U>
+i  <C-W>       * <C-G>u<C-W>
+i  <Esc>       * pumvisible() ? "\<C-E>" : "\<Esc>"
+type-alias node

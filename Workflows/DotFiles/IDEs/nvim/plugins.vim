@@ -20,9 +20,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'tpope/vim-fugitive'
 " Appearence
 	" Set icons
-	"Plug 'ryanoasis/vim-devicons'
+	Plug 'ryanoasis/vim-devicons'
 	Plug 'drewtempelmeyer/palenight.vim'
-    "Plug 'dracula/vim', { 'as': 'dracula' }
+	"Plug 'joshdick/onedark.vim'
+	" Plug 'dracula/vim', { 'as': 'dracula' }
     " LightLine
     Plug 'itchyny/lightline.vim'
     " Better Syntax Support
@@ -41,7 +42,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'lervag/vimtex'
 " Programming Languages
     Plug 'alx741/vim-stylishask'
-    "Plug 'evanleck/vim-svelte', {'branch': 'main'}
+    Plug 'evanleck/vim-svelte', {'branch': 'main'}
     Plug 'rust-lang/rust.vim'
 	Plug 'ARM9/arm-syntax-vim'
 	Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build',
@@ -49,14 +50,41 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'dag/vim-fish'
 call plug#end()
 
+" Go to Documentation in preview window
+nnoremap <silent>K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+" If no file, open NERDTree
 autocmd VimEnter * if !argc() | NERDTree | endif
 
 " Font
-set guifont=Ubuntu
+set guifont=Iosevka
 
 let g:rainbow_active = 1
 colorscheme palenight
-let g:lightline = { 'colorscheme': 'palenight' }
+let g:lightline = { 'colorscheme': 'palenight' } "'palenight' }
 let g:palenight_terminal_italics=1
 let g:stylishask_on_save = 1
 
@@ -89,7 +117,8 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 let g:ale_linterns = {
     \ 'go': ['gopls'],
     \ 'haskell': ['hlint'],
-    \ 'python': ['flake8']
+    \ 'python': ['flake8'],
+    \ 'sh': ['language_server']
     \ }
 let g:ale_lint_on_enter=1
 let g:ale_cursor_detail=1

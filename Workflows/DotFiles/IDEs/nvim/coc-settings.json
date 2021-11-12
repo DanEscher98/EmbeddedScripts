@@ -28,10 +28,12 @@
                 }
             }
         },
+		// cargo install asm-lsp
 		"asm-lsp": {
 			"command": "asm-lsp",
 			"filetypes": ["nasm"]
 		},
+		// npm install -g bash-language-server
 		"bash": {
             "command": "bash-language-server",
             "args": ["start"],

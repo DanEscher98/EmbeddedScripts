@@ -1,4 +1,9 @@
-source $HOME/.config/nvim/vim-plug/plugins.vim
+source ~/.config/nvim/plugins.vim
+" To get all keybinds
+" :redir! > vim_keys
+" :map
+" :map!
+" :redir END
 
 set nocompatible
 set showmatch
