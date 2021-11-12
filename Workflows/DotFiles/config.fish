@@ -6,11 +6,14 @@ set fish_greeting
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+# sudo blkid -o list
+# Alternate method: sudo mount /dev/sda6 /media/dany98
+udisksctl mount -b /dev/sda6
 cd ~/Working
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /home/dany98/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# eval /home/dany98/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
 # export PATH="/home/dany98/Documents/Coding/Scripts/Spells/:$PATH"  
@@ -27,6 +30,14 @@ set -x TERM xterm-256color
 set -x LC_CTYPE en_US.UTF-8
 
 set -xg EDITOR nvim
+set -gx PAGER less
+set -g LESS_TERMCAP_mb '\e[1;32m'
+set -g LESS_TERMCAP_md '\e[1;32m'
+set -g LESS_TERMCAP_me '\e[0m'
+set -g LESS_TERMCAP_se '\e[0m'
+set -g LESS_TERMCAP_so '\e[01;33m'
+set -g LESS_TERMCAP_ue '\e[0m'
+set -g LESS_TERMCAP_us '\e[1;4;31m'
 
 alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
 
@@ -41,3 +52,8 @@ fish_vi_key_bindings
 alias fzf='fzf --height 50% --reverse'
 #starship init fish | source
 alias ls='exa'
+alias bat='batcat'
+alias tress='tree|less'
+alias cls='clear && ls'
+source /usr/share/autojump/autojump.fish
+alias jd=autojump
