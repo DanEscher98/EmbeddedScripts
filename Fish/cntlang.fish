@@ -1,5 +1,5 @@
 # Defined in /tmp/fish.5OSobh/countlang.fish @ line 2
-function countlang
+function cntlang
 	set igndir "target|node_modules|bin|build|venv|deps|config|dev|public|Reference"
 	for ext in { "c", "rs", "py", "hs", "sh", "js", "ts", "jl", "rkt" }
 		find $PWD \( ! -regex '.*/\..*' \) -type f -name "*.$ext" \
