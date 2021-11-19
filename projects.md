@@ -112,4 +112,5 @@ find ~/.local/share/nvim/swap/ -type f -name "*.sw[a-z]" -delete man \
 cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10
 figlet -f smscript "Good Morning!" | lolcat
 cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10
+fortune | trans en:es --brief | espeack -v en:es
 ```
