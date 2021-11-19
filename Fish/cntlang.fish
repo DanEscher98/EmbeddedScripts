@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.P9sxkd/cntlang.fish @ line 2
+# Defined in /tmp/fish.4g7H3X/cntlang.fish @ line 2
 function cntlang
 	function ext2name --argument ext
 		switch $ext
@@ -10,16 +10,20 @@ function cntlang
 				set name "HTML/CSS"
 			case 'js'
 				set name "Type/JavaScript"
+			case 'asm'
+				set name "Assembly"
 			case 'hs'
 				set name "Haskell"
 			case 'jl'
 				set name "Julia"
 			case 'py'
 				set name "Python"
-			case 'rkt'
-				set name "Racket"
+			case 'scm'
+				set name "Scheme/Racket"
 			case 'rs'
 				set name "Rust"
+			case 'st'
+				set name "Smalltalk"
 			case '*'
 				set name "unknown"
 		end
@@ -32,9 +36,10 @@ function cntlang
 			echo "$i" | tr -d "[:blank:]"
 		end| paste -sd'|')
 	
-	set simple_search (for ext in { "c,cpp", "sh,fish", "js,ts" }
-		set fst (echo $ext | awk -F, '{ print $1 }')
-		set snd (echo $ext | awk -F, '{ print $2 }')
+	set simple_search (for ext in { \
+		"asm,nasm", "c,cpp", "sh,fish", "js,ts", "scm,rkt"}
+		set fst (echo $ext | tr -d "[:blank:]" | awk -F, '{ print $1 }')
+		set snd (echo $ext | tr -d "[:blank:]" | awk -F, '{ print $2 }')
 		find $PWD \( ! -regex '.*/\..*' \) \
 			-type f \( -name "*.$fst" -o -name "*.$snd" \) \
 			| grep -v -E $igndir | xargs cat | wc -l \
@@ -42,7 +47,7 @@ function cntlang
 	end)
 
 	set double_search (
-		for ext in { "rs", "py", "hs", "jl", "rkt" }
+		for ext in { "rs", "py", "hs", "jl" }
 			find $PWD \( ! -regex '.*/\..*' \) -type f -name "*.$ext" \
 				| grep -v -E $igndir | xargs cat | wc -l \
 				| xargs -I % printf "%\t lines in "(ext2name "$ext")" files.@"
