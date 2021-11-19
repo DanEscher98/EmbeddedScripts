@@ -1,17 +1,17 @@
-# Defined in /tmp/fish.AXTfMS/cntlang.fish @ line 2
+# Defined in /tmp/fish.P9sxkd/cntlang.fish @ line 2
 function cntlang
 	function ext2name --argument ext
 		switch $ext
 			case 'sh'
-				set name "Bash"
+				set name "Bash/Fish"
 			case 'c'
-				set name "C99"
-			case 'fish'
-				set name "Bash"
+				set name "C99/C++"
+			case 'html'
+				set name "HTML/CSS"
+			case 'js'
+				set name "Type/JavaScript"
 			case 'hs'
 				set name "Haskell"
-			case 'js'
-				set name "JavaScript"
 			case 'jl'
 				set name "Julia"
 			case 'py'
@@ -20,8 +20,6 @@ function cntlang
 				set name "Racket"
 			case 'rs'
 				set name "Rust"
-			case 'ts'
-				set name "TypeScript"
 			case '*'
 				set name "unknown"
 		end
@@ -34,12 +32,25 @@ function cntlang
 			echo "$i" | tr -d "[:blank:]"
 		end| paste -sd'|')
 	
-	for ext in { "c", "rs", "py", "hs", "sh", "js", "ts", "jl", "rkt" }
-		find $PWD \( ! -regex '.*/\..*' \) -type f -name "*.$ext" \
+	set simple_search (for ext in { "c,cpp", "sh,fish", "js,ts" }
+		set fst (echo $ext | awk -F, '{ print $1 }')
+		set snd (echo $ext | awk -F, '{ print $2 }')
+		find $PWD \( ! -regex '.*/\..*' \) \
+			-type f \( -name "*.$fst" -o -name "*.$snd" \) \
 			| grep -v -E $igndir | xargs cat | wc -l \
-			| xargs -I % printf "%\t lines in "(ext2name "$ext")" files.\n"
-	end | sort -g -k 1 -r | tee /dev/tty \
-		| awk '{ print $1 }' | paste -sd+ | bc \
+			| xargs -I % printf "%\t lines in "(ext2name "$fst")" files.@"
+	end)
+
+	set double_search (
+		for ext in { "rs", "py", "hs", "jl", "rkt" }
+			find $PWD \( ! -regex '.*/\..*' \) -type f -name "*.$ext" \
+				| grep -v -E $igndir | xargs cat | wc -l \
+				| xargs -I % printf "%\t lines in "(ext2name "$ext")" files.@"
+		end)
+
+	echo "$simple_search$double_search" | tr '@' '\n'\
+		| sort -g -k 1 -r | tee /dev/tty \
+		| awk '{ print $1 }' | paste -sd+ | sed 's/.$//' | bc \
 		| xargs -I % echo (set_color -o red)%(set_color normal) \
 		| xargs -I % echo "Total:" % "lines written this year."
 end
