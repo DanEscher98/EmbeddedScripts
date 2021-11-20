@@ -1,0 +1,2 @@
+# Raspberry Pi Picoprobe
+ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0004", MODE:="0666"

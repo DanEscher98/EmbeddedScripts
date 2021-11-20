@@ -114,3 +114,4 @@ figlet -f smscript "Good Morning!" | lolcat
 cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10
 fortune | trans en:es --brief | espeack -v en:es
 ```
+sudo udevadm control --reload-rules

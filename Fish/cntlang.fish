@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.4g7H3X/cntlang.fish @ line 2
+# Defined in /tmp/fish.ppIUAX/cntlang.fish @ line 2
 function cntlang
 	function ext2name --argument ext
 		switch $ext
@@ -53,9 +53,9 @@ function cntlang
 				| xargs -I % printf "%\t lines in "(ext2name "$ext")" files.@"
 		end)
 
-	echo "$simple_search$double_search" | tr '@' '\n'\
+	echo "$simple_search$double_search" | sed 's/.$//' | tr '@' '\n'\
 		| sort -g -k 1 -r | tee /dev/tty \
-		| awk '{ print $1 }' | paste -sd+ | sed 's/.$//' | bc \
+		| awk '{ print $1 }' | paste -sd+ | bc \
 		| xargs -I % echo (set_color -o red)%(set_color normal) \
 		| xargs -I % echo "Total:" % "lines written this year."
 end
