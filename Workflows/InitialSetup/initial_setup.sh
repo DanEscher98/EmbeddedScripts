@@ -1,4 +1,4 @@
-#/usr/bin/bash
+#!/usr/bin/bash
 
 sudo apt update && sudo apt upgrade
 # Basic and useful commands
@@ -13,16 +13,26 @@ sudo apt install autojump
 sudo apt -y install clang clangd make
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# Autoformaters
+cargo install stylua --features lua52
+sudo apt install clang-format # C/C++
+sudo pip install black # Python
+julia -e 'import Pkg; Pkg.add("JuliaFormatter")'
+npm install -g typescript-formatter
+npm install -g remark-cli
+go get -u mvdan.cc/sh/cmd/shfmt
+go get -u github.com/klauspost/asmfmt/cmd/asmfmt
+
 # Configuring nvim
 sudo apt install nvim
 mkdir ~/.config/nvim/autoload
 mkdir ~/.config/nvim
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-if [ -d nvim ]; then
-	mv nvim/coc-settings.json nvim/init.vim nvim/plugins.vim
-	\ ~/.config/nvim/
-fi
+	if [ -d nvim ]; then
+		mv nvim/coc-settings.json nvim/init.vim nvim/plugins.vim
+		\ ~/.config/nvim/
+	fi
 
 # Language Servers and NPM
 
@@ -50,4 +60,4 @@ echo "source /usr/share/autojump/autojump.fish" >> ~/.fishrc
 
 # C Drive in WSL
 mkdir ~/MyWindows
-ls -s /mnt/c/User/$name/Documents/Programs ~/MyWindows
+# ls -s /mnt/c/User/$name/Documents/Programs ~/MyWindows

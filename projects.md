@@ -91,13 +91,16 @@
     "DirsFiles":    ["mv", "cp", "rm", "touch", "mkdir", "rename"],
     "System":       ["top", "psensors", "ps", "jobs", "fg", "bg"],
     "textstreams":  ["grep", "tr", "echo", "cat", "jq", "sed", "wc",
-                    "column"],
+                    "column", "rev"],
     "users":        ["whoami", "chmod", "chown", "whereis", "sudo"],
     "conversion":   ["pandoc", "ssconvert"],
     "Swiss tools":  ["awk", "gs"],
     "Network Admin":["ip", "nmcli"],
     "Security":     ["iptables", "selinux", "lynis", "clamav"],
-    "Funny ones":   ["cowsay", "spark", "fortune", "figlet", "espeak"],
+    "Funny ones":   ["cowsay", "spark", "fortune", "figlet", "espeak",
+                    "oneko", "toilet", "rig", "factor", "cmatrix",
+                    "asciiview", "factor"],
+    "WebWrappers":  ["ani-cli", "wikit", "howdoi"],
     "Work tools":   ["docker", "git"]
 }
 ```
