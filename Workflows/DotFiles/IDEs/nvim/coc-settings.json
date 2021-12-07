@@ -1,85 +1,90 @@
 {
-    "diagnostic.displayByAle": true,
-    // typescript config
-	"eslint.packageManager": "yarn",
-	"eslint.nodePath": ".yarn/sdks",
+	"diagnostic.displayByAle": true,
+	// typescript config
+	// "eslint.packageManager": "yarn",
+	// "eslint.nodePath": ".yarn/sdks",
 	"workspace.workspaceFolderCheckCwd": false,
 	//"tsserver.tsdk": "${workspaceRoot}.yarn/sdks/typescript/lib",
+	"Lua.runtime.version": "LuaJIT",
+	"Lua.workspace.library": [
+		"${3rd}/love2d/library"
+	],
+	"Lua.workspace.checkThirdParty": false,
 	"languageserver": {
-        "haskell": {
-            "command": "haskell-language-server-wrapper",
-            "args": ["--lsp"],
-            "rootPatterns": [
-                "package.yaml",
-                "*.cabal",
-                "cabal.project",
-                "hie.yaml",
-                "stack.yaml",
-                "*.hie-bios",
-                "BUILD.bazel",
-                "cabal.config"
-            ],
-            "filetypes": ["hs", "haskell", "lhaskell"],
-            "initializationOptions": {
-                "languageServerHaskell": {
-                    "hlintOn": true,
-                    "maxNumberOfProblems": 10,
-                    "completionSnippetsOn": true
-                }
-            }
-        },
+		"haskell": {
+			"command": "haskell-language-server-wrapper",
+			"args": ["--lsp"],
+			"rootPatterns": [
+				"package.yaml",
+				"*.cabal",
+				"cabal.project",
+				"hie.yaml",
+				"stack.yaml",
+				"*.hie-bios",
+				"BUILD.bazel",
+				"cabal.config"
+			],
+			"filetypes": ["hs", "haskell", "lhaskell"],
+			"initializationOptions": {
+				"languageServerHaskell": {
+					"hlintOn": true,
+					"maxNumberOfProblems": 10,
+					"completionSnippetsOn": true
+				}
+			}
+		},
 		// cargo install asm-lsp
 		"asm-lsp": {
 			"command": "asm-lsp",
 			"filetypes": ["nasm"]
 		},
 		// npm install -g bash-language-server
-		"bash": {
-            "command": "bash-language-server",
-            "args": ["start"],
-            "filetypes": ["sh"]
-        },
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["go"],
-            "initializationOptions": {
-                "usePlaceholders": true
-            }
-        },
-        "julia": {
-            "command": "/usr/bin/julia",
-            "args" : ["--startup-file=no", "--history-file=no", "-e",
-            "using LanguageServer;\n       using Pkg;\n       import StaticLint;\n       import SymbolServer;\n       env_path = dirname(Pkg.Types.Context().env.project_file);\n       debug = false;\n       server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, \"\");\n       server.runlinter = true;\n       run(server);" ],
-            "filetypes": ["jl", "julia"]
-        },
-        "latex": {
-            "command": "/home/dany98/.cargo/bin/texlab",
-            "filetypes": ["tex", "bib", "plaintex", "context"]
-        },
-        "prolog-lsp": {
-            "command": "swipl",
-            "args": ["-g", "use_module(library(lsp_server)).",
-                     "-g", "lsp_server:main",
-                     "-t", "halt",
-                     "--", "stdio"
-                    ],
-            "filetypes": ["prolog"]
-        },
-        "R": {
-            "enable": true,
-            "command": "/usr/bin/R",
-            "args": ["--slave", "-e", "languageserver::run()"],
-            "filetypes": ["r"]
-        },
-        "racket": {
-            "command": "racket",
-            "args": [
-                "--lib",
-                "racket-langserver"
-            ],
-            "filetypes": ["scm", "rkt", "scheme"]
-        }
-    },
-    "svelte.enable-ts-plugin": true
+		//		"bash": {
+			//            "command": "bash-language-server",
+			//            "args": ["start"],
+			//            "filetypes": ["sh"]
+			//        },
+			//        "golang": {
+				//            "command": "gopls",
+				//            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+				//            "filetypes": ["go"],
+				//            "initializationOptions": {
+					//                "usePlaceholders": true
+					//            }
+					//        },
+					"julia": {
+						"command": "/usr/bin/julia",
+						"args" : ["--startup-file=no", "--history-file=no", "-e",
+							"using LanguageServer;\n       using Pkg;\n       import StaticLint;\n       import SymbolServer;\n       env_path = dirname(Pkg.Types.Context().env.project_file);\n       debug = false;\n       server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, \"\");\n       server.runlinter = true;\n       run(server);" ],
+							"filetypes": ["jl", "julia"]
+					},
+					"latex": {
+						"command": "/home/dany98/.cargo/bin/texlab",
+						"filetypes": ["tex", "bib", "plaintex", "context"]
+					},
+					"prolog-lsp": {
+						"command": "swipl",
+						"args": ["-g", "use_module(library(lsp_server)).",
+							"-g", "lsp_server:main",
+							"-t", "halt",
+							"--", "stdio"
+						],
+						"filetypes": ["prolog"]
+					},
+					"R": {
+						"enable": true,
+						"command": "/usr/bin/R",
+						"args": ["--slave", "-e", "languageserver::run()"],
+						"filetypes": ["r"]
+					},
+					"racket": {
+						"command": "racket",
+						"args": [
+							"--lib",
+							"racket-langserver"
+						],
+						"filetypes": ["scm", "rkt", "scheme"]
+					}
+	},
+	"svelte.enable-ts-plugin": true
 }

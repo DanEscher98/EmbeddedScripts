@@ -19,13 +19,15 @@ set scrolloff=12
 set modifiable
 set autoindent
 set smartcase
-"set listchars=eol:¬·,tab:\|·,trail:\ ·
-set list lcs=tab:\|\ 
+set list lcs=tab:\|\ " Show tabs
 " gutter space for lsp info on left
 " set signcolumn=yes
 " increased for lsp code actions
 set updatetime=100
-set cursorline tw=60 wrap
+set cursorline tw=80 wrap
+set whichwrap+=h,l " at end of line, jump to next line. It is not recommended
+" set whichwrap+=<,>,[,]
+" set listchars=eol:¬·,tab:\|·,trail:\ ·
 
 " highlights yanked text
 "autogroup highlight_yank
@@ -105,6 +107,7 @@ autocmd BufNewFile,BufRead *.nasm set filetype=nasm
 autocmd BufNewFile,BufRead *.arm set filetype=arm
 autocmd FileType markdown setlocal cursorline tw=70 wrap
 autocmd FileType html setlocal cursorline tw=80 wrap
+autocmd FileType rust setlocal cursorline tw=80 wrap
 autocmd FileType haskell setlocal expandtab
 autocmd FileType r setlocal expandtab
 autocmd FileType typescript let b:coc_root_patterns=["yarn.lock", "npm.lock", "package.json", "tsconfig.json"]

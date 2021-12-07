@@ -1,80 +1,93 @@
 call plug#begin('~/.config/nvim/autoload/plugged')
-" IDE stuff
-    " File Explorer
-    Plug 'scrooloose/NERDtree'
-	Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }
-    " Auto pairs for '(' '[' '{'
-    Plug 'jiangmiao/auto-pairs'
-    " Autocompletition
-    Plug 'scrooloose/syntastic'
-	Plug 'scrooloose/nerdcommenter'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'dense-analysis/ale'
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
-	Plug 'Chiel92/vim-autoformat'
-    " Zen Mode
-    Plug 'junegunn/goyo.vim'
-    Plug 'junegunn/limelight.vim'
-	" Git Plugin
-	Plug 'tpope/vim-fugitive'
+" IDE STUFF File Explorer
+Plug 'scrooloose/NERDtree'
+Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }
+" Auto pairs for '(' '[' '{'
+Plug 'jiangmiao/auto-pairs'
+" Autocompletition
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdcommenter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Chiel92/vim-autoformat'
+Plug 'Yggdroot/indentLine'
+" Zen Mode
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+" Git Plugin
+Plug 'tpope/vim-fugitive'
 " Appearence
-	" Set icons
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'drewtempelmeyer/palenight.vim'
-	"Plug 'joshdick/onedark.vim'
-	" Plug 'dracula/vim', { 'as': 'dracula' }
-    " LightLine
-    Plug 'itchyny/lightline.vim'
-    " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
-    " Rainbow Parenthesis
-    Plug 'luochen1990/rainbow'
-    " Smooth Scrool
-    Plug 'psliwka/vim-smoothie'
-	" Show indentation with spaces
-	" Yggdroot/indentLine
-" Markup Languages
-    Plug 'plasticboy/vim-markdown'
-    Plug 'vim-pandoc/vim-pandoc'
-    Plug 'vim-pandoc/vim-pandoc-syntax'
-    Plug 'alvan/vim-closetag'
-    Plug 'lervag/vimtex'
-" Programming Languages
-    Plug 'alx741/vim-stylishask'
-    Plug 'evanleck/vim-svelte', {'branch': 'main'}
-    Plug 'rust-lang/rust.vim'
-	Plug 'ARM9/arm-syntax-vim'
-	Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build',
-				\ 'branch': 'main' }
-	Plug 'dag/vim-fish'
+" Set icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'drewtempelmeyer/palenight.vim'
+"Plug 'joshdick/onedark.vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
+" LightLine
+Plug 'itchyny/lightline.vim'
+" Better Syntax Support
+Plug 'sheerun/vim-polyglot'
+" Rainbow Parenthesis
+Plug 'luochen1990/rainbow'
+" Smooth Scrool
+Plug 'psliwka/vim-smoothie'
+" Show indentation with spaces
+" Yggdroot/indentLine
+" MARKUP LANGUAGES
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'alvan/vim-closetag'
+Plug 'lervag/vimtex'
+" PROGRAMMING LANGUAGES
+Plug 'alx741/vim-stylishask'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'ARM9/arm-syntax-vim'
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build',
+			\ 'branch': 'main' }
+Plug 'dag/vim-fish'
+" Plug 'kdheepak/JuliaFormatter.vim'
 call plug#end()
 
 " Go to Documentation in preview window
 nnoremap <silent>K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+let g:indentLine_setColors = 1
+let g:indentLine_char = '|'
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+	nnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+	nnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+	inoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+	inoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+	vnoremap <silent><nowait><expr> <A-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+	vnoremap <silent><nowait><expr> <A-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+" Autoformat config
+let g:syntastic_disabled_filetypes=['bash']
+au BufWrite * :Autoformat
+autocmd FileType vim,tex let b:autoformat_autoindent=0
+autocmd FileType markdown let b:autoformat_enabled=0
+let g:vim_json_syntax_conceal = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 " If no file, open NERDTree
 autocmd VimEnter * if !argc() | NERDTree | endif
@@ -115,11 +128,12 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 
 " Ale Linterns
 let g:ale_linterns = {
-    \ 'go': ['gopls'],
-    \ 'haskell': ['hlint'],
-    \ 'python': ['flake8'],
-    \ 'sh': ['language_server']
-    \ }
+			\ 'go': ['gopls'],
+			\ 'haskell': ['hlint'],
+			\ 'python': ['pep8'],
+			\ 'sh': ['language_server'],
+			\ 'rust': ['analyzer']
+			\ }
 let g:ale_lint_on_enter=1
 let g:ale_cursor_detail=1
 let g:ale_python_auto_pipenv = 1
@@ -128,3 +142,14 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "let pipenv_venv_path = system('pipenv --venv')
+
+" Golang settings
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
