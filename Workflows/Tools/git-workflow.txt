@@ -12,3 +12,8 @@ git config --global credential.helper store
 git config --global --unset credential.helper
 git config --global user.email email@example.com
 git push --set-upstream origin main
+
+# In Tree, remove nodes included in .gitignore
+git rm -r --cached .
+git add .
+git commit -m "Drop files from .gitignore"
