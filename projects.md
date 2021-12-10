@@ -116,10 +116,10 @@
     cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10
     fortune | trans en:es --brief | espeack -v en:es
     sudo udevadm control --reload-rules
-    grep --include=\*.{c,h} -rnw ./ -e "transpose"
+    grep --include=\*.{c,h} -winr ./ -e "transpose"
     man -k "word"
     ```
 
 ## Shortcuts
 - In Vim or Less pager:
-    - "/pattern", "n" (next)
+    - "/pattern", "n" (next), "&/pattern" (only show that lines)
