@@ -19,19 +19,19 @@
 - Image to icon
     ```bash
     convert image.png \
-        -bordercolor white -border 1x1 -alpha set \
-        -channel rgba -fill none -floodfill +0+0 white \
-        -shave 1x1 -trim icon.png`
+    -bordercolor white -border 1x1 -alpha set \
+    -channel rgba -fill none -floodfill +0+0 white \
+    -shave 1x1 -trim icon.png`
     ```
 - Remove all file but save certain extensions
     `find . -maxdepth 1 -type f | grep -v -E "*.md|*.sh|*.tex" | xargs rm
-  > find . -maxdepth 1 ! -type d`
+    > find . -maxdepth 1 ! -type d`
 - Send message to user from Telegram bot
     [Telegram API](https://core.telegram.org/bots/api)
     ```bash
     curl "https://api.telegram.org/bot<token>/sendMessage" \
-        -H "Content-Type: application/json" --request POST \
-        --data '{"chat_id":0123, "text":"Hello World!"}' 2> /dev/null | jq
+    -H "Content-Type: application/json" --request POST \
+    --data '{"chat_id":0123, "text":"Hello World!"}' 2> /dev/null | jq
     ```
 
 ## File manipulation
@@ -48,42 +48,42 @@
     gs -dSAFER -dEPSCrop -r600 -sDEVICE=pngalpha -o foo.png file.ps`
 - `png` to icon
     `convert image.png \
-        -bordercolor white -border 1x1 -alpha set \
-        -channel rgba -fill none -floodfill +0+0 white \
-        -shave 1x1 -trim icon.png`
+    -bordercolor white -border 1x1 -alpha set \
+    -channel rgba -fill none -floodfill +0+0 white \
+    -shave 1x1 -trim icon.png`
 
 ## Pages for curl
 
 - Weather: "https://wttr.i/:help"
 - An online man
-  > cheat.sh/cmd
+    > cheat.sh/cmd
 - My global ip: "https://ifconfig.me/all.json"
 - Online dictionary
-  > dict://dict.org/d:word
+    > dict://dict.org/d:word
 - Cryptocurrencies plot
-  > rate.sx/coin@time
+    > rate.sx/coin@time
 - Encapsulate an address
     `curl -F 'shorten=https://www.google.com' https://0x0.st`
 - A little news paper
     `getnews.tech/linux`
 
----
+    ---
 
-```json
-{
+    ```json
+    {
     "Refreshed commands": {
-        "find": "fd-find (fd)",
-        "cat":  "bat", "ls":   "exa",
-        "top":  "htop",
-        "du":   ["gud", "dua"],
-        "rm":   "trash"
+    "find": "fd-find (fd)",
+    "cat":  "bat", "ls":   "exa",
+    "top":  "htop",
+    "du":   ["gud", "dua"],
+    "rm":   "trash"
     },
     "Novel tools": {
-        "jq": "json parser",
-        "asciinema": "record a terminal",
-        "asciicast2gif": "convert .cast to .gif",
-        "svg-term": "convert .cast to .svg for web",
-        "trans": "wrapper to Google Translate"
+    "jq": "json parser",
+    "asciinema": "record a terminal",
+    "asciicast2gif": "convert .cast to .gif",
+    "svg-term": "convert .cast to .svg for web",
+    "trans": "wrapper to Google Translate"
 
     },
     "Developer":    ["strip", "upx", "gdb", "lldb", "objdump"],
@@ -91,30 +91,35 @@
     "DirsFiles":    ["mv", "cp", "rm", "touch", "mkdir", "rename"],
     "System":       ["top", "psensors", "ps", "jobs", "fg", "bg"],
     "textstreams":  ["grep", "tr", "echo", "cat", "jq", "sed", "wc",
-                    "column", "rev"],
+    "column", "rev"],
     "users":        ["whoami", "chmod", "chown", "whereis", "sudo"],
     "conversion":   ["pandoc", "ssconvert"],
     "Swiss tools":  ["awk", "gs"],
     "Network Admin":["ip", "nmcli"],
     "Security":     ["iptables", "selinux", "lynis", "clamav"],
     "Funny ones":   ["cowsay", "spark", "fortune", "figlet", "espeak",
-                    "oneko", "toilet", "rig", "factor", "cmatrix",
-                    "asciiview", "factor"],
+    "oneko", "toilet", "rig", "factor", "cmatrix",
+    "asciiview", "factor"],
     "WebWrappers":  ["ani-cli", "wikit", "howdoi"],
     "Work tools":   ["docker", "git"]
-}
-```
+    }
+    ```
 
-```sh
-find ~/.local/share/nvim/swap/ -type f -name "*.sw[klmnop]" -delete
-ps -A | grep -i evince | tee /dev/tty | awk '{ print  }' | xargs -I %
-kill --verbose --signal QUIT % find ~/.local/share/nvim/swap/ -type f \
+    ```sh
+    find ~/.local/share/nvim/swap/ -type f -name "*.sw[klmnop]" -delete
+    ps -A | grep -i evince | tee /dev/tty | awk '{ print  }' | xargs -I %
+    kill --verbose --signal QUIT % find ~/.local/share/nvim/swap/ -type f \
     -name "*.sw[a-z]" -delete
-find ~/.local/share/nvim/swap/ -type f -name "*.sw[a-z]" -delete man \
+    find ~/.local/share/nvim/swap/ -type f -name "*.sw[a-z]" -delete man \
     -t <cmd> | ps2pdf - <cmd>.pdf
-cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10
-figlet -f smscript "Good Morning!" | lolcat
-cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10
-fortune | trans en:es --brief | espeack -v en:es
-```
-sudo udevadm control --reload-rules
+    figlet -f smscript "Good Morning!" | lolcat
+    cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 10
+    fortune | trans en:es --brief | espeack -v en:es
+    sudo udevadm control --reload-rules
+    grep --include=\*.{c,h} -rnw ./ -e "transpose"
+    man -k "word"
+    ```
+
+## Shortcuts
+- In Vim or Less pager:
+    - "/pattern", "n" (next)
