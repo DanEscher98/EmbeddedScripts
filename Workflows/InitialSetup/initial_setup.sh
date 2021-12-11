@@ -9,6 +9,12 @@ sudo apt -y install gawk mplayer
 sudo mv trans ~/usr/local/bin/
 sudo apt install autojump
 
+# Configure package mangers
+sudo add-apt-repository ppa:appimagelauncher-team/stable
+sudo apt-get update
+sudo apt-get install appimagelauncher
+
+
 # Developing tools
 sudo apt -y install clang clangd make
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
