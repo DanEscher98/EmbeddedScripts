@@ -6,6 +6,10 @@
 - comando lspdf: CreationDate, Pages
 - convert latex to png
 
+## Documentations
+
+- (Check unit testing for C)[https://libcheck.github.io/check/doc/check_html/check_4.html#index-ck_005fassert_005fint_005feq-1]
+
 ## Cool commands
 
 - man file to pdf
