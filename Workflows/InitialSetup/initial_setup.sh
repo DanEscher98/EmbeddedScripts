@@ -72,6 +72,10 @@ sudo apt install gh
 sudo apt -y install clang --install-suggests
 sudo apt install clangd make valgrind
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+sudo apt instal install nodejs npm
+sudo npm install -g n
+sudo n stable
+sudo npm install -g yarn
 
 # Autoformaters
 cargo install stylua --features lua52
