@@ -32,7 +32,7 @@ alias tress="tree|less"
 alias cls="clear && ls"' > ~/.config/fish/config.fish
 ln -s ~/.config/fish/config.fish ~/.fishrc
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-omf install pisces
+omf install jacaetevha
 if [ -d Fish ]; then
 	mv Fish/*.fish ~/.config/nvim/functions
 fi
