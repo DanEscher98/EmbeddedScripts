@@ -68,11 +68,12 @@ echo "deb [arch=$(dpkg --print-architecture)" \
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
 	| sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
 
+sudo apt update
 sudo apt install gh
 sudo apt -y install clang --install-suggests
-sudo apt install clangd make valgrind
+sudo apt install clangd make valgrind nasm
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-sudo apt instal install nodejs npm
+sudo apt install nodejs npm
 sudo npm install -g n
 sudo n stable
 sudo npm install -g yarn
@@ -89,7 +90,6 @@ go get -u github.com/klauspost/asmfmt/cmd/asmfmt
 
 # Language Servers and NPM
 curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
-sudo apt install nodejs
 npm i -g bash-language-server
 rustup component add rls rust-analysis rust-src
 cargo install --git https://github.com/bergercookie/asm-lsp
