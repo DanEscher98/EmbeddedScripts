@@ -1,5 +1,6 @@
 
 set fish_greeting
+# /home/dany98/.local/share/omf/themes
 # starship init fish | source
 
 
@@ -8,10 +9,10 @@ if status is-interactive
 end
 # sudo blkid -o list
 # Alternate method: sudo mount /dev/sda6 /media/dany98
-if not findmnt /dev/sda6 > /dev/null
+if not findmnt /dev/sda6 >/dev/null
 udisksctl mount -b /dev/sda6
 end
-cd ~/Working
+#cd /media/dany98/Shared/Working
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -30,6 +31,7 @@ set -gx PATH $PATH /home/dany98/Packages/emsdk/node/14.15.5_64bit/bin
 set -g theme_nerd_fonts yes
 set -x TERM xterm-256color
 set -x LC_CTYPE en_US.UTF-8
+set -g Working /media/dany98/Shared/Working
 
 set -xg EDITOR nvim
 set -gx PAGER less
@@ -41,14 +43,15 @@ set -g LESS_TERMCAP_so '\e[01;33m'
 set -g LESS_TERMCAP_ue '\e[0m'
 set -g LESS_TERMCAP_us '\e[1;4;31m'
 
-alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
+# alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
 
 set FLATPAK_ENABLE_SDK_EXT golang,haskell,llvm12,rust-stable,texlive
 #set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/dany98/.ghcup/bin # ghcup-env
 
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/dany98/.ghcup/bin # ghcup-env
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
+set -gx PATH $HOME/.cabal/bin $PATH /home/dany98/.ghcup/bin # ghcup-env
 
-set GHTOKEN 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
+set GHTOKEN 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
 fish_vi_key_bindings
 #fish_default_key_bindings
 alias fzf='fzf --height 50% --reverse'
@@ -57,5 +60,6 @@ alias ls='exa'
 alias bat='batcat'
 alias tress='tree|less'
 alias cls='clear && ls'
+alias trans='trans -b'
 source /usr/share/autojump/autojump.fish
 alias jd=autojump
