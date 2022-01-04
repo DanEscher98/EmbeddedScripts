@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.CAecpD/newc.fish @ line 2
+# Defined in /tmp/fish.24iTBc/newc.fish @ line 2
 function newc --argument name
     if not count $argv >/dev/null
         return 1
@@ -59,7 +59,7 @@ test.out: test/tests.c
 
 test: test.out
 	valgrind -s --leak-check=full target/tests.out 2> target/mem_analysis.log
-	cat target/mem_analysis.log
+	cat target/mem_analysis.log | cut --complement -d' ' -f1 | uniq
 
 clear:
 	rm -f target/*.out

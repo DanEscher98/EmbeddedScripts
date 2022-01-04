@@ -29,14 +29,13 @@ fish_vi_key_bindings
 source /usr/share/autojump/autojump.fish
 alias bat="batcat"
 alias tress="tree|less"
-alias cls="clear && ls"' > ~/.config/fish/config.fish
+alias cls="clear && ls"' >~/.config/fish/config.fish
 ln -s ~/.config/fish/config.fish ~/.fishrc
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 omf install simple-ass-prompt
 if [ -d Fish ]; then
-	mv Fish/*.fish ~/.config/nvim/functions
+    mv Fish/*.fish ~/.config/nvim/functions
 fi
-
 
 # BASIC AND USEFUL COMMANDS
 sudo apt install curl build-essential
@@ -51,22 +50,23 @@ sudo apt install neovim
 mkdir ~/.config/nvim
 mkdir ~/.config/nvim/autoload
 mkdir ~/.config/nvim/autoload/plugged
+# cd ~/.config/nvim && ln -s ./autoload/plugged/neoformat/autoload/neoformat/formatters/ ./
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 if [ -d nvim ]; then
-	mv nvim/coc-settings.json nvim/init.vim nvim/plugins.vim
-	\ ~/.config/nvim/
+    mv nvim/coc-settings.json nvim/init.vim nvim/plugins.vim
+    \ ~/.config/nvim/
 fi
 
 # Developing tools
 echo "deb [arch=$(dpkg --print-architecture)" \
-	"signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg]" \
-	"https://cli.github.com/packages stable main" \
-	| sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
+    "signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg]" \
+    "https://cli.github.com/packages stable main" |
+    sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
 
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-	| sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg |
+    sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
 
 sudo apt update
 sudo apt install gh
@@ -81,12 +81,13 @@ sudo npm install -g yarn
 # Autoformaters
 cargo install stylua --features lua52
 sudo apt install clang-format # C/C++
-sudo pip install black # Python
+sudo pip install black        # Python
 julia -e 'import Pkg; Pkg.add("JuliaFormatter")'
 npm install -g typescript-formatter
 npm install -g remark-cli
-go get -u mvdan.cc/sh/cmd/shfmt
-go get -u github.com/klauspost/asmfmt/cmd/asmfmt
+go install mvdan.cc/sh/cmd/shfmt@latest
+go install github.com/klauspost/asmfmt/cmd/asmfmt@latest
+go install github.com/ruinshe/nasmfmt@latest
 
 # Language Servers and NPM
 curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
