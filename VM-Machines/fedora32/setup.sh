@@ -74,7 +74,7 @@ function InstallProcess() {
 
     echo "Installing $package ..."
     yes | "$PkgMgr" install "$package" &>/dev/null
-    if command -v "$executable"; then
+    if command -v "$executable" &>/dev/null; then
         echo "Ok => The package $package has been installed"
     else
         echo "Err => The package $package hasn't been installed"
@@ -117,9 +117,8 @@ fi
 
 SelectPkgMgr
 if [ -n "$PkgMgr" ]; then
-
-    for package in { \
-        "git", "make", "pandoc", "gcc"}; do
+    declare -a PkgList=("git" "make" "gcc")
+    for package in ${PkgList[@]}; do
         fst=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $1 }')
         snd=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $2 }')
         InstallProcess $fst $snd
@@ -130,7 +129,6 @@ fi
 
 if [ "$ERRORS" -eq 0 ]; then
     printf "\nEverything ready!\n"
-    echo "Type 'make run' to compile and run the programs"
 else
     printf "\nSome packages hasn't been installed.\n"
     echo "=> $ERRORS errors were found"
