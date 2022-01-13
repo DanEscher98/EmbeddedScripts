@@ -33,7 +33,8 @@ alias tress="tree|less"
 alias cls="clear && ls"' >~/.config/fish/config.fish
 ln -s ~/.config/fish/config.fish ~/.fishrc
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-omf install simple-ass-prompt
+# omf install simple-ass-prompt
+omf install cbjohnson
 if [ -d Fish ]; then
     mv Fish/*.fish ~/.config/nvim/functions
 fi
@@ -47,6 +48,7 @@ sudo mv trans ~/usr/local/bin/
 sudo apt install autojump
 curl -sS https://webinstall.dev/zoxide | bash
 zoxide init fish && source
+# gcc gmp gmp-devel make ncurses ncurses-compat-libs xz perl
 
 # Configuring nvim
 sudo apt install neovim
@@ -111,12 +113,12 @@ go install github.com/ruinshe/nasmfmt@latest
 
 # Plutus working setup
 
-sh <(curl -L https://nixos.org/nix/install) --no-daemon
-. $HOME/.nix-profile/etc/profile.d/nix.sh
-mkdir ~/.config/nix
-echo 'substituters = https://hydra.iohk.io https://iohk.cachix.org https://cache.nixos.org/' >>~/.config/nix/nix.conf
-echo 'trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=' >>~/.config/nix/nix.conf
-sudo apt install nix-bin
+# sh <(curl -L https://nixos.org/nix/install) --no-daemon
+# . $HOME/.nix-profile/etc/profile.d/nix.sh
+# mkdir ~/.config/nix
+# echo 'substituters = https://hydra.iohk.io https://iohk.cachix.org https://cache.nixos.org/' >>~/.config/nix/nix.conf
+# echo 'trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=' >>~/.config/nix/nix.conf
+# sudo apt install nix-bin
 
 cd ~/Packages
 git clone https://github.com/input-output-hk/plutus

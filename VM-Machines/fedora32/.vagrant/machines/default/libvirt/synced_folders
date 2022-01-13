@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/media/dany98/Shared/Working/Scripts/VM-Machines/fedora32","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
