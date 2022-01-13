@@ -45,7 +45,7 @@ function CountLines() {
 
 ########################################
 ## Installation proccess ###############
-function InstallProcess() {
+function InstallLibrary() {
     local library=$1
     local flags=$3
 
@@ -101,6 +101,49 @@ function OptionalInstall() {
 }
 
 #######################################
+## Specific setups ####################
+
+function FishSetup() {
+    chsh -s /usr/bin/fish
+    mkdir ~/.config/fish
+    mkdir ~/.config/fish/functions
+    echo 'set fish_greeting
+cd ~/Working
+set -xg EDITOR nvim
+set -gx PAGER less
+fish_vi_key_bindings
+alias tress="tree|less"
+alias cls="clear && ls"' >~/.config/fish/config.fish
+    ln -s ~/.config/fish/config.fish ~/.fishrc
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+    omf install cbjohnson
+}
+
+function NeovimSetup() {
+    mkdir ~/.config/nvim
+    mkdir ~/.config/nvim/autoload
+    mkdir ~/.config/nvim/autoload/plugged
+    # cd ~/.config/nvim && ln -s ./autoload/plugged/neoformat/autoload/neoformat/formatters/ ./
+    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
+function GithubSetup() {
+    if [ "$PkgMgr" == "dnf" ]; then
+        dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+        dnf install gh
+    fi
+}
+
+function ClangSetup() {
+    echo ""
+}
+
+function RustSetup() {
+    echo ""
+}
+
+#######################################
 ## Main program #######################
 #GREEN='\033[0;32m'
 #NC='\033[0m' # No Color
@@ -117,12 +160,21 @@ fi
 
 SelectPkgMgr
 if [ -n "$PkgMgr" ]; then
-    declare -a PkgList=("git" "make" "gcc")
+    declare -a PkgList=("git" "make" "gcc" "fish")
     for package in ${PkgList[@]}; do
         fst=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $1 }')
         snd=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $2 }')
         InstallProcess $fst $snd
     done
+
+    declare -a LibList=("util-linux-user")
+    for library in ${LibList[@]}; do
+        InstallLibrary $library
+    done
+
+    FishSetup
+    NeovimSetup
+    GithubSetup
 else
     exit 1
 fi
