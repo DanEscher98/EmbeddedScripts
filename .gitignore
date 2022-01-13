@@ -280,4 +280,7 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# Vagrant
+.vagrant/
 >>>>>>> bee62e0cd47c75712a3a9e3236be0059c49495c3
