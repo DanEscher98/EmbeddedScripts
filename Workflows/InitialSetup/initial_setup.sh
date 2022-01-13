@@ -12,6 +12,7 @@ mkdir ~/Working ~/Packages
 
 # PACKAGE MANAGERS
 sudo apt update && sudo apt upgrade
+# sudo dnf install util-linux-user
 sudo add-apt-repository ppa:appimagelauncher-team/stable
 sudo apt-get update
 sudo apt-get install appimagelauncher
@@ -44,6 +45,8 @@ sudo apt install fonts-powerline
 sudo apt -y install gawk mplayer
 sudo mv trans ~/usr/local/bin/
 sudo apt install autojump
+curl -sS https://webinstall.dev/zoxide | bash
+zoxide init fish && source
 
 # Configuring nvim
 sudo apt install neovim
@@ -78,6 +81,19 @@ sudo npm install -g n
 sudo n stable
 sudo npm install -g yarn
 
+# Language Servers and NPM
+curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+npm i -g bash-language-server
+rustup component add rls rust-analysis rust-src
+cargo install --git https://github.com/bergercookie/asm-lsp
+
+# Programming languages
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+stack install stylish-haskell
+cd ~/Packages
+git clone https://github.com/lazamar/haskell-docs-cli.git
+cd haskell-docs-cli && stack install
+
 # Autoformaters
 cargo install stylua --features lua52
 sudo apt install clang-format # C/C++
@@ -89,12 +105,24 @@ go install mvdan.cc/sh/cmd/shfmt@latest
 go install github.com/klauspost/asmfmt/cmd/asmfmt@latest
 go install github.com/ruinshe/nasmfmt@latest
 
-# Language Servers and NPM
-curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
-npm i -g bash-language-server
-rustup component add rls rust-analysis rust-src
-cargo install --git https://github.com/bergercookie/asm-lsp
-
 # C Drive in WSL
 # mkdir ~/MyWindows
 # ls -s /mnt/c/User/$name/Documents/Programs ~/MyWindows
+
+# Plutus working setup
+
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
+. $HOME/.nix-profile/etc/profile.d/nix.sh
+mkdir ~/.config/nix
+echo 'substituters = https://hydra.iohk.io https://iohk.cachix.org https://cache.nixos.org/' >>~/.config/nix/nix.conf
+echo 'trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=' >>~/.config/nix/nix.conf
+sudo apt install nix-bin
+
+cd ~/Packages
+git clone https://github.com/input-output-hk/plutus
+cd plutus
+nix build -f default.nix plutus.haskell.packages.plutus-core
+# cd ~/Packages/plutus && nix-shell
+# cd plutus-playground-server && plutus-playground-server
+# cd plutus && nix-shell
+# cd plutus-playground-client && npm run start
