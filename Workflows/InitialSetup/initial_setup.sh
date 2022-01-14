@@ -83,6 +83,9 @@ sudo npm install -g n
 sudo n stable
 sudo npm install -g yarn
 
+vagrant plugin install vagrant-disksize
+vagrant plugin install vagrant-libvirt
+
 # Language Servers and NPM
 curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 npm i -g bash-language-server

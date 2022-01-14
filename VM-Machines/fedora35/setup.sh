@@ -131,7 +131,7 @@ function NeovimSetup() {
 function GithubSetup() {
     if [ "$PkgMgr" == "dnf" ]; then
         dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
-        dnf install gh
+        yes | dnf install gh
     fi
 }
 
@@ -140,6 +140,16 @@ function ClangSetup() {
 }
 
 function RustSetup() {
+    echo ""
+}
+
+function HaskellSetup() {
+    curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+    source $HOME/.ghcup/env
+    stack install stylish-haskell
+    cd ~/Packages
+    git clone https://github.com/lazamar/haskell-docs-cli.git
+    cd haskell-docs-cli && stack install
     echo ""
 }
 
@@ -160,14 +170,16 @@ fi
 
 SelectPkgMgr
 if [ -n "$PkgMgr" ]; then
-    declare -a PkgList=("git" "make" "gcc" "fish")
+    mkdir ~/.config
+    declare -a PkgList=("git" "xz" "make" "gcc" "perl" "fish" "neovim" "neofetch")
     for package in ${PkgList[@]}; do
         fst=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $1 }')
         snd=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $2 }')
         InstallProcess $fst $snd
     done
 
-    declare -a LibList=("util-linux-user")
+    declare -a LibList=("util-linux-user"
+        "gmp" "gmp-devel" "ncurses" "ncurses-compat-libs")
     for library in ${LibList[@]}; do
         InstallLibrary $library
     done
@@ -175,6 +187,9 @@ if [ -n "$PkgMgr" ]; then
     FishSetup
     NeovimSetup
     GithubSetup
+    #ClangSetup
+    #RustSetup
+    #HaskellSetup
 else
     exit 1
 fi
