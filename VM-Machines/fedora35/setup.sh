@@ -131,7 +131,7 @@ function NeovimSetup() {
 function GithubSetup() {
     if [ "$PkgMgr" == "dnf" ]; then
         dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
-        yes | dnf install gh
+        yes | dnf install -y gh
     fi
 }
 
@@ -170,8 +170,10 @@ fi
 
 SelectPkgMgr
 if [ -n "$PkgMgr" ]; then
-    mkdir ~/.config
-    declare -a PkgList=("git" "xz" "make" "gcc" "perl" "fish" "neovim" "neofetch")
+    if [ ! -d $HOME/.config ]; then
+        mkdir ~/.config
+    fi
+    declare -a PkgList=("git" "xz" "make" "gcc" "perl" "fish" "neovim,nvim" "neofetch")
     for package in ${PkgList[@]}; do
         fst=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $1 }')
         snd=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $2 }')
