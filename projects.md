@@ -122,6 +122,9 @@
     sudo udevadm control --reload-rules
     grep --include=\*.{c,h} -winr ./ -e "transpose"
     man -k "word"
+
+    ffmpeg -i movie.gif -movflags faststart -pix_fmt yuv420p \
+        -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" movie.mp4 -r 30
     ```
 
 ## Shortcuts
