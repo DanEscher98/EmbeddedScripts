@@ -41,7 +41,7 @@ fi
 
 # BASIC AND USEFUL COMMANDS
 sudo apt install curl build-essential
-sudo apt -y install neofetch trash-cli
+sudo apt -y install neofetch trash-cli pkg-config
 sudo apt install fonts-powerline
 sudo apt -y install gawk mplayer
 sudo mv trans ~/usr/local/bin/
