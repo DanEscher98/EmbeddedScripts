@@ -7,3 +7,4 @@
 ## References
 
 - [SSH on WSL](https://www.illuminiastudios.com/dev-diaries/ssh-on-windows-subsystem-for-linux/)
+- [WSL on VPN](https://stackoverflow.com/questions/66444822/no-internet-connection-ubuntu-wsl-while-vpn)
