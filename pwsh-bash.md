@@ -1,7 +1,7 @@
 
 - Get disk size:
-	> Get-PSDrive
-	> lsblk
+    > Get-PSDrive
+    > lsblk
 
 
 ## References
