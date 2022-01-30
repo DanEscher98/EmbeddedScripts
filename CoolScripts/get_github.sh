@@ -2,7 +2,11 @@
 
 
 repo="JuliaLang/julia"
-release_url="https://api.github.com/repos/$repo/releases"
+release_url="https://api.github.com/repos/$repo/releases/latest"
 version=$(echo $release_url | jq.[0].tag_name)
 file="julia-$version.tar.gz"
 download_url="https://github.com/$repo/releases/download/v$version/$file"
+
+wget -qO - $release_url \
+	| jq .assets[2].browser_download_url \
+	| xargs wget -O julia.tar.gz
