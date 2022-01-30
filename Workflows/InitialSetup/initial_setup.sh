@@ -94,6 +94,7 @@ cargo install --git https://github.com/bergercookie/asm-lsp
 
 # Programming languages
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+sudo apt-get install libgmp-dev
 stack install stylish-haskell
 cd ~/Packages
 git clone https://github.com/lazamar/haskell-docs-cli.git

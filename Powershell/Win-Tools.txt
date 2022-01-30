@@ -1,0 +1,7 @@
+Microsoft.WindowsTerminal
+JanDeDobbeleer.OhMyPosh
+Oracle.VirtualBox
+Hashicorp.Vagrant
+Git.Git
+Axosoft.GitKraken
+#Microsoft.VisualStudioCode
