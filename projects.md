@@ -132,4 +132,5 @@
     - "/pattern", "n" (next), "&/pattern" (only show that lines)
 
 ## Worthy Projects
-- Markdown reader (Go) https://github.com/charmbracelet/glow
+- [A native notebook](https://nteract.io/)
+- [Markdown reader (Go)](https://github.com/charmbracelet/glow)
