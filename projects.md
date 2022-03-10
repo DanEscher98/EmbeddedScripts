@@ -134,3 +134,4 @@
 ## Worthy Projects
 - [A native notebook](https://nteract.io/)
 - [Markdown reader (Go)](https://github.com/charmbracelet/glow)
+- [Exercises on demand](https://exercism.org/)
