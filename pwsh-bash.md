@@ -4,6 +4,18 @@
     > lsblk
 
 
+- Show link target
+```powershell
+$WScript = New-Object -ComObject WScript.Shell
+Get-ChildItem -Path ".\*.lnk" | ForEach-Object {$WScript.CreateShortcut($_.FullName).TargetPath}
+```
+
+- Update PATH
+> Win + R -> "sysdm.cpl"
+> Advanced System Settings -> Environment Variables
+> "Edit Path"
+
+
 ## References
 
 - [SSH on WSL](https://www.illuminiastudios.com/dev-diaries/ssh-on-windows-subsystem-for-linux/)

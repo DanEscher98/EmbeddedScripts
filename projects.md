@@ -77,7 +77,8 @@
     {
     "Refreshed commands": {
     "find": "fd-find (fd)",
-    "cat":  "bat", "ls":   "exa",
+    "cat":  ["bat", "glow"],
+    "ls":   "exa",
     "top":  "htop",
     "du":   ["gud", "dua"],
     "rm":   "trash"
@@ -88,7 +89,6 @@
     "asciicast2gif": "convert .cast to .gif",
     "svg-term": "convert .cast to .svg for web",
     "trans": "wrapper to Google Translate"
-
     },
     "Developer":    ["strip", "upx", "gdb", "lldb", "objdump"],
     "Fundamental":  ["ls", "cd", "pwd", "find", "tree", "clear"],
@@ -130,3 +130,6 @@
 ## Shortcuts
 - In Vim or Less pager:
     - "/pattern", "n" (next), "&/pattern" (only show that lines)
+
+## Worthy Projects
+- Markdown reader (Go) https://github.com/charmbracelet/glow
