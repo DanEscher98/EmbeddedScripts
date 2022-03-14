@@ -135,3 +135,8 @@
 - [A native notebook](https://nteract.io/)
 - [Markdown reader (Go)](https://github.com/charmbracelet/glow)
 - [Exercises on demand](https://exercism.org/)
+- [Futhark language](https://futhark-lang.org/)
+- [UML compiler](https://planttext.com/)
+
+## Must have Github repos
+- `gh repo clone miguelraz/JuliaTutorials`
