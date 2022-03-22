@@ -1,3 +1,9 @@
+---
+title: Useless Tricks in Bash
+author: Danyiel Colin
+toc: true
+---
+
 # TODO
 
 - join **png** and **jpg** as pdf
@@ -109,7 +115,7 @@
     }
     ```
 
-    ```sh
+    ```bash
     find ~/.local/share/nvim/swap/ -type f -name "*.sw[klmnop]" -delete
     ps -A | grep -i evince | tee /dev/tty | awk '{ print  }' | xargs -I %
     kill --verbose --signal QUIT % find ~/.local/share/nvim/swap/ -type f \
@@ -125,6 +131,8 @@
 
     ffmpeg -i movie.gif -movflags faststart -pix_fmt yuv420p \
         -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" movie.mp4 -r 30
+    strace nvim +:q 2>&1 | grep "^openat.*$HOME" | sed 's/.*"\(.*\)".*/\1/'
+    strace fish exit 2>&1 | grep "^openat.*$HOME" | sed 's/.*"\(.*\)".*/\1/'
     ```
 
 ## Shortcuts
@@ -140,3 +148,7 @@
 
 ## Must have Github repos
 - `gh repo clone miguelraz/JuliaTutorials`
+
+
+## References 
+- [Regex in GREP](https://linuxize.com/post/regular-expressions-in-grep/)
