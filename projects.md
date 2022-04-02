@@ -152,3 +152,4 @@ toc: true
 
 ## References 
 - [Regex in GREP](https://linuxize.com/post/regular-expressions-in-grep/)
+- [gitignore the right way](https://labs.consol.de/development/git/2017/02/22/gitignore.html)

@@ -590,3 +590,6 @@ echo $OUTDIR
 read -s -p "Enter password: " pswd
 echo "Your password is $pswd"
 ```
+
+## References 
+- [Regex in Grep](https://linuxize.com/post/regular-expressions-in-grep/)
