@@ -11,11 +11,13 @@
 mkdir ~/Working ~/Packages
 
 # PACKAGE MANAGERS
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo apt update && sudo apt upgrade
 # sudo dnf install util-linux-user
 sudo add-apt-repository ppa:appimagelauncher-team/stable
 sudo apt-get update
 sudo apt-get install appimagelauncher
+sudo dnf -y install bridge-utils libvirt virt-install qemu-kvm
 
 # The Fish shell
 sudo apt install fish
