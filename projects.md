@@ -117,9 +117,9 @@ toc: true
 
     ```bash
     find ~/.local/share/nvim/swap/ -type f -name "*.sw[klmnop]" -delete
-    ps -A | grep -i evince | tee /dev/tty | awk '{ print  }' | xargs -I %
-    kill --verbose --signal QUIT % find ~/.local/share/nvim/swap/ -type f \
-    -name "*.sw[a-z]" -delete
+    find -name "*.py" | xargs cat | awk '!/^$/{ print }' | wc -l
+    ps -A | grep -i evince | tee /dev/tty | awk '{ print  }' | \
+        xargs -I % kill --verbose --signal QUIT %
     find ~/.local/share/nvim/swap/ -type f -name "*.sw[a-z]" -delete man \
     -t <cmd> | ps2pdf - <cmd>.pdf
     figlet -f smscript "Good Morning!" | lolcat

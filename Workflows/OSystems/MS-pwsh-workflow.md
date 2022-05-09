@@ -16,3 +16,4 @@
 
 - Install `wsltty`
 - Install chocolatey
+- [Add startup commands to `CMD`](https://stackoverflow.com/a/65822936)
