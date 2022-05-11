@@ -71,8 +71,10 @@ ignfile = {
 
 def args_namespace() -> Namespace:
     """
+    - path: StrPath
     - Sort by: lines, files, size (default lines)
     - humand readable: bool (default True)
+    - inverse order:   bool (default False)
     - only since date: date (default since ever)
     - only trash file: bool (default False)
     """
@@ -84,14 +86,14 @@ def args_namespace() -> Namespace:
     )
     parser.add_argument("Path", metavar="path", type=str, help="the path to list")
     parser.add_argument(
-        "-H", "--human-readable", action="store_true", help="show size in KB, MB and GB"
+        "-b", "--bytes", action="store_true", help="show size in plain bytes"
     )
     parser.add_argument(
         "-s",
         "--sort-by",
         type=str,
         default="line",
-        choices=["l", "f", "s"],
+        choices=["line", "file", "size"],
         help="sort by lines, files or size",
     )
     parser.add_argument(
@@ -160,10 +162,10 @@ def classify_files(pwdir: StrPath) -> Dict[str, Tuple]:
 
 
 def format_output(file_data: Dict[str, Tuple]):
-    col = 2
-    by_value = lambda item: item[1][col]
+    columns = {"line": 0, "file": 1, "size": 2}
+    by_value = lambda item: item[1][columns[args.sort_by]]
     colored = lambda string, color: f"{color}{string}{Colors.ENDC}"
-    humanread = lambda num: human_readable(num) if args.human_readable else num
+    humanread = lambda num: num if args.bytes else human_readable(num)
     total_l, total_f, total_s = 0, 0, 0
 
     lang, lines, files, size = map(
