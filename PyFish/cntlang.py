@@ -3,21 +3,11 @@ import argparse
 import os
 import sys
 from argparse import Namespace
-from enum import Enum
 from math import pow
 from pathlib import Path
 from typing import Dict, Iterator, Tuple, TypeVar, Union
 
 StrPath = TypeVar("StrPath", str, Path)
-args = None
-
-
-class UnitSize(Enum):
-    # class to store the various units
-    BYTES = 1
-    KB = 2
-    MB = 3
-    GB = 4
 
 
 class Colors:  # You may need to change color settings
@@ -87,7 +77,7 @@ def args_namespace() -> Namespace:
     - only trash file: bool (default False)
     """
     parser = argparse.ArgumentParser(
-        prog="list",
+        prog="cntlang",
         usage="%(prog)s [options] path",
         description="Count lines from source code files",
         epilog="Keep the good coding effort!",
@@ -99,11 +89,19 @@ def args_namespace() -> Namespace:
     parser.add_argument(
         "-s",
         "--sort-by",
-        action="store_true",
+        type=str,
+        default="line",
+        choices=["l", "f", "s"],
         help="sort by lines, files or size",
     )
     parser.add_argument(
         "-t", "--since-date", help="only show files modified since date"
+    )
+    parser.add_argument(
+        "-i",
+        "--inverse-order",
+        action="store_false",
+        help="set if normal or inverse order",
     )
     return parser.parse_args(sys.argv)
 
@@ -162,9 +160,10 @@ def classify_files(pwdir: StrPath) -> Dict[str, Tuple]:
 
 
 def format_output(file_data: Dict[str, Tuple]):
-    col, asc = 2, True
+    col = 2
     by_value = lambda item: item[1][col]
     colored = lambda string, color: f"{color}{string}{Colors.ENDC}"
+    humanread = lambda num: human_readable(num) if args.human_readable else num
     total_l, total_f, total_s = 0, 0, 0
 
     lang, lines, files, size = map(
@@ -172,17 +171,18 @@ def format_output(file_data: Dict[str, Tuple]):
     )
     print(f"{lang:<15} {lines:>18} {files:>16} {size:>18}")
     for lang, (lines, files, size) in sorted(
-        file_data.items(), key=by_value, reverse=asc
+        file_data.items(), key=by_value, reverse=args.inverse_order
     ):
         total_l += lines
         total_f += files
         total_s += size
-        print(f"{lang:<10} {lines:8} {files:8} {human_readable(size):>10}")
+        print(f"{lang:<10} {lines:8} {files:8} {humanread(size):>10}")
     total = colored("Total", Colors.RED)
-    print(f"{total:<18} {total_l:8} {total_f:8} {human_readable(total_s):>10}")
+    print(f"{total:<18} {total_l:8} {total_f:8} {humanread(total_s):>10}")
 
 
 if __name__ == "__main__":
+    global args
     args: Namespace = args_namespace()
     file_data = classify_files(os.getcwd())
     format_output(file_data)
