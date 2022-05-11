@@ -1,6 +1,8 @@
 #!/usr/bin/python3.10
+import argparse
 import os
 import sys
+from argparse import Namespace
 from enum import Enum
 from math import pow
 from pathlib import Path
@@ -18,30 +20,21 @@ class UnitSize(Enum):
     GB = 4
 
 
-def human_readable(byte_sz: int) -> str:
-    return str(byte_sz) + "a"
+class Colors:  # You may need to change color settings
+    RED = "\033[31m"
+    ENDC = "\033[m"
+    GREEN = "\033[32m"
+    YELLOW = "\033[33m"
+    BLUE = "\033[34m"
 
-
-def unit_convertor(byte_sz: int, unit: UnitSize):
-    match unit:
-        case UnitSize.KB:
-            return byte_sz / 1024
-        case UnitSize.MB:
-            return byte_sz / pow(1024, 2)
-        case UnitSize.GB:
-            return byte_sz / pow(1024, 3)
-        case _:
-            print("Warning")
-            return byte_sz
+    def colored(self, string, color):
+        return f"{color}{string}{Colors.ENDC}"
 
 
 ext2name = {
     "sh": "Bash/Fish",
     "fish": "Bash/Fish",
     "c": "C99/C++",
-    "cpp": "C99/C++",
-    "html": "HTML/CSS",
-    "css": "HTML/CSS",
     "js": "JavaScript",
     "ts": "JavaScript",
     "asm": "Assembly",
@@ -55,6 +48,7 @@ ext2name = {
     "py": "Python",
     "rs": "Rust",
     "r": "RLang",
+    "sv": "Verilog",
 }
 
 igndir = {
@@ -84,7 +78,47 @@ ignfile = {
     "setupTypeScript",
 }
 
-# Gracefully display (date, ext, f_num)
+
+def args_namespace() -> Namespace:
+    """
+    - Sort by: lines, files, size (default lines)
+    - humand readable: bool (default True)
+    - only since date: date (default since ever)
+    - only trash file: bool (default False)
+    """
+    parser = argparse.ArgumentParser(
+        prog="list",
+        usage="%(prog)s [options] path",
+        description="Count lines from source code files",
+        epilog="Keep the good coding effort!",
+    )
+    parser.add_argument("Path", metavar="path", type=str, help="the path to list")
+    parser.add_argument(
+        "-H", "--human-readable", action="store_true", help="show size in KB, MB and GB"
+    )
+    parser.add_argument(
+        "-s",
+        "--sort-by",
+        action="store_true",
+        help="sort by lines, files or size",
+    )
+    parser.add_argument(
+        "-t", "--since-date", help="only show files modified since date"
+    )
+    return parser.parse_args(sys.argv)
+
+
+def human_readable(byte_sz: int) -> str:
+    kb, mb, gb = 1024, pow(1024, 2), pow(1024, 3)
+    if byte_sz > gb:
+        size_hr = f"{(byte_sz / gb):.2f}G"
+    elif byte_sz > mb:
+        size_hr = f"{(byte_sz / mb):.2f}M"
+    elif byte_sz > kb:
+        size_hr = f"{(byte_sz / kb):.2f}K"
+    else:
+        size_hr = f"{byte_sz}B"
+    return size_hr
 
 
 def count_lines(filename: StrPath) -> Union[None, int]:
@@ -100,9 +134,9 @@ def count_lines(filename: StrPath) -> Union[None, int]:
 def recurse_files(pwdir: StrPath) -> Iterator[Tuple[str, str]]:
     """Recurse through the directory and yield only the
     files that are not in a config directory."""
-    for subdir, _, files in os.walk(pwdir):
-        split_path = set(os.path.normpath(subdir).split(os.sep))
-        if split_path.intersection(igndir):
+    for subdir, _, files in os.walk(pwdir, followlinks=False):
+        split_path_set = set(os.path.normpath(subdir).split(os.sep))
+        if split_path_set.intersection(igndir):
             continue
         for file in files:
             if os.path.splitext(file)[0] in ignfile:
@@ -128,36 +162,27 @@ def classify_files(pwdir: StrPath) -> Dict[str, Tuple]:
 
 
 def format_output(file_data: Dict[str, Tuple]):
-    try:
-        import numpy as np
-        import pandas as pd
+    col, asc = 2, True
+    by_value = lambda item: item[1][col]
+    colored = lambda string, color: f"{color}{string}{Colors.ENDC}"
+    total_l, total_f, total_s = 0, 0, 0
 
-        columns = ["Lines", "Files", "Size"]
-        data_m = np.zeros((len(file_data), 3)).astype(np.int32)
-        index = []
-        total_l, total_f, total_s = 0, 0, 0
-        for i, (lang, (lines, files, size)) in enumerate(file_data.items()):
-            total_l += lines
-            total_f += files
-            total_s += size
-            data_m[i] = [lines, files, size]
-            index.append(lang)
-        # Format, Sort and Human readable
-        col, asc = "Lines", False
-        data_f = pd.DataFrame(data_m, index=index, columns=columns)
-        data_f = data_f.sort_values(by=col, ascending=asc)
-        data_f["Size"] = data_f["Size"].transform(human_readable)
-        total_s = human_readable(total_s)
-        # Append Total Row
-        total_row = pd.DataFrame(
-            [[total_l, total_f, total_s]], index=["Total"], columns=data_f.columns
-        )
-        data_f = pd.concat([data_f, total_row])
-        print(data_f)
-    except ImportError:
-        pass
+    lang, lines, files, size = map(
+        lambda st: colored(st, Colors.GREEN), ["LANGUAGE", "LINES", "FILES", "SIZE"]
+    )
+    print(f"{lang:<15} {lines:>18} {files:>16} {size:>18}")
+    for lang, (lines, files, size) in sorted(
+        file_data.items(), key=by_value, reverse=asc
+    ):
+        total_l += lines
+        total_f += files
+        total_s += size
+        print(f"{lang:<10} {lines:8} {files:8} {human_readable(size):>10}")
+    total = colored("Total", Colors.RED)
+    print(f"{total:<18} {total_l:8} {total_f:8} {human_readable(total_s):>10}")
 
 
 if __name__ == "__main__":
+    args: Namespace = args_namespace()
     file_data = classify_files(os.getcwd())
     format_output(file_data)
