@@ -39,6 +39,7 @@ ext2name = {
     "rs": "Rust",
     "r": "RLang",
     "sv": "Verilog",
+    "php": "PHP",
 }
 
 igndir = {

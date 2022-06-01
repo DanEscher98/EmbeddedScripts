@@ -1,0 +1,41 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/deere-vm/Working/EmbeddedSys/Scripts/PyFish/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220529.0/
+BLUE	cntlang.py	/^    BLUE = "\\033[34m"$/;"	v	class:Colors
+Colors	cntlang.py	/^class Colors:  # You may need to change color settings$/;"	c
+ENDC	cntlang.py	/^    ENDC = "\\033[m"$/;"	v	class:Colors
+GREEN	cntlang.py	/^    GREEN = "\\033[32m"$/;"	v	class:Colors
+RED	cntlang.py	/^    RED = "\\033[31m"$/;"	v	class:Colors
+StrPath	cntlang.py	/^StrPath = TypeVar("StrPath", str, Path)$/;"	v
+YELLOW	cntlang.py	/^    YELLOW = "\\033[33m"$/;"	v	class:Colors
+args	cntlang.py	/^    args: Namespace = args_namespace()$/;"	v	typeref:typename:Namespace
+args	decode.py	/^    args: Namespace = args_namespace()$/;"	v	typeref:typename:Namespace
+args_namespace	cntlang.py	/^def args_namespace() -> Namespace:$/;"	f	typeref:typename:Namespace
+args_namespace	decode.py	/^def args_namespace() -> Namespace:$/;"	f	typeref:typename:Namespace
+by_value	cntlang.py	/^    by_value = lambda item: item[1][columns[args.sort_by]]$/;"	f	function:format_output	file:
+classify_files	cntlang.py	/^def classify_files(pwdir: StrPath) -> Dict[str, Tuple]:$/;"	f	typeref:typename:Dict[str,Tuple]
+colored	cntlang.py	/^    colored = lambda string, color: f"{color}{string}{Colors.ENDC}"$/;"	f	function:format_output	file:
+colored	cntlang.py	/^    def colored(self, string, color):$/;"	m	class:Colors
+count_lines	cntlang.py	/^def count_lines(filename: StrPath) -> Union[None, int]:$/;"	f	typeref:typename:Union[None,int]
+decode_bin	decode.py	/^def decode_bin(filename, base: int) -> str:$/;"	f	typeref:typename:str
+encode_bin	decode.py	/^def encode_bin(message, filename, wpl, fmt):$/;"	f
+ext2name	cntlang.py	/^ext2name = {$/;"	v
+file_data	cntlang.py	/^    file_data = classify_files(os.getcwd())$/;"	v
+format_output	cntlang.py	/^def format_output(file_data: Dict[str, Tuple]):$/;"	f
+frmt_num	decode.py	/^            frmt_num = lambda n: f"{n:02x}"$/;"	f	function:encode_bin	file:
+frmt_num	decode.py	/^            frmt_num = lambda n: f"{n:03d}"$/;"	f	function:encode_bin	file:
+frmt_num	decode.py	/^            frmt_num = lambda n: f"{n:08b}"$/;"	f	function:encode_bin	file:
+human_readable	cntlang.py	/^def human_readable(byte_sz: int) -> str:$/;"	f	typeref:typename:str
+humanread	cntlang.py	/^    humanread = lambda num: num if args.bytes else human_readable(num)$/;"	f	function:format_output	file:
+igndir	cntlang.py	/^igndir = {$/;"	v
+ignfile	cntlang.py	/^ignfile = {$/;"	v
+msg	decode.py	/^        msg = decode_bin(args.FILE, args.base)$/;"	v
+recurse_files	cntlang.py	/^def recurse_files(pwdir: StrPath) -> Iterator[Tuple[str, str]]:$/;"	f	typeref:typename:Iterator[Tuple[str,str]]
