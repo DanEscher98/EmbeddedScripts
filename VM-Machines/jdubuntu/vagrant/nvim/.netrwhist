@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/deere-vm/.config/nvim'
+let g:netrw_dirhist_3='/home/deere-vm/Working/FunctionalNotes/Techniques/PiensaEnHaskell'
+let g:netrw_dirhist_2='/home/deere-vm/.config/nvim'
+let g:netrw_dirhist_1='/home/deere-vm/Packages/clove-unit/example'

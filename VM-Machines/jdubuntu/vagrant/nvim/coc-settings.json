@@ -1,0 +1,37 @@
+{
+    "diagnostic.displayByAle": true,
+	"workspace.workspaceFolderCheckCwd": false,
+	"languageserver": {
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": [
+                "package.yaml",
+                "*.cabal",
+                "cabal.project",
+                "hie.yaml",
+                "stack.yaml",
+                "*.hie-bios",
+                "BUILD.bazel",
+                "cabal.config"
+            ],
+            "filetypes": ["hs", "haskell", "lhaskell"],
+            "initializationOptions": {
+                "languageServerHaskell": {
+                    "hlintOn": true,
+                    "maxNumberOfProblems": 10,
+                    "completionSnippetsOn": true
+                }
+            }
+        },
+		"bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"]
+        },
+        "latex": {
+            "command": "/home/dany98/.cargo/bin/texlab",
+            "filetypes": ["tex", "bib", "plaintex", "context"]
+        }
+    }
+}

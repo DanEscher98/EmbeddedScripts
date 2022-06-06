@@ -1,0 +1,18 @@
+Vagrant.configure("2") do | config |
+  config.vm.box = "ubuntu/trusty64"
+  #config.disksize.size = '20GB'
+  config.vm.provider "virtualbox" do |vbox|
+    vbox.name = "ubuntu_xenial"
+    vbox.memory = 2048
+    vbox.cpus = 2
+  end
+
+  config.vm.synced_folder "./vagrant", "/vagrant",
+    owner: "vagrant", group: "vagrant", create: true
+  config.vm.provision "shell", inline: <<-SHELL
+    yes | sudo apt update
+    yes | sudo apt upgrade
+  SHELL
+#  config.vm.provision "Basic setup", type: "shell",
+#    path: "vagrant/inital_setup.sh", privileged: true
+end
