@@ -12,7 +12,21 @@ sudo apt install php8.1-{gd,zip,mysql,oauth,yaml,fpm,mbstring,memcache,common,xm
 
 # DNF PROCESS
 # php repository
-sudo dnf 
+sudo dnf install http://rpms.remirepo.net/fedora/remi-release-36.rpm -y
+# verify that the repository was added
+dnf repolist | grep remi
+# import the GPG key
+yes | sudo dnf module list php
+# enable the repository
+sudo dnf module enable php:remi-8.1 -y
+# install for apache
+sudo dnf install php -y
+# suggested modules
+sudo dnf install php-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,json,readline,memcached,redis,mbstring,apcu,xml,dom,redis,memcached,memcache}
+# additional tools
+sudo dnf install php-xdebug php-pcov
+# REFERENCES
+# - https://www.linuxcapable.com/how-to-install-php-8-1-on-fedora-36-linux-2/
 
 # retrieve the Composer installer
 curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
