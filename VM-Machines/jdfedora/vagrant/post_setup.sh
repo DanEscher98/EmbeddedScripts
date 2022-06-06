@@ -11,7 +11,7 @@
 #GREEN='\033[0;32m'
 #NC='\033[0m' # No Color
 ERRORS=0
-SHARED="vagrant"
+SHARED="./"
 HOME="/home/vagrant"
 
 #######################################
@@ -101,14 +101,14 @@ zoxide init fish | source' > $HOME/.config/fish/config.fish
 }
 
 function NeovimSetup() {
-    if [ true ]; then #if [ ! -d $HOME/.config/nvim ]; then
-        #mkdir --parents -m777 $HOME/.config/nvim/autoload/plugged
-        #InstallProcess nodejs node
-        #InstallProcess npm
-        #npm install -g n; n stable; npm install -g yarn
-        #curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs \
-        #    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        if [ true ]; then #if [ -d $SHARED/nvim ]; then
+    if [ ! -d $HOME/.config/nvim ]; then
+        mkdir --parents -m777 $HOME/.config/nvim/autoload/plugged
+        InstallProcess nodejs node
+        InstallProcess npm
+        npm install -g n; n stable; npm install -g yarn
+        curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        if [ -d $SHARED/nvim ]; then
             cp /$SHARED/nvim/{coc-settings.json,init.vim,plugins.vim} \
                 $HOME/.config/nvim/
 			chmod 777 -R $HOME/.config/nvim
