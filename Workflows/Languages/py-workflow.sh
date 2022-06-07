@@ -12,12 +12,36 @@ pip install ipython
 pip3 install pipreqs pip-tools
 pipreqs --savepath=requirements.in && pip-compile
 
+# PIPX: Install executable modules
+python3 -m pip install --user pipx
+
 
 # Environment
+# VENV: Python module, is used to create lightweight virtual environments
+$NAME="project_name"
+$VERSION="3.6.15"
+python3 -m venv .venv --prompt=$NAME
+source .venv/bin/activate
+python -c "import sys; print(sys.executable)"
+deactivate
 
-# https://github.com/justinmayer/virtualfish
-# https://github.com/pyenv/pyenv-virtualenv
+# VIRTUALENV: A wrapper around venv
+python3 -m pipx install virtualenv
+
+
+# PYENV: a python environment manager, allows to install and run off multiple installations
+pyenv install --list
 # https://github.com/pyenv/pyenv
+
+# PYENV with VIRTUALENV
+pyenv install $VERSION
+pyenv virtualenv $VERSION $NAME
+pyenv activate $NAME
+source deactivate
+# Plugin: https://github.com/pyenv/pyenv-virtualenv
+# https://github.com/justinmayer/virtualfish
+
+
 
 # Different versions
 
