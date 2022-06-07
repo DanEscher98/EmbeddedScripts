@@ -12,7 +12,7 @@
 #NC='\033[0m' # No Color
 ERRORS=0
 SHARED="./"
-HOME="/home/vagrant"
+HOME="/home/dany98"
 
 #######################################
 ## Select Package Manager #############
@@ -101,7 +101,7 @@ zoxide init fish | source' > $HOME/.config/fish/config.fish
 }
 
 function NeovimSetup() {
-    if [ ! -d $HOME/.config/nvim ]; then
+    if [ true ]; then #if [ ! -d $HOME/.config/nvim ]; then
         mkdir --parents -m777 $HOME/.config/nvim/autoload/plugged
         InstallProcess nodejs node
         InstallProcess npm
@@ -109,7 +109,7 @@ function NeovimSetup() {
         curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         if [ -d $SHARED/nvim ]; then
-            cp /$SHARED/nvim/{coc-settings.json,init.vim,plugins.vim} \
+            cp $SHARED/nvim/{coc-settings.json,init.vim,plugins.vim} \
                 $HOME/.config/nvim/
 			chmod 777 -R $HOME/.config/nvim
             nvim +PlugInstall +qall
