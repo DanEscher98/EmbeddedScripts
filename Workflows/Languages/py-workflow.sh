@@ -30,14 +30,18 @@ python3 -m pipx install virtualenv
 
 
 # PYENV: a python environment manager, allows to install and run off multiple installations
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+echo 'set -gx PYENV_ROOT "$HOME/.pyenv"' >> $HOME/.config/fish/config.fish
+echo 'set -gx PATH $PATH $PYENV_ROOT/bin' >> $HOME/.config/fish/config.fish
+git clone https://github.com/pyenv/pyenv-virtualenv.git (pyenv root)/plugins/pyenv-virtualenv
 pyenv install --list
-# https://github.com/pyenv/pyenv
+# http s://github.com/pyenv/pyenv
 
 # PYENV with VIRTUALENV
 pyenv install $VERSION
 pyenv virtualenv $VERSION $NAME
 pyenv activate $NAME
-source deactivate
+pyenv deactivate
 # Plugin: https://github.com/pyenv/pyenv-virtualenv
 # https://github.com/justinmayer/virtualfish
 
