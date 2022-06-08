@@ -1,0 +1,17 @@
+{
+    "equivalent": {
+        "init system": ["openrc", "systemd", "runit"],
+        "package manager": ["guix", "nix", "dnf", "apt", "pacman"],
+        "container isolation": ["selinux", "apparmor"],
+        "firewall": ["iptables", "ufw"],
+        "file system": ["btrfs", "zfs", "ext4"],
+        "package format": ["flatpak", "snap", "appimage"],
+        "desktop environment": ["gnome", "kde", "deepin", "xcfe"],
+        "windows managers": ["i3", "xmonad"]
+    },
+    "transition": {
+        "composer": ["x11", "wayland"],
+        "vpn": ["openvpn", "wireguard"],
+        "audio": ["pulseaudio", "pipewire"]
+    }
+}

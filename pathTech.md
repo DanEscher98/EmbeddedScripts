@@ -1,0 +1,37 @@
+
+- Data types
+- Basic Bitwise Operations
+- String Operations
+- Arrays
+- Linked Lists
+    - Singly Linked
+    - Doubly Linked
+    - Circular Linked
+- Queues
+- Stacks
+- Heaps
+- Trees
+    - Binary Trees
+    - Binary Search Trees
+    - Tries
+    - Self Balancing Trees
+- Traversing Trees
+    - Breadth First Search - BFS
+    - Depth First Search - DFS
+    - Preorder, Inorder, Postorder
+- Graphs
+    - Dijkstra's Algorithm / A Search
+- Hash Maps
+    -   Handling Collisions
+- Sorting algorithms
+    - Insertion
+    - Selection
+    - Merge
+    - Quick
+- Time Complexities
+- Programming Paradigm
+    - Dynamic Programming
+    - Object Oriented Programming
+    - Asynchronous Programming
+    - Functional Programming
+

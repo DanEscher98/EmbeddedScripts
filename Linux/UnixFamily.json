@@ -1,0 +1,129 @@
+{
+    "Unix": {
+        "year": 1973,
+        "creators": ["Ken Thompson", "Dennis Ritchie", "Brian Kernighan"],
+        "company": "Bell Labs at AT&T",
+        "ancestor": "Multics",
+        "related": ["Berkeley Software Distribution"]
+    },
+    "Debian": {
+        "year": 1993,
+        "creators": ["Ian Murdock"],
+        "ancestor": "Linux"
+    },
+    "FreeBSD": {
+        "year": 1993,
+        "creators": ["The FreeBSD Project"],
+        "ancestor": "386BSD",
+        "related": ["performance", "servers"]
+    },
+    "OpenBSD": {
+        "year": 1996,
+        "creators": ["Theo de Raadt"],
+        "ancestor": "NetBSD",
+        "related": ["security"]
+    },
+    "MacOS": {
+        "year": 2001,
+        "company": "Apple" ,
+        "ancestor": ["NeXTSTEP", "Darwin"]
+    },
+    "Fedora": {
+        "year": 2003,
+        "company": "Red Hat Inc.",
+        "ancestor": "RedHat",
+        "related": ["servers", "workstations"]
+    },
+    "Ubuntu": {
+        "year": 2004,
+        "company": "Canonical",
+        "ancestor": "Debian",
+        "related": ["cloud", "servers", "personal"]
+    },
+    "Alpine": {
+        "year": 2005,
+        "company": "Alpine Linux development team",
+        "ancestor": "BusyBox",
+        "related": ["security", "no-GNU", "no-systemd"]
+    },
+    "OpenSUSE": {
+        "year": 2005,
+        "company": "openSUSE Project",
+        "ancestor": "SUSE Linux",
+        "related": ["desktop", "servers"]
+    },
+    "Tails": {
+        "year": 2009,
+        "company": "The Tails Project",
+        "ancestor": "Debian",
+        "related": ["security"]
+    },
+    "Manjaro": {
+        "year": 2011,
+        "company": "Manjaro GmbH & Co. KG",
+        "ancestor": "Arch Linux"
+    },
+    "Elementary OS": {
+        "year": 2011,
+        "company": "elementary",
+        "ancestor": "Ubuntu"
+    },
+    "Qubes OS": {
+        "year": 2012,
+        "company": "Invisible Things Lab",
+        "ancestor": "Xen Hypervisor",
+        "related": ["virtualization"]
+    },
+    "Kali Linux": {
+        "year": 2013,
+        "company": "Offensive Security",
+        "ancestor": "Debian",
+        "related": ["security"]
+    },
+    "Parrot OS": {
+        "year": 2013,
+        "creators": ["Lorenzo Palinuro Faletra"],
+        "ancestor": "Debian",
+        "related": ["security"]
+    },
+    "Pop! OS": {
+        "year": 2017,
+        "company": "System76",
+        "ancestor": "Ubuntu",
+        "related": ["gaming"]
+    },
+    "Deepin": {
+        "year": "",
+        "company": "",
+        "ancestor": "",
+        "related": []
+    },
+    "PureOS": {
+        "year": "",
+        "company": "",
+        "ancestor": "",
+        "related": []
+    },
+    "Guix": {
+        "year": "",
+        "company": "",
+        "ancestor": "",
+        "related": []
+    },
+    "NixOS": {
+        "year": "",
+        "company": "",
+        "ancestor": "",
+        "related": []
+    },
+    "Android": {
+        "year": 2008,
+        "company": "Google",
+        "ancestor": "Linux"
+    },
+    "Chrome OS": {
+        "year": 2011,
+        "company": "Google",
+        "ancestor": "Gentoo"
+    }
+}

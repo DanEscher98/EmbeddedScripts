@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Daniel Sanchez" />
+  <title>microcontrollers</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="types-of-micro-controllers">Types of micro-controllers</h1>
+<p>A <em>micro-controller</em> is a single Integrated Circuit (IC) is comparable to a little stand alone computer and it is designed to perform the specific tasks of embedded systems.</p>
+<h2 id="pic-peripheral-interface-controller">PIC (Peripheral Interface Controller)</h2>
+<p>1975 Microchip Technology</p>
+<h2 id="micro-controller">8051 micro-controller</h2>
+<p>1981 Intel</p>
+<h2 id="msp430">MSP430</h2>
+<p>14 February 1992 Texas Instruments Von-Neumann architecture</p>
+<h2 id="avr-advanced-virtual-risc">AVR (Advanced Virtual RISC)</h2>
+<p>1996 RISC (Reduced Instruction Set Computer)</p>
+<h2 id="arm-cortex-m-advanced-risc-machine">ARM Cortex-M (Advanced RISC Machine)</h2>
+<p>ARM Holdings</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th>PIC</th>
+<th>8051</th>
+<th>MSP340</th>
+<th>AVR</th>
+<th>ARM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">bus width</td>
+<td>8/16/32</td>
+<td>8</td>
+<td>16</td>
+<td>8/32</td>
+<td>32/64</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CPI</td>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">architecture</td>
+<td>Harvard</td>
+<td></td>
+<td>Von-Neumann</td>
+<td></td>
+<td>Harvard</td>
+</tr>
+</tbody>
+</table>
+<h2 id="supported-protocols">Supported Protocols</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">PIC</th>
+<th style="text-align: center;">8051</th>
+<th style="text-align: center;">MSP340</th>
+<th style="text-align: center;">AVR</th>
+<th style="text-align: center;">ARM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CAN</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DSP</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ethernet</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">I2C</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LIN</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PIC</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SAI</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SPI</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">UART</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">USART</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+</tr>
+</tbody>
+</table>
+<h2 id="memory-used">Memory used</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">PIC</th>
+<th style="text-align: center;">8051</th>
+<th style="text-align: center;">MSP340</th>
+<th style="text-align: center;">AVR</th>
+<th style="text-align: center;">ARM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">EEPROM</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Flash</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ROM</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SDRAM</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SRAM</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">·</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

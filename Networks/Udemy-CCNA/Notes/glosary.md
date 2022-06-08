@@ -1,0 +1,14 @@
+- **IP**: Internet Protocol
+- **MAC**: Media Access Control address
+- **NIC**: Network Interface Controller
+- **OSI**: Open Systems Interconection
+- **PDU**: Protocol Data Unit
+- **TCP**: Transmission Control Protocol
+- ****:
+- ****:
+- ****:
+- ****:
+- ****:
+- ****:
+- ****:
+

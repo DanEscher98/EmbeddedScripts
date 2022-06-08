@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[siunitx]{circuitikz}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{circuitikz}[scale=2] \draw
+(0,0) to[battery] (0,4)
+  to[ammeter, i_=2<\milli\ampere>] (4,4) 
+  to[C=3<\farad>] (4,0) -- (3.5,0)
+  to[lamp, *-*] (0.5,0) -- (0,0)
+(0.5,0) -- (0.5,-2)
+  to[voltmeter, l=3<\kilo\volt>] (3.5,-2) -- (3.5,0)
+;
+\end{circuitikz}
+
+\end{document}

@@ -1,0 +1,300 @@
+{
+	"ABC-Electronica": [
+		{
+			"proyect": "metronomo",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "lampara destellante",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "sirena",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "organo",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "generador de chicharra",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "oscilador sensible al voltaje",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "led y descarga de capacitor",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "destellador de led dual",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "flip-flop tipo D",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "destellador led dual digital",
+			"materials": {
+				"resistor"	: [],
+				"capacitor"	: [],
+				"transistor": [],
+				"trimmer"	: []
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		}
+	],
+	"Make-Electronics-1" : [
+		{
+			"proyect": "8 Investigating the relay",
+			"materials": {
+				"capacitor"	: [1000],
+				"resistor"	: ["470"],
+				"others"	: {
+					"DPDT relay 9V":1,
+					"tactile switch":1,
+					"generic led":2
+				}
+			}
+		},
+		{
+			"proyect": "9 Time and Capacitors",
+			"materials": {
+				"capacitor"	: [0.1, 1, 10, 100, 1000],
+				"resistor"	: ["470", "1K", "10K"],
+				"others"	: {
+					"generic led": 1,
+					"switch button":2
+				}
+			}
+		},
+		{
+			"proyect": "10 Transistor switching",
+			"materials": {
+				"resistor"	: {"470":2, "1M":1},
+				"transistor": ["2N2222"],
+				"others"	: {
+					"trimmer": ["500K"],
+					"generic led": 1
+				}
+			}
+		},
+		{
+			"proyect": "11 Light and Sound",
+			"materials": {
+				"capacitor"	: {	
+					"0.01":2, "0.1":2, "0.33":2,
+					"1":1, "3.3":2, "33":1, "100":1,
+					"220":1},
+				"resistor"	: {
+					"470":1, "1K":1, "4.7K":4,
+					"100K":2, "220K":2, "470K":4},
+				"transistor": ["2N2222"],
+				"others"	: {
+					"generic led":1,
+					"loudspeaker":["8ohms"]
+				}
+			}
+		},
+		{
+			"proyect": "10 Transistor switching",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "10 Transistor switching",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "10 Transistor switching",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "10 Transistor switching",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		},
+		{
+			"proyect": "",
+			"materials": {
+				"capacitor"	: [],
+				"resistor"	: [],
+				"transistor": [],
+				"others"	: {}
+			}
+		}
+	]
+}
