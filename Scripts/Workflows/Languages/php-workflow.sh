@@ -17,9 +17,10 @@ dnf repolist | grep remi
 # import the GPG key
 yes | sudo dnf module list php
 # enable the repository
-sudo dnf module enable php:remi-8.1 -y
+sudo dnf config-manager --set-enabled remi
+sudo  dnf module reset php
 # install for apache
-sudo dnf install php -y
+sudo dnf module install php:remi-8.1 -y
 # suggested modules
 sudo dnf install php-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,json,readline,memcached,redis,mbstring,apcu,xml,dom,redis,memcached,memcache}
 # additional tools
