@@ -13,6 +13,9 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Yggdroot/indentLine'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'"
 " Zen Mode
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -115,6 +118,7 @@ let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_json_frontmatter = 1
 
 " Ultisnips
+" let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsExpandTrigger="<c-s>"
 
