@@ -31,18 +31,18 @@ def view_pyc_file(file_path):
             size = struct.unpack("I", file.read(4))[0]
         else:
             timestamp = file.read(4)
-        code = marshal.load(file)
+        # code = marshal.load(file)
 
     magic = binascii.hexlify(magic).decode("utf-8")
     timestamp = time.asctime(time.localtime(struct.unpack("I", timestamp)[0]))
-    dis.disassemble(code)
+    # dis.disassemble(code)
 
     print("-" * 60)
     print(f"Python version: {platform.python_version()}")
     print(f"Magic code: \t{magic}")
     print(f"Timestamp: \t{timestamp}")
-    print(f"Size: \t{size}")
-    print(f"Hash: \t{hashstr}")
+    print(f"Size: \t\t{size}")
+    print(f"Hash: \t\t{hashstr}")
     print(f"Bitfield: \t{bit_field}")
 
 
