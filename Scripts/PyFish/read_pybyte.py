@@ -31,11 +31,11 @@ def view_pyc_file(file_path):
             size = struct.unpack("I", file.read(4))[0]
         else:
             timestamp = file.read(4)
-        # code = marshal.load(file)
+        code = marshal.loads(file.read())
 
     magic = binascii.hexlify(magic).decode("utf-8")
     timestamp = time.asctime(time.localtime(struct.unpack("I", timestamp)[0]))
-    # dis.disassemble(code)
+    dis.disassemble(code)
 
     print("-" * 60)
     print(f"Python version: {platform.python_version()}")
