@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+# Install rust
+curl https://sh.rustup.rs -sSf | sh
+
 project="name"
 cargo new $project
 cargo build
