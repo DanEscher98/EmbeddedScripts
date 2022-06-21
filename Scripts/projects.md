@@ -85,9 +85,10 @@ toc: true
     "find": "fd-find (fd)",
     "cat":  ["bat", "glow"],
     "ls":   "exa",
-    "top":  "htop",
+    "top":  ["htop", "glances"],
     "du":   ["gud", "dua"],
-    "rm":   "trash"
+    "rm":   "trash",
+    "cd":   "exa"
     },
     "Novel tools": {
     "jq": "json parser",
