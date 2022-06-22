@@ -7,15 +7,6 @@ pip install ipython
 ```bash
 # Installation
 
-
-# Python requirements
-pip3 install pipreqs pip-tools
-pipreqs --savepath=requirements.in && pip-compile
-
-# PIPX: Install executable modules
-python3 -m pip install --user pipx
-
-
 # Environment
 # VENV: Python module, is used to create lightweight virtual environments
 $NAME="project_name"
@@ -24,6 +15,7 @@ python3 -m venv .venv --prompt=$NAME
 source .venv/bin/activate
 python -c "import sys; print(sys.executable)"
 deactivate
+
 
 # VIRTUALENV: A wrapper around venv
 python3 -m pipx install virtualenv
@@ -37,6 +29,7 @@ git clone https://github.com/pyenv/pyenv-virtualenv.git (pyenv root)/plugins/pye
 pyenv install --list
 # http s://github.com/pyenv/pyenv
 
+
 # PYENV with VIRTUALENV
 pyenv install $VERSION
 pyenv virtualenv $VERSION $NAME
@@ -44,6 +37,27 @@ pyenv activate $NAME
 pyenv deactivate
 # Plugin: https://github.com/pyenv/pyenv-virtualenv
 # https://github.com/justinmayer/virtualfish
+
+
+# Python requirements
+pip3 install pipreqs pip-tools
+pipreqs --savepath=requirements.in && pip-compile
+
+
+# PIPX: Install executable modules
+python3 -m pip install --user pipx
+
+
+# PYLINT
+python3 -m pipx install pylint
+python3 -m pip install perflint
+pylint --disable=invalid-name,missing-docstring \
+	--load-plugins=perflint \
+	--generate-rcfile > $HOME/.pylintrc
+# References
+# - https://jdhao.github.io/2018/09/20/disable_warning_neomake_pylint/
+# - https://github.com/tonybaloney/perflint
+# - https://github.com/tonybaloney/anti-patterns
 
 
 

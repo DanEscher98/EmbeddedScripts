@@ -1,5 +1,4 @@
-# APT PROCESS
-# install prerequisites
+# APT PROCESS install prerequisites
 sudo apt install ca-certificates apt-transport-https software-properties-common
 # install Ondrej PHP repository
 sudo add-apt-repository ppa:ondrej/php
@@ -18,9 +17,10 @@ dnf repolist | grep remi
 # import the GPG key
 yes | sudo dnf module list php
 # enable the repository
-sudo dnf module enable php:remi-8.1 -y
+sudo dnf config-manager --set-enabled remi
+sudo  dnf module reset php
 # install for apache
-sudo dnf install php -y
+sudo dnf module install php:remi-8.1 -y
 # suggested modules
 sudo dnf install php-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,json,readline,memcached,redis,mbstring,apcu,xml,dom,redis,memcached,memcache}
 # additional tools
@@ -36,8 +36,11 @@ HASH=$(curl -sS https://composer.github.io/installer.sig)
 php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 # download and install Composer as a system-wide command named composer
 sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+# New project throught Composer
+composer create-project laravel/laravel $PROJECT
 # Laravel install
 composer global require laravel/installer
+<<<<<<< HEAD
 
 # INIT TESTS PROJECT
 composer init
@@ -52,3 +55,7 @@ composer require pestphp/pest-plugin-laravel --dev
 php artisan pest:install
 php artisan make:test "<test-name>" --unit --pest
 
+=======
+echo "set -gx PATH $PATH $HOME/.config/composer/vendor/bin" >> config.fish
+laravel new $PROJECT
+>>>>>>> 44a812e865ed5cd1af20e505dfbe3dec14f946d0
