@@ -16,3 +16,8 @@ chmod +x linux-install-1.11.1.1145.sh
 sudo ./linux-install-1.11.1.1145.sh
 # REFERENCES
 # - https://clojure.org/guides/install_clojure
+
+wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
+chmod +x lein
+mv lein $HOME/.local/bin
+
