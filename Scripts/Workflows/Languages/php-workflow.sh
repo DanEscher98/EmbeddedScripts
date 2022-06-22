@@ -38,3 +38,17 @@ php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo '
 sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 # Laravel install
 composer global require laravel/installer
+
+# INIT TESTS PROJECT
+composer init
+composer require phpunit/phpunit
+composer require brianium/paratest
+
+laravel new "<project-name>" --git --branch="main"
+php artisan make:test "<test-name>" --unit
+php artisan test --parallel --testsuite=Unit #--stop-on-failure
+# For PEST tests
+composer require pestphp/pest-plugin-laravel --dev
+php artisan pest:install
+php artisan make:test "<test-name>" --unit --pest
+
