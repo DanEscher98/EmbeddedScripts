@@ -40,7 +40,7 @@ sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=compose
 composer create-project laravel/laravel $PROJECT
 # Laravel install
 composer global require laravel/installer
-<<<<<<< HEAD
+echo "set -gx PATH $PATH $HOME/.config/composer/vendor/bin" >> config.fish
 
 # INIT TESTS PROJECT
 composer init
@@ -55,7 +55,3 @@ composer require pestphp/pest-plugin-laravel --dev
 php artisan pest:install
 php artisan make:test "<test-name>" --unit --pest
 
-=======
-echo "set -gx PATH $PATH $HOME/.config/composer/vendor/bin" >> config.fish
-laravel new $PROJECT
->>>>>>> 44a812e865ed5cd1af20e505dfbe3dec14f946d0
