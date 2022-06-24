@@ -53,6 +53,7 @@ igndir = {
     "public",
     "target",
     "venv",
+    "vendor",
     "python-packages",
     "py-support",
     "Experiments",

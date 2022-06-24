@@ -21,3 +21,6 @@ wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
 chmod +x lein
 mv lein $HOME/.local/bin
 
+curl -O https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install
+chmod a+x install
+sudo ./install

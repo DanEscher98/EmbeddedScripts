@@ -60,6 +60,11 @@ pylint --disable=invalid-name,missing-docstring \
 # - https://github.com/tonybaloney/anti-patterns
 
 
+# COMPILE PYTHON
+python3 -m pipx install pyinstaller
+dnf install python3-devel python3-devtools
+
+
 
 # Different versions
 
