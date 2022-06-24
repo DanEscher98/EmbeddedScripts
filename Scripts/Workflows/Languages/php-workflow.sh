@@ -46,6 +46,7 @@ echo "set -gx PATH $PATH $HOME/.config/composer/vendor/bin" >> config.fish
 composer init
 composer require phpunit/phpunit
 composer require brianium/paratest
+composer require --dev laravel/dusk
 
 laravel new "<project-name>" --git --branch="main"
 php artisan make:test "<test-name>" --unit
