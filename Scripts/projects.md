@@ -134,6 +134,9 @@ toc: true
         -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" movie.mp4 -r 30
     strace nvim +:q 2>&1 | grep "^openat.*$HOME" | sed 's/.*"\(.*\)".*/\1/'
     strace fish exit 2>&1 | grep "^openat.*$HOME" | sed 's/.*"\(.*\)".*/\1/'
+
+    python3 -m pipx install git-filter-repo
+    git filter-repo --invert-paths --path "<path to file>" --force
     ```
 
 ## Shortcuts
