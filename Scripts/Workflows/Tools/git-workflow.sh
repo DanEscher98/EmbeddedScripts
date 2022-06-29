@@ -29,3 +29,5 @@ git filter-branch --index-filter \
 git pull
 # solve merge conflicts
 git commit -am "removeds oversized file"
+# Create alias to list conflicts
+git config --global alias.conflicts "diff --name-only --diff-filter=U --relative"
