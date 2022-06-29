@@ -42,6 +42,7 @@ pyenv deactivate
 # Python requirements
 pip3 install pipreqs pip-tools
 pipreqs --savepath=requirements.in && pip-compile
+python -m pip freeze requirements.txt
 
 
 # PIPX: Install executable modules
@@ -63,6 +64,7 @@ pylint --disable=invalid-name,missing-docstring \
 # COMPILE PYTHON
 python3 -m pipx install pyinstaller
 dnf install python3-devel python3-devtools
+pyinstaller "<path to script>" --name $NAME --onefile
 
 
 
@@ -73,28 +75,3 @@ dnf install python3-devel python3-devtools
 # - https://pipenv-fork.readthedocs.io/en/latest/
 
 ```
-
-## Vagrant: kvm, libvirt, VirtualBox
-```bash
-egrep '^flags.*(vmx|svm)' /proc/cpuinfo
-sudo dnf group install --with-optional virtualization
-sudo systemctl start libvirtd
-sudo systemctl enable libvirtd
-lsmod | grep kvm
-# https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/index.html
-# https://ostechnix.com/how-to-use-vagrant-with-libvirt-kvm-provider/
-
-
-```
-
-
-## Docker and Podman
-```bash
-
-```
-
-
-## Nim Language
-
-
-## SSH Server and NFS
