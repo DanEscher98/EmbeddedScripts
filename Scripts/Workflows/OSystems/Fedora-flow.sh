@@ -12,6 +12,11 @@ sudo dnf install ffmpeg
 sudo dnf system-upgrade clean
 sudo symlinks -r -d /usr
 
+# Various Tools
+sudo dnf groupinstall "Development Tools"
+sudo dnf copr enable varlad/onefetch
+sudo dnf install onefetch
+
 
 # Install QEMU
 egrep '^flags.*(vmx|svm)' /proc/cpuinfo

@@ -48,6 +48,8 @@ python -m pip freeze requirements.txt
 # PIPX: Install executable modules
 python3 -m pip install --user pipx
 
+# Poetry
+cat requirements.txt | grep -E '^[^# ]' | cut -d= -f1 | xargs -n 1 poetry add
 
 # PYLINT
 python3 -m pipx install pylint
