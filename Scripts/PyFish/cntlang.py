@@ -57,6 +57,7 @@ igndir = {
     ".venv",
     "__pycache__",
     "vendor",
+    "storage",
     "python-packages",
     "py-support",
     "Experiments",

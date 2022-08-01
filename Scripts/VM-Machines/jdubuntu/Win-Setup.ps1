@@ -1,14 +1,30 @@
 $wintools = @(
+	'Microsoft.VC++2013Redist-x86'
 	'Microsoft.PowerShell',
 	'Microsoft.WindowsTerminal',
 	'JanDeDobbeleer.OhMyPosh',
+	'Git.Git',
+	'gerardog.gsudo',
+	'Neovim.Neovim',
+	'Python.Python.3'
+)
+
+$hosttools = @(
 	'Oracle.VirtualBox',
 	'Hashicorp.Vagrant'
-	'Git.Git',
 	'Axosoft.GitKraken',
-	'gerardog.gsudo',
 	'#Microsoft.VisualStudioCode'
 )
+
+function Python-Setup {
+	if (Get-Command py.exe -errorAction SilentlyContinue) {
+		py.exe -m ensurepip --upgrade
+		py.exe -m pip install --upgrade pip
+		py.exe -m pip install poetry
+	} else {
+		Write-Output "py.exe does not exist"
+	}
+}
 
 function Install-Winget {
 	$repo = "microsoft/winget-cli"
@@ -16,18 +32,18 @@ function Install-Winget {
 	$releases = "https://api.github.com/repos/$repo/releases"
 
 	Write-Host "Getting latest release"
-	$tag = (Invoke-WebRequest $releases | ConvertFrom-Json)[1].tag_name
+	$tag = (Invoke-WebRequest $releases -UseBasicParsing | ConvertFrom-Json)[1].tag_name
 	$download = "https://github.com/$repo/releases/download/$tag/$file"
 
 	Write-Host "Downloading version: $tag"
 	$name = $file.Split("_")[0]
-	Invoke-WebRequest $download -Out "$name.msixbundle"
+	Invoke-WebRequest $download -Out "$name.msixbundle" -UseBasicParsing
 	& "$(Get-Location)\$name.msixbundle"
 }
 
 Install-Winget
 $UsrIn = "0"
-if (Get-Command winget -errorAction SilentlyContinue) {
+if (Get-Command winget.exe -errorAction SilentlyContinue) {
 	winget source update
 	while ($UsrIn -ne "y" -and $UsrIn -ne "n") {
 		$UsrIn = Read-Host "Install the tools? (y/n)"
@@ -37,6 +53,14 @@ if (Get-Command winget -errorAction SilentlyContinue) {
 				Write-Host $tool
 				winget install --id $tool -e
 			}
+			if ((Get-CimInstance Win32_ComputerSystem).model -ne "VirtualBox") {
+				Write-Host "Installing host tools ..."
+				foreach ($tool in $hosttools) {
+					if ($tool.Contains("#")) { continue }
+					Write-Host $tool
+					winget install --id $tool
+				}
+			}
 		}
 	}
 	# Fill a default PowerShell profile
@@ -44,7 +68,9 @@ if (Get-Command winget -errorAction SilentlyContinue) {
 	'#Import-Module oh-my-posh
 #Set-PoshPrompt -Theme alien
 Set-PSReadlineOption -EditMode Vi
-$env:PATH = $env:PATH + ";C:\Program Files\Oracle\VirtualBox"
+#$env:PATH = $env:PATH + ";C:\Program Files\Oracle\VirtualBox"
+$env:PATH = $env:PATH +
+	""
 Get-Date | Write-Host' >> $PROFILE
 } else {
 	Write-Host "winget doesn't exist. There was an error on installation."
