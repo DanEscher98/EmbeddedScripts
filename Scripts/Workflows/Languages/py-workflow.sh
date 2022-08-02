@@ -46,6 +46,7 @@ python -m pip freeze requirements.txt
 
 
 # PIPX: Install executable modules
+python3 -m ensurepip --upgrade
 python3 -m pip install --user pipx
 
 # Poetry
