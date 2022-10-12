@@ -64,18 +64,22 @@ toc: true
 
 ## Pages for curl
 
-- Weather: "https://wttr.i/:help"
-- An online man
-    > cheat.sh/cmd
-- My global ip: "https://ifconfig.me/all.json"
-- Online dictionary
-    > dict://dict.org/d:word
-- Cryptocurrencies plot
-    > rate.sx/coin@time
+- [Weather](https://wttr.i/:help)
+- [An online man](cheat.sh/man)
+- [My global ip](https://ifconfig.me/all.json)
+- [Online dictionary](dict://dict.org/d:word)
+- [Cryptocurrencies plot](rate.sx/coin@time)
+- [A little news paper](getnews.tech/linux)
 - Encapsulate an address
     `curl -F 'shorten=https://www.google.com' https://0x0.st`
-- A little news paper
-    `getnews.tech/linux`
+
+## APIs
+- [StarWars](https://swapi.dev/)
+- [Weather](https://openweathermap.org/api)
+- [Fake API](https://jsonplaceholder.typicode.com/)
+- [Generate data](https://generatedata.com/generator)
+- [Mocking data](https://www.mockaroo.com/)
+- [Rick and Morty](https://rickandmortyapi.com)
 
     ---
 
