@@ -12,8 +12,10 @@ cargo run
 curl -L https://git.io/install-rustlings | bash
 rustup component add clippy
 rustup component add rustfmt
-cargo install cargo-tarpaulin
-cargo tarpaulin --ignore-tests
+cargo install cargo-audit # cargo audit
+cargo install cargo-tarpaulin # cargo tarpaulin --ignore-tests
+rustup toolchain install nightly --allow-downgrade
+cargo install cargo-expand # cargo +nightly expand 
 
 cargo install cargo-watch
 cargo watch -x check -x test -x run
