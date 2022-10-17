@@ -12,6 +12,20 @@ cargo run
 curl -L https://git.io/install-rustlings | bash
 rustup component add clippy
 rustup component add rustfmt
+cargo install cargo-tarpaulin
+cargo tarpaulin --ignore-tests
+
+cargo install cargo-watch
+cargo watch -x check -x test -x run
+
+# .cargo/config.toml
+# On Linux:
+# - Ubuntu, `sudo apt-get install lld clang`
+# - Arch, `sudo pacman -S lld clang`
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]
 
 # [dependencies]
 # my_library = { path="~/full/path" }
+
+
