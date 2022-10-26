@@ -30,4 +30,19 @@ rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]
 # [dependencies]
 # my_library = { path="~/full/path" }
 
+## CREATING NEW PROJECT
+cargo new $project
 
+# cat Cargo.toml
+# [package]
+# name = "$project"
+# version = "0.1.0"
+# edition = "2021"
+# authors = ["Danyiel Colin <amaniel2718@protonmail.com>"]
+# 
+# [lib]
+# path = "src/lib.rs"
+# 
+# [[bin]]
+# path = "src/main.rs"
+# name = "$project"
