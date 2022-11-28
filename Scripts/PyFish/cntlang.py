@@ -90,7 +90,9 @@ def args_namespace() -> Namespace:
         description="Count lines from source code files",
         epilog="Keep the good coding effort!",
     )
-    parser.add_argument("Path", metavar="path", type=str, help="the path to list")
+    parser.add_argument(
+            "Path", metavar="path", type=str, help="the path to list"
+    )
     parser.add_argument(
         "-b", "--bytes", action="store_true", help="show size in plain bytes"
     )

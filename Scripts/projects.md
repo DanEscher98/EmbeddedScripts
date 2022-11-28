@@ -99,7 +99,8 @@ toc: true
     "asciinema": "record a terminal",
     "asciicast2gif": "convert .cast to .gif",
     "svg-term": "convert .cast to .svg for web",
-    "trans": "wrapper to Google Translate"
+    "trans": "wrapper to Google Translate",
+    "fswatch": "notify about changes in file system"
     },
     "Developer":    ["strip", "upx", "gdb", "lldb", "objdump"],
     "Fundamental":  ["ls", "cd", "pwd", "find", "tree", "clear"],
