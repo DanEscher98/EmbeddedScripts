@@ -1,0 +1,80 @@
+time 1642777039
+new [description:"study FreeRTOS" entry:"1642777039" modified:"1642777039" status:"pending" uuid:"ba54a4b7-1a88-470a-888e-5eefc4762014"]
+---
+time 1642777079
+new [description:"install catfish" entry:"1642777079" modified:"1642777079" status:"pending" uuid:"fe19b63b-8647-4d1b-bf4e-32145dc33503"]
+---
+time 1642777270
+new [description:"study UART" entry:"1642777270" modified:"1642777270" priority:"M" status:"pending" uuid:"b07c1f0c-27d3-4f9b-a46f-fcbb233d3333"]
+---
+time 1642788788
+new [description:"create Glosary" entry:"1642788788" modified:"1642788788" status:"pending" uuid:"5df4167e-367e-4093-8804-facb86645cd7"]
+---
+time 1651544959
+new [description:"Script armery initiative" entry:"1651544959" modified:"1651544959" status:"pending" uuid:"571440d7-8e4d-4735-9b10-cad75e6856c3"]
+---
+time 1651545014
+new [description:"Script armery initiative" entry:"1651545014" modified:"1651545014" project:"JDExtras" status:"pending" uuid:"76232145-e265-4540-95b7-5a68647e4598"]
+---
+time 1651545031
+old [description:"Script armery initiative" entry:"1651544959" modified:"1651544959" status:"pending" uuid:"571440d7-8e4d-4735-9b10-cad75e6856c3"]
+new [description:"Script armery initiative" end:"1651545031" entry:"1651544959" modified:"1651545031" status:"completed" uuid:"571440d7-8e4d-4735-9b10-cad75e6856c3"]
+---
+time 1651545065
+new [description:"List persons to-go" entry:"1651545065" modified:"1651545065" project:"JDExtras" status:"pending" uuid:"8db4ac75-7961-43c8-81e9-86a1a0bab5f7"]
+---
+time 1651545096
+new [description:"Rust serial driver" entry:"1651545096" modified:"1651545096" project:"JDExtras" status:"pending" uuid:"e9dbd29e-6a7f-4a0b-a393-865138484107"]
+---
+time 1651545120
+new [description:"KS Python" entry:"1651545120" modified:"1651545120" project:"JDExtras" status:"pending" uuid:"e95336a2-f11d-4bf0-b6dd-4585acf836c0"]
+---
+time 1651545164
+new [description:"git script" entry:"1651545164" modified:"1651545164" project:"JDScripts" status:"pending" uuid:"4c886b75-277e-4175-8b57-4e5ff7344797"]
+---
+time 1651545181
+new [description:"clang format" entry:"1651545181" modified:"1651545181" project:"JDScripts" status:"pending" uuid:"16ffc0d1-802d-417f-8165-343dd380796b"]
+---
+time 1651545419
+new [description:"Catfish typing" entry:"1651545419" modified:"1651545419" project:"JDScripts" status:"pending" uuid:"a363c05f-9921-4022-9256-b25f3bc60ba9"]
+---
+time 1651545434
+new [description:"Automate OnBoarding" entry:"1651545434" modified:"1651545434" project:"JDExtras" status:"pending" uuid:"ba243bcf-2725-484c-bd91-d889be13ad79"]
+---
+time 1651545527
+old [description:"study UART" entry:"1642777270" modified:"1642777270" priority:"M" status:"pending" uuid:"b07c1f0c-27d3-4f9b-a46f-fcbb233d3333"]
+new [description:"study UART" end:"1651545527" entry:"1642777270" modified:"1651545527" priority:"M" status:"completed" uuid:"b07c1f0c-27d3-4f9b-a46f-fcbb233d3333"]
+---
+time 1651545544
+old [description:"install catfish" entry:"1642777079" modified:"1642777079" status:"pending" uuid:"fe19b63b-8647-4d1b-bf4e-32145dc33503"]
+new [description:"install catfish" end:"1651545544" entry:"1642777079" modified:"1651545544" status:"completed" uuid:"fe19b63b-8647-4d1b-bf4e-32145dc33503"]
+---
+time 1651545578
+old [description:"study FreeRTOS" entry:"1642777039" modified:"1642777039" status:"pending" uuid:"ba54a4b7-1a88-470a-888e-5eefc4762014"]
+new [description:"FreeRTOS" entry:"1642777039" modified:"1651545578" project:"ToStudy" status:"pending" uuid:"ba54a4b7-1a88-470a-888e-5eefc4762014"]
+---
+time 1651545608
+old [description:"create Glosary" entry:"1642788788" modified:"1642788788" status:"pending" uuid:"5df4167e-367e-4093-8804-facb86645cd7"]
+new [description:"create glosary" entry:"1642788788" modified:"1651545608" project:"JDScripts" status:"pending" uuid:"5df4167e-367e-4093-8804-facb86645cd7"]
+---
+time 1651545762
+new [description:"C11 Standard" entry:"1651545762" modified:"1651545762" project:"ToStudy" status:"pending" uuid:"8d326258-6255-4ef7-a4bb-ccd3cdc0cdd7"]
+---
+time 1651948224
+new [description:"Connect JD Uni" entry:"1651948224" modified:"1651948224" project:"JDExtras" status:"pending" uuid:"f04fbf0b-8b74-428c-90cf-b81af07c31f0"]
+---
+time 1652127945
+new [description:"Proposals table" entry:"1652127945" modified:"1652127945" project:"JDExtras" status:"pending" uuid:"30b25be6-5d7b-4828-9a1a-d340a58b0608"]
+---
+time 1652294010
+new [description:"Story about sisters" entry:"1652294010" modified:"1652294010" project:"Marian" status:"pending" uuid:"0f8c2721-4f67-4a82-b5c2-7bab63a9db04"]
+---
+time 1652294023
+new [description:"Approve the CCNA" entry:"1652294023" modified:"1652294023" project:"Marian" status:"pending" uuid:"d2dc9527-041d-4155-a292-dcb14c5e3268"]
+---
+time 1652294049
+new [description:"Design a good personal Github page" entry:"1652294049" modified:"1652294049" project:"Marian" status:"pending" uuid:"1cc8d1ae-68d4-4e09-8beb-862a4a1b1c70"]
+---
+time 1652294123
+new [description:"Drones research" entry:"1652294123" modified:"1652294123" project:"DotDrone" status:"pending" uuid:"2b4a5dbe-67d0-4ce4-bdb4-ecc8d08d97fa"]
+---

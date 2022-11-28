@@ -1,0 +1,25 @@
+{"description":"study FreeRTOS","entry":"20220121T145719Z","modified":"20220121T145719Z","status":"pending","uuid":"ba54a4b7-1a88-470a-888e-5eefc4762014"}
+{"description":"install catfish","entry":"20220121T145759Z","modified":"20220121T145759Z","status":"pending","uuid":"fe19b63b-8647-4d1b-bf4e-32145dc33503"}
+{"description":"study UART","entry":"20220121T150110Z","modified":"20220121T150110Z","priority":"M","status":"pending","uuid":"b07c1f0c-27d3-4f9b-a46f-fcbb233d3333"}
+{"description":"create Glosary","entry":"20220121T181308Z","modified":"20220121T181308Z","status":"pending","uuid":"5df4167e-367e-4093-8804-facb86645cd7"}
+{"description":"Script armery initiative","entry":"20220503T022919Z","modified":"20220503T022919Z","status":"pending","uuid":"571440d7-8e4d-4735-9b10-cad75e6856c3"}
+{"description":"Script armery initiative","entry":"20220503T023014Z","modified":"20220503T023014Z","project":"JDExtras","status":"pending","uuid":"76232145-e265-4540-95b7-5a68647e4598"}
+{"description":"Script armery initiative","end":"20220503T023031Z","entry":"20220503T022919Z","modified":"20220503T023031Z","status":"completed","uuid":"571440d7-8e4d-4735-9b10-cad75e6856c3"}
+{"description":"List persons to-go","entry":"20220503T023105Z","modified":"20220503T023105Z","project":"JDExtras","status":"pending","uuid":"8db4ac75-7961-43c8-81e9-86a1a0bab5f7"}
+{"description":"Rust serial driver","entry":"20220503T023136Z","modified":"20220503T023136Z","project":"JDExtras","status":"pending","uuid":"e9dbd29e-6a7f-4a0b-a393-865138484107"}
+{"description":"KS Python","entry":"20220503T023200Z","modified":"20220503T023200Z","project":"JDExtras","status":"pending","uuid":"e95336a2-f11d-4bf0-b6dd-4585acf836c0"}
+{"description":"git script","entry":"20220503T023244Z","modified":"20220503T023244Z","project":"JDScripts","status":"pending","uuid":"4c886b75-277e-4175-8b57-4e5ff7344797"}
+{"description":"clang format","entry":"20220503T023301Z","modified":"20220503T023301Z","project":"JDScripts","status":"pending","uuid":"16ffc0d1-802d-417f-8165-343dd380796b"}
+{"description":"Catfish typing","entry":"20220503T023659Z","modified":"20220503T023659Z","project":"JDScripts","status":"pending","uuid":"a363c05f-9921-4022-9256-b25f3bc60ba9"}
+{"description":"Automate OnBoarding","entry":"20220503T023714Z","modified":"20220503T023714Z","project":"JDExtras","status":"pending","uuid":"ba243bcf-2725-484c-bd91-d889be13ad79"}
+{"description":"study UART","end":"20220503T023847Z","entry":"20220121T150110Z","modified":"20220503T023847Z","priority":"M","status":"completed","uuid":"b07c1f0c-27d3-4f9b-a46f-fcbb233d3333"}
+{"description":"install catfish","end":"20220503T023904Z","entry":"20220121T145759Z","modified":"20220503T023904Z","status":"completed","uuid":"fe19b63b-8647-4d1b-bf4e-32145dc33503"}
+{"description":"FreeRTOS","entry":"20220121T145719Z","modified":"20220503T023938Z","project":"ToStudy","status":"pending","uuid":"ba54a4b7-1a88-470a-888e-5eefc4762014"}
+{"description":"create glosary","entry":"20220121T181308Z","modified":"20220503T024008Z","project":"JDScripts","status":"pending","uuid":"5df4167e-367e-4093-8804-facb86645cd7"}
+{"description":"C11 Standard","entry":"20220503T024242Z","modified":"20220503T024242Z","project":"ToStudy","status":"pending","uuid":"8d326258-6255-4ef7-a4bb-ccd3cdc0cdd7"}
+{"description":"Connect JD Uni","entry":"20220507T183024Z","modified":"20220507T183024Z","project":"JDExtras","status":"pending","uuid":"f04fbf0b-8b74-428c-90cf-b81af07c31f0"}
+{"description":"Proposals table","entry":"20220509T202545Z","modified":"20220509T202545Z","project":"JDExtras","status":"pending","uuid":"30b25be6-5d7b-4828-9a1a-d340a58b0608"}
+{"description":"Story about sisters","entry":"20220511T183330Z","modified":"20220511T183330Z","project":"Marian","status":"pending","uuid":"0f8c2721-4f67-4a82-b5c2-7bab63a9db04"}
+{"description":"Approve the CCNA","entry":"20220511T183343Z","modified":"20220511T183343Z","project":"Marian","status":"pending","uuid":"d2dc9527-041d-4155-a292-dcb14c5e3268"}
+{"description":"Design a good personal Github page","entry":"20220511T183409Z","modified":"20220511T183409Z","project":"Marian","status":"pending","uuid":"1cc8d1ae-68d4-4e09-8beb-862a4a1b1c70"}
+{"description":"Drones research","entry":"20220511T183523Z","modified":"20220511T183523Z","project":"DotDrone","status":"pending","uuid":"2b4a5dbe-67d0-4ce4-bdb4-ecc8d08d97fa"}

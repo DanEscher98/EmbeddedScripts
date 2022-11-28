@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/deere-vm/Working/Projects/SystemsProg/rs_commands/wcr/tests/inputs'
+let g:netrw_dirhist_9='/home/deere-vm/Working/ClasesMaterial/Primavera2022_HsPy/f_treestruct'
+let g:netrw_dirhist_8='/home/deere-vm/Downloads'
+let g:netrw_dirhist_7='/home/deere-vm/Working/ImperativeNotes/Clang/Data-Struct'
+let g:netrw_dirhist_6='/home/deere-vm/JDrepos/Exercises'
+let g:netrw_dirhist_5='/home/deere-vm/JDrepos/Exercises/embedded_course'
+let g:netrw_dirhist_4='/home/deere-vm/.config/nvim'
+let g:netrw_dirhist_3='/home/deere-vm/Working/FunctionalNotes/Techniques/PiensaEnHaskell'
+let g:netrw_dirhist_2='/home/deere-vm/.config/nvim'
+let g:netrw_dirhist_1='/home/deere-vm/Packages/clove-unit/example'
