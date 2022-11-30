@@ -97,6 +97,9 @@ def args_namespace() -> Namespace:
         "-b", "--bytes", action="store_true", help="show size in plain bytes"
     )
     parser.add_argument(
+
+            )
+    parser.add_argument(
         "-s",
         "--sort-by",
         type=str,
