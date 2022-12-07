@@ -16,6 +16,9 @@ cargo install cargo-audit # cargo audit
 cargo install cargo-tarpaulin # cargo tarpaulin --ignore-tests
 rustup toolchain install nightly --allow-downgrade
 cargo install cargo-expand # cargo +nightly expand 
+cargo rustc --bin=$project -- --emit=llvm-ir,asm
+cargo watch -x "+nightly expand --bin=$project"
+cargo bloat
 
 cargo install cargo-watch
 cargo watch -x check -x test -x run

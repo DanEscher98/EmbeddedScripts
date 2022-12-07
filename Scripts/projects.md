@@ -142,6 +142,7 @@ toc: true
 
     python3 -m pipx install git-filter-repo
     git filter-repo --invert-paths --path "<path to file>" --force
+    curl -sS "ifconfig.me/ip" | xargs -I% curl -sS "ipinfo.io/%?token=$IPINFOTOKEN"
     ```
 
 ## Shortcuts
