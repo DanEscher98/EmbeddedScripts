@@ -7,19 +7,14 @@
 - [gh install](https://github.com/redraw/gh-install)
   Install GitHub release binaries from the CLI interactively
   `gh extension install redraw/gh-install`
-- []
 
-
-## CLI word letters
-- [vhs](https://github.com/charmbracelet/vhs#installation)
-  Your CLI home video recorder 📼
+## CLI love letters
 - [wtf](https://github.com/wtfutil/wtf)
   The personal information dashboard for your terminal
   `gh install wtfutil/wtf`
 - [task](https://taskwarrior.org/docs/)
   Command line task management
   `apt install taskwarrior`
-
 
 ## Various tools
 - [ttyd](https://github.com/tsl0922/ttyd/wiki/Example-Usage)
