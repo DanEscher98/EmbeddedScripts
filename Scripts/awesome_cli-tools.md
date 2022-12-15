@@ -1,8 +1,21 @@
 # Awesome CliTools
 
+## Terminal stack
+- [WezTerm - Terminal emulator](https://wezfurlong.org/wezterm/index.html)
+- [Zellij - Terminal multiplexer](https://zellij.dev/)
+- [NuShell](https://www.nushell.sh/)
+- [Starship - Terminal prompt](https://starship.rs/)
+
+
+## Daily nuances
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
+- [trash](https://github.com/jakechampion/trash)
+  `gh install JakeChampion/trash`
+
+
 ## Package managers
 - [nala](https://gitlab.com/volian/nala)
-  A wrapper `dnf`-like for the apt package manager.
+  A wrapper `dnf`-like for the `apt` package manager.
   `apt install nala`
 - [gh install](https://github.com/redraw/gh-install)
   Install GitHub release binaries from the CLI interactively
@@ -28,7 +41,34 @@
 - [exiftool]()
   `apt install libimage-exiftool-perl`
   
+# Terminal Love <3
 
-## Daily nuances
-- [trash](https://github.com/jakechampion/trash)
-  `gh install JakeChampion/trash`
+## Tools
+- fzf: fuzzy finder
+- ripgrep: grep in RUST
+- zoxide: jump betweend directories
+- thef*ck: 
+- httpie: 
+- tldr: 
+- hub: 
+- gh: 
+- jq: 
+- onefetch:
+- gitui: 
+- 
+
+## Colorful
+
+- IPython: `.ipython/profile_default/ipython_config.py`
+- Bash: 
+- Man pages: `.config/fish/functions/man.fish`
+- Fish: `https://fishshell.com/`
+
+## RUST
+### News
+- [Awesome Rust](https://github.com/rust-embedded/awesome-embedded-rust)
+- [Platform Support](https://doc.rust-lang.org/nightly/rustc/platform-support.html)
+- [Ferroce](https://spec.ferrocene.dev/)
+- [Linux kernel support for Rust](https://lwn.net/Articles/910762/)
+- [Google: Rust in Android](https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html?m=1)
+
