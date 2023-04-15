@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+# dependencies
+sudo dnf install openssl openssl-devel perl
+
 # Install rust
 curl https://sh.rustup.rs -sSf | sh
 
@@ -15,13 +18,20 @@ rustup component add rustfmt
 cargo install cargo-audit # cargo audit
 cargo install cargo-tarpaulin # cargo tarpaulin --ignore-tests
 rustup toolchain install nightly --allow-downgrade
+cargo install cargo-crev
+cargo install cargo-geiger
 cargo install cargo-expand # cargo +nightly expand 
-cargo rustc --bin=$project -- --emit=llvm-ir,asm
-cargo watch -x "+nightly expand --bin=$project"
+cargo rustc --bin=$PROJECT -- --emit=llvm-ir,asm
+cargo watch -x "+nightly expand --bin=$PROJECT"
 cargo bloat
 
 cargo install cargo-watch
 cargo watch -x check -x test -x run
+
+# Run unit tests
+cargo test --package $PROJECT --lib "mod"
+# Run a single binary
+cargo run --bin "binary"
 
 # .cargo/config.toml
 # On Linux:

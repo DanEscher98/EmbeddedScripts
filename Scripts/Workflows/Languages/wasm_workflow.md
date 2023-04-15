@@ -7,9 +7,39 @@
 ```sh
 # The WebAssembly Binary Toolkit
 dnf install wabt
+dnf install lld
 
 # wasm-pack for Rust
 curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+```
+
+## Convert IR (LLVM) to WAT (WASM)
+```bash
+# ll -> o -> wasm -> wat
+llc -mtriple=wasm32-unknown-unknown -O3 -filetype=obj main.ll -o main.o
+wasm-ld main.o -o main.wasm --no-entry -allow-undefined
+wasm2wat main.wasm -o main.wat
+
+# Compiling from rust
+rustup target add wasm32-wasi
+rustc hello.rs --target wasm32-wasi -C opt-level=3
+wasmtime hello.wasm
+
+wasm-gc hello.wasm # remove all unneeded exports, imports, functions, etc.
+wasm2wat hello.wasm -o hello.wat
+```
+
+```bash
+# -> src/lib.rs
+# pub fn print_42() {
+#   let number 42;
+#   number
+# }
+cargo build --target wasm32-unknown-unknown --release
+WASM_DIR="target/wasm32-unknown-unknown/release/"
+wasmtime ./$WASM_DIR/dummy.wasm --invoke print_42
+wasm-gc ./$WASM_DIR/dummy.wasm
+wasm2wat ./$WASM_DIR/dummy.wasm -o ./$WASM_DIR/dummy.wat
 ```
 
 

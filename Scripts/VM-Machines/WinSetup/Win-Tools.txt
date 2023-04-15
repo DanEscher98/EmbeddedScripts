@@ -4,4 +4,4 @@ Oracle.VirtualBox
 Hashicorp.Vagrant
 Git.Git
 Axosoft.GitKraken
-#Microsoft.VisualStudioCode
+Microsoft.VisualStudioCode
