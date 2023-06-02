@@ -18,20 +18,24 @@ pipx install poetry black
 poetry completions fish > ~/.config/fish/completions/poetry.fish
 ```
 
+
 ## Create a new project
 
 ### Using Poetry
 ```sh
-poetry new <project> --name <project>
-poetry add typer pytermgui # for rich terminal apps
+poetry new "<project>"
+poetry add typer colorized pytermgui # for rich terminal apps
 
 # <project>/pyproject.toml
 # [tool.poetry.scripts]
-# <project> = "<project>.__main__:main"
-poetry run <project>
+# <project> = "<project>.main:main"
+poetry run "<project>"
 
 poetry show --tree
 poetry export -f requirements.txt
+
+poetry build; pip install --user dist/"<project>"-*.whl
+python -c 'import os, importlib.util; print(os.path.dirname(importlib.util.find_spec("<project>").origin))'
 ```
 
 ### Directory structure
@@ -41,7 +45,7 @@ poetry export -f requirements.txt
 ├── README.md
 ├── <project>
 │   ├── __init__.py # global vars
-│   ├── __main__.py # main loop
+│   ├── main.py     # main loop
 │   └── cli.py      # cli interface
 └── tests
     └── __init__.py
@@ -64,7 +68,13 @@ pyinstaller "<path to script>" --name $NAME --onefile
 
 ### Debugging Bytecode
 
+
 ## Environments
+
+### Poetry
+```sh
+
+```
 
 ### With Venv
 ```sh
