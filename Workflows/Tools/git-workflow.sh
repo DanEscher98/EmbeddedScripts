@@ -27,9 +27,17 @@ sudo apt install gh
 git filter-branch --index-filter \
 	'git rm -r --cached -ignore-unmatch <big_file>' -f HEAD
 git pull
-# solve merge conflicts
 git commit -am "removeds oversized file"
+
 # Create alias to list conflicts
 git config --global alias.conflicts "diff --name-only --diff-filter=U --relative"
+
 # Modify the previous commit without changing the commit message
 git commit --amend --no-edit
+
+# Delete a file with sensitive data
+git filter-branch --force --index-filter \
+  "git rm --cached --ignore-unmatch PATH-TO-FILE" \
+  --prune-empty --tag-name-filter cat -- --all
+git push --force --verbose --dry-run
+git push --force
