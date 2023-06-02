@@ -1,0 +1,43 @@
+set shell := ["bash", "-c"]
+
+# Print contents of `~/Justfile`
+self:
+	@bat --plain -n --language=make ~/Justfile
+
+# Generate a random DNA secuence
+dna:
+	@cat /dev/urandom | tr -dc 'AGCT' | fold -w 32 | head -n 5
+
+# Get a random quote with a playful display
+fortune:
+  @fortune -s | trans --brief en:es \
+    | tee >(cowsay -f "$(ls /usr/share/cowsay/cows | sort -R | head -1)" | lolcat --random >/dev/tty) \
+    | espeak -v spanish -k20
+
+# As tldr, gives a summarized man-page
+cheats CMD:
+	@curl -sS cheat.sh/{{CMD}} | bat --style=plain
+
+# Returns all files called when CMD executed
+usefile CMD:
+  @strace {{CMD}} 2>&1 | grep "^openat.*$HOME" | sed 's/.*"\(.*\)".*/\1/'
+
+# Search through the history with fzf
+dejavu WORD:
+  @# history | awk '{$1=""; print $0}' | sort | uniq
+  @nushell -c "history" -m light | awk '{$1=""}1' \
+    | fzf --tac --layout=reverse --height=40% +s -e -q "{{WORD}}"
+
+# Use ChatGPT from the command line
+gpt PROMPT:
+  @sgpt "Format the answer as a MARKDOWN file (title, subsections). REQUEST: '{{PROMPT}}'" \
+    | fold -s -w100
+
+# Get the average temperature
+avg_temp:
+  @temps=`sensors -u | grep -E 'temp.*input' | awk -F: '{ print $2 }'`;\
+  sum=`paste -sd+ <<< $temps | bc`;\
+  cnt=`wc --words <<< $temps`;\
+  avg=`bc <<< "scale=2;$sum/$cnt"`;\
+  printf "\e[1;32m`hostname`\e[0m has \e[1;31m$avg°C\e[0m on average\n"
+
