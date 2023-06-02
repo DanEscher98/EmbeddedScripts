@@ -16,7 +16,7 @@ $hosttools = @(
 	'#Microsoft.VisualStudioCode'
 )
 
-function Python-Setup {
+function Setup-Python {
 	if (Get-Command py.exe -errorAction SilentlyContinue) {
 		py.exe -m ensurepip --upgrade
 		py.exe -m pip install --upgrade pip
@@ -63,6 +63,11 @@ if (Get-Command winget.exe -errorAction SilentlyContinue) {
 			}
 		}
 	}
+} else {
+	Write-Host "winget doesn't exist. There was an error on installation."
+}
+
+function Set-Profile {
 	# Fill a default PowerShell profile
 	New-Item -Path $PROFILE -Type File -Force
 	'#Import-Module oh-my-posh
@@ -72,6 +77,4 @@ Set-PSReadlineOption -EditMode Vi
 $env:PATH = $env:PATH +
 	""
 Get-Date | Write-Host' >> $PROFILE
-} else {
-	Write-Host "winget doesn't exist. There was an error on installation."
 }

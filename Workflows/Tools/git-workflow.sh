@@ -31,3 +31,5 @@ git pull
 git commit -am "removeds oversized file"
 # Create alias to list conflicts
 git config --global alias.conflicts "diff --name-only --diff-filter=U --relative"
+# Modify the previous commit without changing the commit message
+git commit --amend --no-edit

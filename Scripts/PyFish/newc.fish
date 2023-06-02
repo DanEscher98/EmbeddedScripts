@@ -1,3 +1,4 @@
+#!/usr/share/fish
 # Defined in /tmp/fish.24iTBc/newc.fish @ line 2
 function newc --argument name
     if not count $argv >/dev/null
