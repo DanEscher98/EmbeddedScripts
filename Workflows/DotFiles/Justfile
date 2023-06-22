@@ -46,3 +46,8 @@ weather:
   @GLOBALIP=`curl -sS https://api.ipify.org`;\
   CITY=`curl -s "https://ipapi.co/$GLOBALIP/json/" | jq .city`;\
   curl -sS wttr.in/"$CITY" | less -r
+
+# Download a single file or directory from a Github url
+gitfile URLGIT DIR='~/Downloads':
+  @FMTURL=`echo {{URLGIT}} | sed 's/\/blob\/[^\/]*\//\/trunk\//g'`;\
+  svn export --force $FMTURL {{DIR}}
