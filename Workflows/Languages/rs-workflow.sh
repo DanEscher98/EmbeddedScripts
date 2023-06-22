@@ -59,3 +59,18 @@ cargo new $project
 # [[bin]]
 # path = "src/main.rs"
 # name = "$project"
+
+# run wasmi
+rustup target add wasm32-unknown-unknown
+cargo install wasmi_cli
+cargo build --target wasm32-unknown-unknown --release
+wasmi_cli target/wasm32-unknown-unknown/release/dummy.wasm --invoke func 1
+
+# run wasmtime
+rustup target add wasm32-wasi
+curl https://wasmtime.dev/install.sh -sSf | bash
+cargo build --target wasm32-wasi --release
+wasmtime target/wasm32-wasi/release/dummy.wasm
+
+# read wat
+wasm2wat target/wasm32-*/debug/dummy.wasm | bat --language rust
