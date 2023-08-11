@@ -13,13 +13,21 @@ cargo run
 
 # Useful examples and tips
 curl -L https://git.io/install-rustlings | bash
+
+# Format code
 rustup component add clippy
 rustup component add rustfmt
+
+# Review vulnerabilities in deps
 cargo install cargo-audit # cargo audit
+
+# code coverage
 cargo install cargo-tarpaulin # cargo tarpaulin --ignore-tests
 rustup toolchain install nightly --allow-downgrade
 cargo install cargo-crev
 cargo install cargo-geiger
+
+# expand macros
 cargo install cargo-expand # cargo +nightly expand 
 cargo rustc --bin=$PROJECT -- --emit=llvm-ir,asm
 cargo watch -x "+nightly expand --bin=$PROJECT"
