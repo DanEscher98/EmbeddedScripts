@@ -41,3 +41,6 @@ git filter-branch --force --index-filter \
   --prune-empty --tag-name-filter cat -- --all
 git push --force --verbose --dry-run
 git push --force
+
+# Get info
+git remote get-url origin # remote url

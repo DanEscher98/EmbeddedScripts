@@ -24,7 +24,10 @@ class Colors:  # You may need to change color settings
 ext2name = {
     "sh": "Bash/Fish",
     "fish": "Bash/Fish",
-    "c": "C99/C++",
+    "c": "C",
+    "h": "C",
+    "cpp": "C++",
+    "hpp": "C++",
     "js": "JavaScript",
     "ts": "JavaScript",
     "asm": "Assembly",
@@ -97,9 +100,6 @@ def args_namespace() -> Namespace:
         "-b", "--bytes", action="store_true", help="show size in plain bytes"
     )
     parser.add_argument(
-
-            )
-    parser.add_argument(
         "-s",
         "--sort-by",
         type=str,
@@ -116,7 +116,7 @@ def args_namespace() -> Namespace:
         action="store_false",
         help="set if normal or inverse order",
     )
-    return parser.parse_args(sys.argv)
+    return parser.parse_args()
 
 
 def human_readable(byte_sz: int) -> str:
