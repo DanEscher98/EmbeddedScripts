@@ -44,3 +44,6 @@ git push --force
 
 # Get info
 git remote get-url origin # remote url
+
+# EXTRAS
+# lazygit gitui

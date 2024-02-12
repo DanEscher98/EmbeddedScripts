@@ -3,8 +3,10 @@
 
 repo="JuliaLang/julia"
 release_url="https://api.github.com/repos/$repo/releases/latest"
-version=$(echo $release_url | jq.[0].tag_name)
+version=$(echo $release_url | jq .[0].tag_name)
 file="julia-$version.tar.gz"
+
+echo "FILE: $file"
 
 cd $HOME/Packages
 wget -qO - $release_url \
