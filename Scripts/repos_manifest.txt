@@ -1,0 +1,168 @@
+./listings-rust
+	https://github.com/denki/listings-rust.git
+
+./latexdaemon
+	https://github.com/blumu/latexdaemon.git
+
+./tnt
+	https://github.com/jcoglan/tnt.git
+
+./step-resources
+	https://github.com/mzjp2/step-resources.git
+
+./Datasets/sexting-dataset
+	https://github.com/mathigatti/sexting-dataset.git
+
+./WalletMultichain
+	https://github.com/AlgorithmusLabs/WalletMultichain.git
+
+./Repos/blispr
+	https://github.com/deciduously/blispr.git
+
+./ChatGPT_DAN
+	https://github.com/0xk1h0/ChatGPT_DAN.git
+
+./markdown-it-kroki
+	https://github.com/kazumatu981/markdown-it-kroki.git
+
+./getnf
+	https://github.com/ronniedroid/getnf.git
+
+./fmt
+	https://github.com/fmtlib/fmt.git
+
+./cwe_checker
+	https://github.com/fkie-cad/cwe_checker.git
+
+./slidev-theme-penguin
+	https://github.com/alvarosabu/slidev-theme-penguin.git
+
+./hoogle
+	https://github.com/ndmitchell/hoogle.git
+
+./Euterpea2
+	https://github.com/Euterpea/Euterpea2.git
+
+./HSoM
+	https://github.com/Euterpea/HSoM.git
+
+./secp256k1
+	https://github.com/bitcoin-core/secp256k1.git
+
+./goto-preview
+	https://github.com/rmagatti/goto-preview.git
+
+./LunarVim
+	https://github.com/LunarVim/LunarVim.git
+
+./rustlings
+	https://github.com/rust-lang/rustlings
+
+./Tutorials/plop-tui
+	https://github.com/ilaborie/plop-tui.git
+
+./rs_gui/asciiarena
+	https://github.com/lemunozm/asciiarena.git
+
+./rs_gui/plop-tui
+	https://github.com/ilaborie/plop-tui.git
+
+./rs_gui/tui-textarea
+	https://github.com/rhysd/tui-textarea.git
+
+./rs_gui/ratatui
+	https://github.com/tui-rs-revival/ratatui.git
+
+./rs_web3/ParityTech/substrate
+	https://github.com/paritytech/substrate.git
+
+./rs_web3/ParityTech/zombienet
+	https://github.com/paritytech/zombienet.git
+
+./rs_web3/ParityTech/substrate-node-template
+	https://github.com/substrate-developer-hub/substrate-node-template
+
+./rs_web3/ParityTech/frontier
+	https://github.com/paritytech/frontier.git
+
+./rs_web3/ParityTech/ink-examples
+	https://github.com/paritytech/ink-examples.git
+
+./rs_web3/ParityTech/polkadot
+	https://github.com/paritytech/polkadot.git
+
+./rs_web3/rust-libp2p
+	https://github.com/libp2p/rust-libp2p
+
+./rs_web3/solana
+	https://github.com/solana-labs/solana.git
+
+./rs_web3/manticore
+	https://github.com/trailofbits/manticore.git
+
+./rs_web3/sequoia
+	https://gitlab.com/sequoia-pgp/sequoia.git
+
+./rs_web3/rustls
+	https://github.com/rustls/rustls.git
+
+./rs_web3/ic
+	https://github.com/dfinity/ic.git
+
+./rs_web3/binaryen
+	https://github.com/WebAssembly/binaryen.git
+
+./rs_web3/bitcoin
+	https://github.com/bitcoin/bitcoin.git
+
+./rs_web3/nearx
+	https://github.com/stader-labs/nearx.git
+
+./rs_web3/rmrk-ink
+	https://github.com/rmrk-team/rmrk-ink.git
+
+./rs_web3/vara_gear/gear
+	https://github.com/gear-tech/gear.git
+
+./rs_web3/cow_protocol/services
+	https://github.com/CowProtocol/services.git
+
+./rs_web3/cow_protocol/ethcontract-rs
+	https://github.com/CowProtocol/ethcontract-rs.git
+
+./dynamips
+	https://github.com/GNS3/dynamips
+
+./WaoN
+	https://github.com/kichiki/WaoN.git
+
+./packettracer-fedora
+	https://github.com/thiagoojack/packettracer-fedora.git
+
+./libraries/rusb
+	https://github.com/a1ien/rusb.git
+
+./proc-macro-workshop
+	https://github.com/dtolnay/proc-macro-workshop.git
+
+./syn
+	https://github.com/dtolnay/syn.git
+
+./bevy
+	https://github.com/bevyengine/bevy.git
+
+./actix-web
+	https://github.com/actix/actix-web.git
+
+./netmiko
+	https://github.com/ktbyers/netmiko.git
+
+./rs_crates/nushell
+	https://github.com/nushell/nushell
+
+./rs_crates/zero-to-production
+	https://github.com/LukeMathWalker/zero-to-production.git
+
+./rs_crates/reedline
+	https://github.com/nushell/reedline/
+
