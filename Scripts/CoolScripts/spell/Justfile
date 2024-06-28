@@ -15,7 +15,6 @@ dna:
     echo -ne "$(cat <<< "$SAMPLE" | sed 's/^/\\033\\a/')"
 
 
-
 # Get a random quote with a playful display
 fortune:
   @fortune -s \
@@ -28,15 +27,15 @@ cheats CMD:
 
 # Returns all files called when CMD executed
 fileuse CMD SECS="2" PATH="$HOME":
-  @mkdir -p /tmp/usefile; cmd="{{CMD}}";\
+  @mkdir -p /tmp/fileuse; cmd="{{CMD}}";\
   FILE="`date +'%Y:%m:%d-%H:%M:%S'`-${cmd//[^[:alnum:]]/}";\
-  timeout {{SECS}} strace -o /tmp/usefile/$FILE.txt {{CMD}} >/dev/null 2>&1 & sleep {{SECS}};\
-  grep "^openat.*{{PATH}}" /tmp/usefile/$FILE.txt | sed 's/.*"\(.*\)".*/\1/'
+  timeout {{SECS}} strace -o /tmp/fileuse/$FILE.txt {{CMD}} >/dev/null 2>&1 & sleep {{SECS}};\
+  grep "^openat.*{{PATH}}" /tmp/fileuse/$FILE.txt | sed 's/.*"\(.*\)".*/\1/'
 
 # Search through the history with fzf
 dejavu WORD:
   @# history | awk '{$1=""; print $0}' | sort | uniq
-  @nushell -c "history" -m light | awk '{$1=""}1' | sort | uniq \
+  @nu -c "history" -m light | awk '{$1=""}1' | sort | uniq \
     | fzf --tac --layout=reverse --height=40% +s -e -q "{{WORD}}"
 
 # Use ChatGPT from the command line
@@ -67,3 +66,49 @@ gitfile URL DIR='~/Downloads':
 # Read a literate rust file with highlighted syntax
 liters PWD FILE:
   grep '^//!' {{PWD}}/{{FILE}} | cut -c 5- | glow --pager -
+  
+# Remame files recursively, removing spaces and special characters
+sane_name PATH:
+  @find {{PATH}} -name "* *" -print0 \
+  | awk -v RS='\0' '{ print length(), $0 }' | sort -nr | cut -d ' ' -f 2-  \
+  | while IFS= read -r file; do \
+    path=`dirname "$file"`;\
+    newname=$(echo `basename "$file"` | tr -s ' ' '_' | tr -d "\"\`*\'");\
+    echo "$newname";\
+    mv "$file" "$path/$newname";\
+  done
+
+tinyurl URL:
+  curl --location --request POST 'https://tlyurl.com/api/domain/add' \
+  --header "Authorization: Bearer $(nu -c '$env.TLY_TOKEN')" \
+  --header 'Content-Type: application/json' \
+  --data-raw '{"domain": "{{URL}}"}'
+
+clean_history:
+  @echo "unimplemented!"
+
+token STR="" N="16":
+  @STR={{STR}}; [[ -z "$STR" ]] && read -p "input: " STR; \
+  hash=`echo -n $STR | sha256sum | cut -d ' ' -f 1`; \
+    echo "${hash:0:{{N}}}"
+
+encrypt FILEPATH OUTDIR="~/.secrets":
+  @DIR={{OUTDIR}}; DIR=${DIR:-~/.secrets}; FILE=`basename {{FILEPATH}}`; \
+    read -p "pswd: " pswd; echo $pswd > /tmp/pswd; \
+    openssl enc -aes-256-cbc -e -in {{FILEPATH}} -out $DIR/$FILE.enc -pbkdf2 -kfile /tmp/pswd; \
+    rm /tmp/pswd {{FILEPATH}}
+
+crypedit FILE DIR="":
+  @DIR={{DIR}}; DIR=${DIR:-~/.secrets}; FILE_ENC="$DIR/{{FILE}}"; \
+    read -p "pswd: " pswd; echo $pswd > /tmp/enc_pswd; \
+    openssl enc -aes-256-cbc -d -pbkdf2 -in $FILE_ENC -out /tmp/{{FILE}} -kfile /tmp/enc_pswd 2>/dev/null; \
+    if [[ $? -eq 0 ]]; then \
+      EXT=`file --mime-type -b /tmp/{{FILE}} | cut -d '/' -f2-`; \
+      mv /tmp/{{FILE}} "/tmp/{{FILE}}.$EXT"; \
+      lvim /tmp/{{FILE}}.$EXT; \
+      openssl enc -aes-256-cbc -e -in /tmp/{{FILE}}.$EXT -out $FILE_ENC -pbkdf2 -kfile /tmp/enc_pswd; \
+      rm "/tmp/{{FILE}}.$EXT"; \
+    else \
+      echo "INVALID PASSWORD"; \
+    fi; \
+    rm /tmp/enc_pswd

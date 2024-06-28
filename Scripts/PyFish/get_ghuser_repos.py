@@ -9,48 +9,51 @@ token = os.environ.get('GH_TOKEN')
 headers = {'Authorization': f'token {token}'}
 
 
-def get_user_repos(username):
-    repos = []
+def get_user_repos(username) -> list:
+    valid_repos = []
     url = f'https://api.github.com/users/{username}/repos?per_page=100'
     url_page = lambda page: url + f'&page={page}'
 
     for i in itertools.count(start=1):
         response = requests.get(url_page(i), headers=headers).json()
-        filtered_repos = filter(
-            lambda repo: not repo["fork"]
-            and repo["name"][:7] != ".github"
-            and repo["name"] != username
-            and len(requests.get(repo['languages_url'],
-                                 headers=headers).json()) > 0,
-            response)
-        repos.extend(filtered_repos)
+        
+        for repo in response:
+            if repo["fork"] or (repo["name"][:7] == ".github") or (repo["name"] == username):
+                continue
+
+            languages: dict[str, int] = requests.get(repo['languages_url'], headers=headers).json()
+
+            if len(languages.keys()) > 0:
+                valid_repos.append({
+                    "name": repo.name,
+                    "updated_at": datetime.strptime(repo['updated_at'], '%Y-%m-%dT%H:%M:%SZ'),
+                    "languages": languages
+                })
+
         if len(response) < 100:
-            return repos
+            return valid_repos
+
+    # Unreachable
+    return valid_repos
 
 
 def print_sorted_repos(repos, target_langs=[]):
     # Sort repositories by the date of the last modification
     sorted_repos = sorted(
             repos,
-            key=lambda x: datetime.strptime(
-                x['updated_at'], '%Y-%m-%dT%H:%M:%SZ'),
+            key=lambda x: x['updated_at'],
             reverse=True)
 
     # Print repository names and last modification date
     for repo in sorted_repos:
         repo_name = repo['name']
-        last_modified_date = datetime.strptime(
-            repo['updated_at'], '%Y-%m-%dT%H:%M:%SZ'
-            ).strftime('%Y-%m-%d %H:%M:%S')
-        languages = filter_languages(
-                requests.get(repo['languages_url'], headers=headers).json(),
-                target_langs)
-        if len(languages) > 0:
-            print(f"{repo_name}")
-            print(f"\tLast modified on \'{last_modified_date}\'")
-            print("\tLanguages: ", end="")
-            pprint(languages)
-            print("-" * 46)
+        last_modified_date = repo['updated_at'].strftime('%Y-%m-%d %H:%M:%S')
+
+        print(f"{repo_name}")
+        print(f"\tLast modified on \'{last_modified_date}\'")
+        print("\tLanguages: ", end="")
+        pprint(repo["languages"])
+        print("-" * 46)
 
 
 def filter_languages(langs, target_langs):
@@ -60,3 +63,15 @@ def filter_languages(langs, target_langs):
     for lang in discards:
         del langs[lang]
     return langs
+
+
+if __name__ == '__main__':
+    user = "DanEscher98"
+    repos = get_user_repos(user)
+    target_langs = []
+
+    for repo in repos:
+        repo["languages"] = filter_languages(repo["languages"], target_langs)
+
+    
+    print_sorted_repos(repos)
